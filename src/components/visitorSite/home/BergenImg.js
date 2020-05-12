@@ -1,7 +1,7 @@
 import Bryggen from "../../../images/bergen/bryggen.jpg";
-import Fløibanen from "../../../images/bergen/fløibanen.jpg";
-import Trolltunga from "../../../images/bergen/trolltunga.jpg";
-import Ulriken from "../../../images/bergen/ulriken.jpg";
+import Fløibanen from "../../../images/bergen/fløibanen_v2.jpg";
+import Trolltunga from "../../../images/bergen/trolltunga_v2.jpg";
+import Ulriken from "../../../images/bergen/ulriken_v2.jpg";
 
 const places = [
   "Norway",

@@ -1,7 +1,7 @@
 import React from "react";
 import ExploreBergen from "./ExploreBergen";
-import ImgTop from "../../../images/bergen/bg_img.jpg";
-import ImgBlur from "../../../images/bergen/bergen_blur.jpg";
+import ImgTop from "../../../images/bergen/bg_img_v2.jpg";
+import ImgBlur from "../../../images/bergen/bergen_blur_v2.jpg";
 import Image from "react-bootstrap/Image";
 
 function Home() {
