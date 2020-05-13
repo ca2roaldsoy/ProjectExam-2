@@ -5,6 +5,19 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import FooterContact from "../footer/FooterContact";
 
+const schema = yup.object().shape({
+  firstName: yup.string().required("First Name is required"),
+  lastName: yup.string().required("Last Name is required"),
+  email: yup
+    .string()
+    .required("Please enter a valid email adress")
+    .email("Please enter a valid emai"),
+  message: yup
+    .string()
+    .required("Please enter a message")
+    .min(2, "Message must contain of least 2 characters"),
+});
+
 function Contact() {
   const [validated, setValidated] = useState(false);
   const { register, handleSubmit, errors } = useForm({
