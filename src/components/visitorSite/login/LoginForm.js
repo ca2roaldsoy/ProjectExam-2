@@ -4,6 +4,7 @@ import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import ValidateLogin from "./ValidateLogin";
+import { Link } from "react-router-dom";
 
 const schema = yup.object().shape({
   userName: yup.string().required("Please enter your username"),
@@ -45,6 +46,10 @@ function LoginForm() {
           <Form.Control type="text" name="password" ref={register()} />
           {errors.password && <Form.Text>{errors.password.message}</Form.Text>}
         </Form.Group>
+
+        <Form.Text>
+          Forgot Password? <Link to="#">Click here</Link>
+        </Form.Text>
 
         <Button type="submit" role="button">
           Log In
