@@ -9,8 +9,8 @@ import {
   NavLink,
 } from "react-router-dom";
 import Home from "../visitorSite/home/Home.js";
-/*import Contact from "../visitorSite/contact/Contact.js";
-import Admin from "../adminSite/Admin.js";
+import Contact from "../visitorSite/contact/Contact.js";
+/*import Admin from "../adminSite/Admin.js";
 import HotelList from "../visitorSite/hotelList";
 import HotelSpecific from "../visitorSite/hotelSpecific";
 import MakeEnquiries from "../visitorSite/makeEnquiries";
@@ -50,7 +50,7 @@ function NavMenu() {
       <Container>
         <Switch>
           <Route path="/" exact component={Home} />
-          {/*<Route path="/contact" component={Contact} /> */}
+          <Route path="/contact" component={Contact} />
           {/*<Route path="/admin" component={Admin} /> */}
         </Switch>
       </Container>
