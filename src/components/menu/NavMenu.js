@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -17,8 +17,9 @@ import MakeEnquiries from "../visitorSite/makeEnquiries";
 import newEstablishment from "../adminSite/newEstablishment";
 import viewEnquiries from "../adminSite/viewEnquiries";
 import ContactMsg from "../adminSite/contactMsg";*/
+import Login from "../visitorSite/login/Login";
+import NavItem from "react-bootstrap/NavItem";
 
-// Navigation Menu
 function NavMenu() {
   return (
     <Router>
@@ -32,16 +33,14 @@ function NavMenu() {
         {/* hamburger menu */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <NavLink to="/" exact className="nav-link" role="link">
               Home
             </NavLink>
             <NavLink to="/contact" className="nav-link" role="link">
               Contact
             </NavLink>
-            <NavLink to="/admin" className="nav-link" role="link">
-              Admin
-            </NavLink>
+            <Login />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
