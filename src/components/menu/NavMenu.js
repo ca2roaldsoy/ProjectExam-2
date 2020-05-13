@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
@@ -10,15 +10,14 @@ import {
 } from "react-router-dom";
 import Home from "../visitorSite/home/Home.js";
 import Contact from "../visitorSite/contact/Contact.js";
-/*import Admin from "../adminSite/Admin.js";
-import HotelList from "../visitorSite/hotelList";
+import Admin from "../adminSite/admin/Admin.js";
+/*import HotelList from "../visitorSite/hotelList";
 import HotelSpecific from "../visitorSite/hotelSpecific";
 import MakeEnquiries from "../visitorSite/makeEnquiries";
 import newEstablishment from "../adminSite/newEstablishment";
 import viewEnquiries from "../adminSite/viewEnquiries";
 import ContactMsg from "../adminSite/contactMsg";*/
 import Login from "../visitorSite/login/Login";
-import NavItem from "react-bootstrap/NavItem";
 
 function NavMenu() {
   return (
@@ -50,7 +49,7 @@ function NavMenu() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
-          {/*<Route path="/admin" component={Admin} /> */}
+          <Route path="/admin" component={Admin} />
         </Switch>
       </Container>
     </Router>

@@ -24,10 +24,9 @@ function ContactForm() {
     validationSchema: schema,
   });
 
-  function onSubmit(data, event) {
+  function onSubmit(data) {
     console.log("data", data);
 
-    event.target.reset();
     setValidated(true);
   }
 
@@ -36,23 +35,25 @@ function ContactForm() {
   return (
     <>
       <Validated validated={validated} />
-      <Form onSubmit={handleSubmit(onSubmit)} role="form">
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
-          <Form.Label>FirstName</Form.Label>
-          <Form.Control type="text" name="firstName" ref={register()} />
-          {errors.message && <Form.Text>{errors.firstName.message}</Form.Text>}
+          <Form.Label>First Name</Form.Label>
+          <Form.Control type="text" name="firstName" ref={register} />
+          {errors.firstName && (
+            <Form.Text>{errors.firstName.message}</Form.Text>
+          )}
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>LastName</Form.Label>
-          <Form.Control type="text" name="lastName" ref={register()} />
-          {errors.message && <Form.Text>{errors.lastName.message}</Form.Text>}
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control type="text" name="lastName" ref={register} />
+          {errors.lastName && <Form.Text>{errors.lastName.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" name="email" ref={register()} />
-          {errors.message && <Form.Text>{errors.email.message}</Form.Text>}
+          <Form.Control type="email" name="email" ref={register} />
+          {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
@@ -61,18 +62,17 @@ function ContactForm() {
             type="message"
             name="message"
             as="textarea"
-            ref={register()}
+            ref={register}
           />
           {errors.message && <Form.Text>{errors.message.message}</Form.Text>}
         </Form.Group>
+        <Button type="submit" role="button">
+          Send
+        </Button>
+        <Button type="reset" onClick={reset} role="button">
+          Reset
+        </Button>
       </Form>
-
-      <Button type="submit" role="button">
-        Send
-      </Button>
-      <Button type="reset" onClick={reset} role="button">
-        Reset
-      </Button>
     </>
   );
 }

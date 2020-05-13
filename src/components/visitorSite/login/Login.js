@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import NavLink from "react-bootstrap/NavLink";
+import LoginForm from "./LoginForm";
 
 // Navigation Menu
 function Login() {
@@ -14,10 +15,10 @@ function Login() {
       <NavLink onClick={openModal}>Admin</NavLink>
       <Modal size="lg" show={modal} onHide={closeModal}>
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">Log In</Modal.Title>
+          <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h2>Hello</h2>
+          <LoginForm />
         </Modal.Body>
       </Modal>
     </>

@@ -9,7 +9,7 @@ function Validated({ validated }) {
   return null;
 }
 
-Validated.PropTypes = {
+Validated.propTypes = {
   validated: PropTypes.bool.isRequired,
 };
 
