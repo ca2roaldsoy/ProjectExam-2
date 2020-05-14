@@ -6,10 +6,12 @@ import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
 import Search from "./Search";
+import DropDownResult from "./DropDownResult";
 
 function Home() {
   const [establishments, setEstablishments] = useState([]);
   const [searchEstablishments, setSearchEstablishments] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   const url = BASE_URL + "establishments";
 
@@ -30,6 +32,7 @@ function Home() {
       const lowerCaseEst = establish.name.toLowerCase();
 
       if (lowerCaseEst.includes(lowerCaseValue)) {
+        setIsOpen(true);
         return true;
       }
       return false;
@@ -37,9 +40,28 @@ function Home() {
     setSearchEstablishments(filterEstablishments);
   };
 
+  function results() {
+    if (searchEstablishments.length === 0) {
+      return <p>sorry, no results found</p>;
+    }
+
+    if (isOpen) {
+      return searchEstablishments.map((establisment) => {
+        return (
+          <DropDownResult
+            key={establisment.id}
+            name={establisment.name}
+            idx={establisment.id}
+          />
+        );
+      });
+    }
+  }
+
   return (
     <>
       <Search handleSearch={findEstablishment} />
+      {results()}
       <Image src={ImgTop} alt="man on hike looking over Bergen" fluid />
       <Image src={ImgBlur} alt="panorama view over Bergen" fluid />
       <h2>Explore Bergen</h2>
