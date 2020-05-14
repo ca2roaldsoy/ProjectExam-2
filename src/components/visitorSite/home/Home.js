@@ -5,6 +5,7 @@ import ImgBlur from "../../../images/bergen/bergen_blur_v2.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
+import Search from "./Search";
 
 function Home() {
   const [establishments, setEstablishments] = useState([]);
@@ -23,10 +24,10 @@ function Home() {
       .catch((err) => console.log(err));
   }, [url]);
 
-  const findEstablishment = function (e) {
+  const findEstablishment = (e) => {
     const lowerCaseValue = e.target.value.toLowerCase();
-    const filterEstablishments = establishments.filter((establishment) => {
-      const lowerCaseEst = establishment.toLowerCase();
+    const filterEstablishments = establishments.filter((establish) => {
+      const lowerCaseEst = establish.name.toLowerCase();
 
       if (lowerCaseEst.includes(lowerCaseValue)) {
         return true;
@@ -38,6 +39,7 @@ function Home() {
 
   return (
     <>
+      <Search handleSearch={findEstablishment} />
       <Image src={ImgTop} alt="man on hike looking over Bergen" fluid />
       <Image src={ImgBlur} alt="panorama view over Bergen" fluid />
       <h2>Explore Bergen</h2>
