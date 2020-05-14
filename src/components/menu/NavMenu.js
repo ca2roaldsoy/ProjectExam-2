@@ -18,6 +18,7 @@ import newEstablishment from "../adminSite/newEstablishment";
 import viewEnquiries from "../adminSite/viewEnquiries";
 import ContactMsg from "../adminSite/contactMsg";*/
 import Login from "../visitorSite/login/Login";
+import Enquiries from "../visitorSite/makeEnquiries/Enquiries.js";
 
 function NavMenu() {
   return (
@@ -39,6 +40,9 @@ function NavMenu() {
             <NavLink to="/contact" className="nav-link" role="link">
               Contact
             </NavLink>
+            <NavLink to="/enquiries" className="nav-link" role="link">
+              Enq
+            </NavLink>
             <Login />
           </Nav>
         </Navbar.Collapse>
@@ -50,6 +54,7 @@ function NavMenu() {
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
           <Route path="/admin" component={Admin} />
+          <Route path="/enquiries" component={Enquiries} />
         </Switch>
       </Container>
     </Router>
