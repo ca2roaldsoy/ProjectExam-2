@@ -46,12 +46,12 @@ function Home() {
     }
 
     if (isOpen) {
-      return searchEstablishments.map((establisment) => {
+      return searchEstablishments.map((establishment) => {
         return (
           <DropDownResult
-            key={establisment.id}
-            name={establisment.name}
-            idx={establisment.id}
+            key={establishment.id}
+            name={establishment.name}
+            idx={establishment.id}
           />
         );
       });

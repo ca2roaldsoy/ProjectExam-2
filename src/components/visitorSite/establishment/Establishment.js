@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
@@ -7,12 +6,12 @@ import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import AllEstablishments from "./AllEstablishments";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
 
-  const { id } = useParams();
-  const url = BASE_URL + "establishments/" + id;
+  const url = BASE_URL + "establishments";
 
   useEffect(() => {
     fetch(url, FETCH_OPTIONS)
@@ -23,40 +22,27 @@ function Establishment() {
       });
   }, [url]);
 
+  function allEstablishments() {
+    return establishment.map((hotels) => {
+      const { id, image, name, maxGuests, selfCatering, price } = hotels;
+
+      return (
+        <AllEstablishments
+          image={image}
+          name={name}
+          maxGuests={maxGuests}
+          selfCatering={selfCatering}
+          price={price}
+          key={id}
+        />
+      );
+    });
+  }
+
   return (
     <Card>
-      <Row>
-        <Col sm={5}>
-          <Card.Img src={establishment.image} alt={establishment.name} />
-        </Col>
-
-        <Card.Body>
-          <Col sm={5}>
-            <Card.Title>{establishment.name}</Card.Title>
-
-            <Badge variant="primary">
-              MaxGuests: {establishment.maxGuests}
-            </Badge>
-
-            <Badge
-              style={{
-                backgroundColor: establishment.selfCatering ? "green" : "red",
-              }}
-            >
-              selfCatering: {establishment.selfCatering ? "Yes" : "No"}
-            </Badge>
-
-            <Card.Img src={Map} alt="map icon" />
-          </Col>
-        </Card.Body>
-
-        <Col sm={2}>
-          <Card.Text>$ {establishment.price}</Card.Text>
-          <Button>View</Button>
-        </Col>
-      </Row>
+      <Row>{allEstablishments()}</Row>
     </Card>
   );
 }
-
 export default Establishment;

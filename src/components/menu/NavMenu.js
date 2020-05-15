@@ -20,6 +20,7 @@ import ContactMsg from "../adminSite/contactMsg";*/
 import Login from "../visitorSite/login/Login";
 import Enquiries from "../visitorSite/makeEnquiries/Enquiries.js";
 import Establishment from "../visitorSite/establishment/Establishment.js";
+import EstablishmentDetails from "../visitorSite/establishment/EstablishmentDetail.js";
 
 function NavMenu() {
   return (
@@ -56,7 +57,7 @@ function NavMenu() {
           <Route path="/contact" component={Contact} />
           <Route path="/admin" component={Admin} />
           <Route path="/enquiries" component={Enquiries} />
-          <Route path="/establishment/:id" component={Establishment} />
+          <Route path="/establishment/:id" exact component={Establishment} />
         </Switch>
       </Container>
     </Router>
