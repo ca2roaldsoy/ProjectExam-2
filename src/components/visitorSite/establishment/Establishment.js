@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
 import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
-import Button from "react-bootstrap/Button";
-import Map from "../../../images/icons/map_v1.png";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import AllEstablishments from "./AllEstablishments";
 
 function Establishment() {

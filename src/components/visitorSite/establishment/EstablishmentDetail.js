@@ -5,8 +5,6 @@ import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
