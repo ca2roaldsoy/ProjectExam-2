@@ -26,7 +26,6 @@ function AllEstablishments({
 
           <div className="d-flex">
             <Badge variant="primary">MaxGuests: {maxGuests}</Badge>
-
             <Badge
               style={{
                 backgroundColor: selfCatering ? "green" : "red",

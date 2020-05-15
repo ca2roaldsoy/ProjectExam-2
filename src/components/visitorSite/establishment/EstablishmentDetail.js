@@ -6,6 +6,8 @@ import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
 
+import { Link } from "react-router-dom";
+
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
 
@@ -24,13 +26,11 @@ function Establishment() {
   return (
     <Card>
       <Card.Title>{establishment.name}</Card.Title>
-
       <Card.Body>
         <Card.Img src={establishment.image} alt={establishment.name} />
 
         <div className="d-flex">
           <Badge variant="primary">MaxGuests: {establishment.maxGuests}</Badge>
-
           <Badge
             style={{
               backgroundColor: establishment.selfCatering ? "green" : "red",
@@ -38,15 +38,16 @@ function Establishment() {
           >
             selfCatering: {establishment.selfCatering ? "Yes" : "No"}
           </Badge>
-
           <Card.Text>{establishment.email}</Card.Text>
         </div>
 
         <Card.Text>{establishment.description}</Card.Text>
-
         <Card.Text>$ {establishment.price}</Card.Text>
+
         <div className="d-flex">
-          <Button>Book</Button>
+          <Link to="../make-enquiries">
+            <Button> Book </Button>
+          </Link>
           <Card.Img src={Map} alt="map icon" />
         </div>
       </Card.Body>
