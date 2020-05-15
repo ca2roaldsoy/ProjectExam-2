@@ -7,6 +7,7 @@ import Footer from "../footer/Footer";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
+import Button from "react-bootstrap/Button";
 
 function Home() {
   const [establishments, setEstablishments] = useState([]);
@@ -63,6 +64,8 @@ function Home() {
       <Search handleSearch={findEstablishment} />
       {results()}
       <Image src={ImgTop} alt="man on hike looking over Bergen" fluid />
+      <h2>Not sure where to stay?</h2>
+      <Button>Browse all accommodations</Button>
       <Image src={ImgBlur} alt="panorama view over Bergen" fluid />
       <h2>Explore Bergen</h2>
       <ExploreBergen />
