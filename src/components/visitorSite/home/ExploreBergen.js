@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import { BergenImg } from "./BergenImg";
-import BergenCarousel from "./BergenCarousel";
+import HomeCarousel from "./Carousel";
 
 function ExploreBergen() {
   const responsive = {
@@ -26,7 +26,7 @@ function ExploreBergen() {
     return BergenImg.map((images, i) => {
       const { src, text, place } = images;
 
-      return <BergenCarousel key={i} place={place} image={src} text={text} />;
+      return <HomeCarousel key={i} place={place} image={src} text={text} />;
     });
   }
 

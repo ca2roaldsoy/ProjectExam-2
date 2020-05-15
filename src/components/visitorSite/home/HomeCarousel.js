@@ -1,7 +1,7 @@
 import React from "react";
 import Figure from "react-bootstrap/Figure";
 
-function BergenCarousel({ image, text, place }) {
+function HomeCarousel({ image, text, place }) {
   return (
     <Figure>
       <Figure.Image src={image} alt={place} />
@@ -11,4 +11,4 @@ function BergenCarousel({ image, text, place }) {
   );
 }
 
-export default BergenCarousel;
+export default HomeCarousel;

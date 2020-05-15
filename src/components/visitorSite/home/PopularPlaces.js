@@ -1,8 +1,8 @@
 import React from "react";
-import BergenCarousel from "./BergenCarousel";
+import HomeCarousel from "./HomeCarousel";
 
 function PopularPlaces({ place, image }) {
-  return <BergenCarousel place={place} image={image} />;
+  return <HomeCarousel place={place} image={image} />;
 }
 
 export default PopularPlaces;
