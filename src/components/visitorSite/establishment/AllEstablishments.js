@@ -5,8 +5,16 @@ import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
-function AllEstablishments({ image, name, maxGuests, selfCatering, price }) {
+function AllEstablishments({
+  id,
+  image,
+  name,
+  maxGuests,
+  selfCatering,
+  price,
+}) {
   return (
     <>
       <Col sm={5}>
@@ -35,7 +43,9 @@ function AllEstablishments({ image, name, maxGuests, selfCatering, price }) {
 
       <Col sm={2}>
         <Card.Text>$ {price}</Card.Text>
-        <Button>View</Button>
+        <Button>
+          <Link to={"establishment/" + id}> View </Link>
+        </Button>
       </Col>
     </>
   );

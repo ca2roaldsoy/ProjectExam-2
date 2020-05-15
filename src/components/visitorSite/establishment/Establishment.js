@@ -34,6 +34,7 @@ function Establishment() {
           selfCatering={selfCatering}
           price={price}
           key={id}
+          id={id}
         />
       );
     });
