@@ -38,7 +38,11 @@ function Establishment() {
               MaxGuests: {establishment.maxGuests}
             </Badge>
 
-            <Badge variant="primary">
+            <Badge
+              style={{
+                backgroundColor: establishment.selfCatering ? "green" : "red",
+              }}
+            >
               selfCatering: {establishment.selfCatering ? "Yes" : "No"}
             </Badge>
 
