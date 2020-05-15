@@ -24,17 +24,9 @@ function ExploreBergen() {
 
   function bergenImg() {
     return BergenImg.map((images, i) => {
-      const { src, alt, text, imgTitle } = images;
+      const { src, text, place } = images;
 
-      return (
-        <BergenCarousel
-          key={i}
-          imgTitle={imgTitle}
-          image={src}
-          alt={alt}
-          text={text}
-        />
-      );
+      return <BergenCarousel key={i} place={place} image={src} text={text} />;
     });
   }
 

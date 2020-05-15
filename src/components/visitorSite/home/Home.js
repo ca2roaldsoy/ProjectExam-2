@@ -9,11 +9,31 @@ import Search from "./Search";
 import DropDownResult from "./DropDownResult";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import PopularPlaces from "./PopularPlaces";
+import Carousel from "react-multi-carousel";
 
 function Home() {
   const [establishments, setEstablishments] = useState([]);
   const [searchEstablishments, setSearchEstablishments] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+
+  const responsive = {
+    lg: {
+      breakpoint: { max: 2048, min: 1024 },
+      items: 3,
+      slidesToSlide: 1,
+    },
+    md: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+      slidesToSlide: 1,
+    },
+    sm: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
+    },
+  };
 
   const url = BASE_URL + "establishments";
 
@@ -62,9 +82,19 @@ function Home() {
 
   return (
     <>
+      <Image src={ImgTop} alt="man on hike looking over Bergen" fluid />
+
       <Search handleSearch={findEstablishment} />
       {results()}
-      <Image src={ImgTop} alt="man on hike looking over Bergen" fluid />
+
+      <h2>Popular Places</h2>
+      <Carousel responsive={responsive} showDots={true}>
+        {establishments.map((popular) => {
+          const { name, image, id } = popular;
+          return <PopularPlaces key={id} place={name} image={image} />;
+        })}
+      </Carousel>
+
       <h2>Not sure where to stay?</h2>
       <Button>
         <Link to={"./establishment"}>Browse all accommodations</Link>
