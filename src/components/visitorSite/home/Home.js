@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ExploreBergen from "./ExploreBergen";
 import ImgTop from "../../../images/bergen/bg_img_v2.jpg";
-import ImgBlur from "../../../images/bergen/bergen_blur_v2.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 import PopularPlaces from "./PopularPlaces";
 import Carousel from "react-multi-carousel";
+import BrowseAll from "./BrowseAll";
 
 function Home() {
   const [establishments, setEstablishments] = useState([]);
@@ -95,11 +93,8 @@ function Home() {
         })}
       </Carousel>
 
-      <h2>Not sure where to stay?</h2>
-      <Button>
-        <Link to={"./establishment"}>Browse all accommodations</Link>
-      </Button>
-      <Image src={ImgBlur} alt="panorama view over Bergen" fluid />
+      <BrowseAll />
+
       <h2>Explore Bergen</h2>
       <ExploreBergen />
       <Footer />
