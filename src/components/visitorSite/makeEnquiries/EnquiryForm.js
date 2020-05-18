@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "./Validated";
 import DatePicker from "react-datepicker";
+import Alert from "react-bootstrap/Alert";
 
 const schema = yup.object().shape({
   firstName: yup.string().required("First Name is required"),
@@ -17,7 +18,10 @@ const schema = yup.object().shape({
 
 function ContactForm() {
   const [validated, setValidated] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
+  const [checkIn, setCheckIn] = useState(new Date());
+  const [checkOut, setCheckOut] = useState(new Date());
+  const [alert, setAlert] = useState(true);
+
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -30,8 +34,21 @@ function ContactForm() {
 
   const reset = () => setValidated(false);
 
+  function inCheckWarn() {
+    if (checkOut < checkIn) {
+      return (
+        <>
+          <Alert>
+            <Alert.Heading>Warning</Alert.Heading>
+            <p>You are trying to check out before check in.</p>
+          </Alert>
+        </>
+      );
+    }
+  }
   return (
     <>
+      {inCheckWarn()}
       <Validated validated={validated} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
@@ -57,16 +74,16 @@ function ContactForm() {
         <Form.Group>
           <Form.Label>Check In</Form.Label>
           <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            selected={checkIn}
+            onChange={(date) => setCheckIn(date)}
           />
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Check Out</Form.Label>
           <DatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            selected={checkOut}
+            onChange={(date) => setCheckOut(date)}
           />
         </Form.Group>
 
