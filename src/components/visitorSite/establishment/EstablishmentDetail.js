@@ -29,6 +29,18 @@ function Establishment() {
     return <Loading />;
   }
 
+  function newPrice() {
+    let newPrice = Math.ceil((establishment.price * 70) / 100);
+
+    if (establishment.price < 100) {
+      return (
+        <>
+          <Card.Text>$ {newPrice}</Card.Text>
+        </>
+      );
+    }
+  }
+
   return (
     <Card>
       <Card.Title>{establishment.name}</Card.Title>
@@ -49,6 +61,7 @@ function Establishment() {
 
         <Card.Text>{establishment.description}</Card.Text>
         <Card.Text>$ {establishment.price}</Card.Text>
+        {newPrice()}
 
         <div className="d-flex">
           <Link to="../make-enquiries">
