@@ -20,7 +20,8 @@ function ContactForm() {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
-  const [alert, setAlert] = useState(true);
+
+  console.log(new Date());
 
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
@@ -38,7 +39,7 @@ function ContactForm() {
     if (checkOut < checkIn) {
       return (
         <>
-          <Alert>
+          <Alert variant="danger">
             <Alert.Heading>Warning</Alert.Heading>
             <p>You are trying to check out before check in.</p>
           </Alert>
