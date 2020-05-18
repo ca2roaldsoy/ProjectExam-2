@@ -15,6 +15,35 @@ function AllEstablishments({
   selfCatering,
   price,
 }) {
+  function updatePrice() {
+    let newPrice = Math.ceil((price * 70) / 100);
+    let roomsLeft = Math.floor(maxGuests * 2);
+
+    if (price < 100) {
+      return (
+        <>
+          <Card.Text>$ {price}</Card.Text>
+          <Card.Text>$ {newPrice}</Card.Text>
+          {deal()}
+        </>
+      );
+    }
+
+    function deal() {
+      if (newPrice < 50) {
+        return (
+          <>
+            <Card.Text>Don't miss out!</Card.Text>
+            <Card.Text>
+              There are only: <strong>{roomsLeft}</strong> rooms left
+            </Card.Text>
+          </>
+        );
+      }
+    }
+    return <Card.Text>$ {price}</Card.Text>;
+  }
+
   return (
     <Card>
       <Row>
@@ -42,7 +71,7 @@ function AllEstablishments({
         </Card.Body>
 
         <Col sm={2}>
-          <Card.Text>$ {price}</Card.Text>
+          {updatePrice()}
           <Button>
             <Link to={"establishment/" + id}> View </Link>
           </Button>
