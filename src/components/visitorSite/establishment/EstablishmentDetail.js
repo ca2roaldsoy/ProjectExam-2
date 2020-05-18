@@ -5,11 +5,12 @@ import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
-
+import Loading from "../../spinner/Loading";
 import { Link } from "react-router-dom";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
   const url = BASE_URL + "establishments/" + id;
@@ -20,8 +21,13 @@ function Establishment() {
       .then((data) => {
         console.log(data);
         setEstablishment(data);
+        setLoading(false);
       });
   }, [url]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <Card>

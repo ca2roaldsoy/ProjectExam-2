@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
 import AllEstablishments from "./AllEstablishments";
+import Loading from "../../spinner/Loading";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const url = BASE_URL + "establishments";
 
@@ -15,31 +15,29 @@ function Establishment() {
       .then((data) => {
         console.log(data);
         setEstablishment(data);
-      });
+        setLoading(false);
+      })
+      .catch((err) => console.log(err));
   }, [url]);
 
-  function allEstablishments() {
-    return establishment.map((hotels) => {
-      const { id, image, name, maxGuests, selfCatering, price } = hotels;
-
-      return (
-        <AllEstablishments
-          image={image}
-          name={name}
-          maxGuests={maxGuests}
-          selfCatering={selfCatering}
-          price={price}
-          key={id}
-          id={id}
-        />
-      );
-    });
+  if (loading) {
+    return <Loading />;
   }
 
-  return (
-    <Card>
-      <Row>{allEstablishments()}</Row>
-    </Card>
-  );
+  return establishment.map((hotels) => {
+    const { id, image, name, maxGuests, selfCatering, price } = hotels;
+
+    return (
+      <AllEstablishments
+        image={image}
+        name={name}
+        maxGuests={maxGuests}
+        selfCatering={selfCatering}
+        price={price}
+        key={id}
+        id={id}
+      />
+    );
+  });
 }
 export default Establishment;

@@ -1,37 +1,22 @@
 import React, { useEffect, useState } from "react";
-import ExploreBergen from "./ExploreBergen";
+import ExploreBergen from "./carousel/ExploreBergen";
 import ImgTop from "../../../images/bergen/bg_img_v2.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
-import PopularPlaces from "./PopularPlaces";
+import PopularPlaces from "./carousel/PopularPlaces";
 import Carousel from "react-multi-carousel";
 import BrowseAll from "./BrowseAll";
+import Loading from "../../spinner/Loading";
+import { Responsive } from "../../../constants/responsiveCarousel";
 
 function Home() {
   const [establishments, setEstablishments] = useState([]);
   const [searchEstablishments, setSearchEstablishments] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-
-  const responsive = {
-    lg: {
-      breakpoint: { max: 2048, min: 1024 },
-      items: 3,
-      slidesToSlide: 1,
-    },
-    md: {
-      breakpoint: { max: 1024, min: 768 },
-      items: 2,
-      slidesToSlide: 1,
-    },
-    sm: {
-      breakpoint: { max: 768, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
+  const [loading, setLoading] = useState(true);
 
   const url = BASE_URL + "establishments";
 
@@ -41,6 +26,7 @@ function Home() {
       .then((data) => {
         setEstablishments(data);
         setSearchEstablishments(data);
+        setLoading(false);
         console.log(data);
       })
       .catch((err) => console.log(err));
@@ -59,6 +45,10 @@ function Home() {
     });
     setSearchEstablishments(filterEstablishments);
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   function results() {
     if (searchEstablishments.length === 0) {
@@ -86,7 +76,7 @@ function Home() {
       {results()}
 
       <h2>Popular Places</h2>
-      <Carousel responsive={responsive} showDots={true}>
+      <Carousel responsive={Responsive} showDots={true}>
         {establishments.map((popular) => {
           const { name, image, id } = popular;
           return <PopularPlaces key={id} place={name} image={image} />;
