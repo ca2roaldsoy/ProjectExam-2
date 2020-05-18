@@ -42,9 +42,6 @@ function NavMenu() {
             <NavLink to="/contact" className="nav-link" role="link">
               Contact
             </NavLink>
-            <NavLink to="/enquiries" className="nav-link" role="link">
-              Enq
-            </NavLink>
             <Login />
           </Nav>
         </Navbar.Collapse>
