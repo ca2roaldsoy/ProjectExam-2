@@ -51,8 +51,8 @@ function AllEstablishments({
           <Card.Img src={image} alt={name} />
         </Col>
 
-        <Card.Body>
-          <Col sm={5}>
+        <Col sm={5}>
+          <Card.Body>
             <Card.Title>{name}</Card.Title>
 
             <div className="d-flex">
@@ -67,8 +67,8 @@ function AllEstablishments({
             </div>
 
             <Card.Img src={Map} alt="map icon" />
-          </Col>
-        </Card.Body>
+          </Card.Body>
+        </Col>
 
         <Col sm={2}>
           {updatePrice()}
