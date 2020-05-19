@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import Validated from "./Validated";
 import DatePicker from "react-datepicker";
 import Alert from "react-bootstrap/Alert";
+import CheckDate from "./CheckDate";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -35,23 +36,9 @@ function ContactForm() {
   // reset form
   const reset = () => setValidated(false);
 
-  // check if check out is later than check in
-  function inCheckWarn() {
-    if (checkOut < checkIn) {
-      return (
-        <>
-          <Alert variant="danger">
-            <Alert.Heading>Warning</Alert.Heading>
-            <p>You are trying to check out before check in.</p>
-          </Alert>
-        </>
-      );
-    }
-  }
-
   return (
     <>
-      {inCheckWarn()}
+      <CheckDate checkIn={checkIn} checkOut={checkOut} />
       <Validated validated={validated} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
