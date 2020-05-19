@@ -28,6 +28,9 @@ function LoginForm() {
   function onSubmit(data, event) {
     console.log("data", data);
 
+    localStorage.setItem("username", data.userName);
+    localStorage.setItem("password", data.password);
+
     event.target.reset();
     setValidLogin(true);
   }

@@ -29,6 +29,7 @@ function Establishment() {
     return <Loading />;
   }
 
+  // Discounts
   function newPrice() {
     let newPrice = Math.ceil((establishment.price * 70) / 100);
 
