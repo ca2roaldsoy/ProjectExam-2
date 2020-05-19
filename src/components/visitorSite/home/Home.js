@@ -32,6 +32,7 @@ function Home() {
       .catch((err) => console.log(err));
   }, [url]);
 
+  // filter establishment after search
   const findEstablishment = (e) => {
     const lowerCaseValue = e.target.value.toLowerCase();
     const filterEstablishments = establishments.filter((establish) => {
@@ -46,15 +47,18 @@ function Home() {
     setSearchEstablishments(filterEstablishments);
   };
 
+  // use spinner
   if (loading) {
     return <Loading />;
   }
 
+  // if no search result, display message
   function results() {
     if (searchEstablishments.length === 0) {
       return <p>sorry, no results found</p>;
     }
 
+    // open dropdown search result
     if (isOpen) {
       return searchEstablishments.map((establishment) => {
         return (

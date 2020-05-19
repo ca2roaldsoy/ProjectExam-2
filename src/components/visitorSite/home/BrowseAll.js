@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
 import ImgBlur from "../../../images/bergen/bergen_blur_v2.jpg";
 
+// browse all establishments
 function BrowseAll() {
   return (
     <>

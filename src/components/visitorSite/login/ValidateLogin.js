@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 // if validLogin is true, log in user.
 function ValidateLogIn({ validLogin }) {
+  const history = useHistory();
+
   if (validLogin) {
-    return (window.location.href = "./admin");
+    history.push("./admin");
   }
 
   return null;

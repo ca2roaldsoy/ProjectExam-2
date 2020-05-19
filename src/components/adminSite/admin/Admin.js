@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 function Admin() {
-  const getUser = localStorage.getItem("username");
+  const getUser = localStorage.getItem("user");
 
   if (getUser === null || getUser === undefined) {
     return <Redirect to="/" />;

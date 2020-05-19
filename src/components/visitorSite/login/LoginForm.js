@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import ValidateLogin from "./ValidateLogin";
 import { Link } from "react-router-dom";
+import { AdminContext } from "../../adminSite/context/AdminContext";
+import { useHistory } from "react-router-dom";
 
 // validate input field
 const schema = yup.object().shape({
@@ -24,12 +26,14 @@ function LoginForm() {
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
+  const { registerUser } = useContext(AdminContext);
+  const history = useHistory();
 
   function onSubmit(data, event) {
     console.log("data", data);
 
-    localStorage.setItem("username", data.userName);
-    localStorage.setItem("password", data.password);
+    registerUser(data.userName);
+    history.push("/admin");
 
     event.target.reset();
     setValidLogin(true);
@@ -37,7 +41,6 @@ function LoginForm() {
 
   return (
     <>
-      <ValidateLogin validLogin={ValidLogin} />
       <Form onSubmit={handleSubmit(onSubmit)} role="form">
         <Form.Group>
           <Form.Label>Username</Form.Label>
