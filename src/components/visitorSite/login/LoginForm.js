@@ -4,7 +4,7 @@ import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
-import { AdminContext } from "../../adminSite/context/AdminContext";
+import { AdminContext } from "../../context/AdminContext";
 import { useHistory } from "react-router-dom";
 
 // validate input field

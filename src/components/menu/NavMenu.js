@@ -11,13 +11,10 @@ import {
 import Home from "../visitorSite/home/Home.js";
 import Contact from "../visitorSite/contact/Contact.js";
 import Admin from "../adminSite/admin/Admin.js";
-import { AdminContext } from "../adminSite/context/AdminContext";
-/*import HotelList from "../visitorSite/hotelList";
-import HotelSpecific from "../visitorSite/hotelSpecific";
-import MakeEnquiries from "../visitorSite/makeEnquiries";
-import newEstablishment from "../adminSite/newEstablishment";
-import viewEnquiries from "../adminSite/viewEnquiries";
-import ContactMsg from "../adminSite/contactMsg";*/
+import { AdminContext } from "../context/AdminContext";
+import newEstablishment from "../adminSite/newEstablishment/newEstablishment";
+import viewEnquiries from "../adminSite/viewEnquiries/viewEnquiries";
+import ContactMsg from "../adminSite/contactMsg/Messages";
 import Login from "../visitorSite/login/Login";
 import LogOut from "../adminSite/logout/LogOut";
 import Enquiries from "../visitorSite/makeEnquiries/Enquiries.js";
@@ -66,6 +63,9 @@ function NavMenu() {
           <Route path="/make-enquiries" component={Enquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
+          <Route path="/newEstablishment/" component={newEstablishment} />
+          <Route path="/enquiries/" component={viewEnquiries} />
+          <Route path="/messages/" component={ContactMsg} />
         </Switch>
       </Container>
     </Router>

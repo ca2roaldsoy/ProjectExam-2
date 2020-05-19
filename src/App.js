@@ -6,7 +6,7 @@ import NavMenu from "./components/menu/NavMenu";
 import {
   AdminContextProvider,
   AdminContext,
-} from "./components/adminSite/context/AdminContext";
+} from "./components/context/AdminContext";
 
 function App() {
   return (
