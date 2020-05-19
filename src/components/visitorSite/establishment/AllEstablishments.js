@@ -6,6 +6,7 @@ import Map from "../../../images/icons/map_v1.png";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
+import PropTypes from "prop-types";
 
 function AllEstablishments({
   id,
@@ -15,6 +16,7 @@ function AllEstablishments({
   selfCatering,
   price,
 }) {
+  // Discounts
   function updatePrice() {
     let newPrice = Math.ceil((price * 70) / 100);
     let roomsLeft = Math.floor(maxGuests * 2);
@@ -29,6 +31,7 @@ function AllEstablishments({
       );
     }
 
+    // Display few rooms left
     function deal() {
       if (newPrice < 50) {
         return (
@@ -80,5 +83,14 @@ function AllEstablishments({
     </Card>
   );
 }
+
+AllEstablishments.propTypes = {
+  id: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  maxGuests: PropTypes.number.isRequired,
+  selfCatering: PropTypes.bool.isRequired,
+  price: PropTypes.number.isRequired,
+};
 
 export default AllEstablishments;
