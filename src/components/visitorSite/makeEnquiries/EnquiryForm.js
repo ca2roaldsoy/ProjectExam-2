@@ -7,6 +7,7 @@ import Validated from "./Validated";
 import DatePicker from "react-datepicker";
 import Alert from "react-bootstrap/Alert";
 
+// validate input fields
 const schema = yup.object().shape({
   firstName: yup.string().required("First Name is required"),
   lastName: yup.string().required("Last Name is required"),
@@ -21,8 +22,6 @@ function ContactForm() {
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
 
-  console.log(new Date());
-
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -33,8 +32,10 @@ function ContactForm() {
     setValidated(true);
   }
 
+  // reset form
   const reset = () => setValidated(false);
 
+  // check if check out is later than check in
   function inCheckWarn() {
     if (checkOut < checkIn) {
       return (
@@ -47,6 +48,7 @@ function ContactForm() {
       );
     }
   }
+
   return (
     <>
       {inCheckWarn()}

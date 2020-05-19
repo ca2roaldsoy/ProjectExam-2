@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// if valdition passes, display message
 function Validated({ validated }) {
   if (validated) {
     return <div>Message Sent</div>;

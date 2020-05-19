@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "./Validated";
 
+// validate form
 const schema = yup.object().shape({
   firstName: yup.string().required("First Name is required"),
   lastName: yup.string().required("Last Name is required"),
@@ -30,6 +31,7 @@ function ContactForm() {
     setValidated(true);
   }
 
+  // reset from fields
   const reset = () => setValidated(false);
 
   return (
