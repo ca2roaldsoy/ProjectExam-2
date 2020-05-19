@@ -15,7 +15,7 @@ function HomeCarousel({ image, text, place }) {
 HomeCarousel.propTypes = {
   place: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
 };
 
 export default HomeCarousel;

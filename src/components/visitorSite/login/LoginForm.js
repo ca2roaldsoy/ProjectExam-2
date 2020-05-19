@@ -1,9 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import ValidateLogin from "./ValidateLogin";
 import { Link } from "react-router-dom";
 import { AdminContext } from "../../adminSite/context/AdminContext";
 import { useHistory } from "react-router-dom";
@@ -22,7 +21,6 @@ const schema = yup.object().shape({
 });
 
 function LoginForm() {
-  const [ValidLogin, setValidLogin] = useState(false);
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -36,7 +34,6 @@ function LoginForm() {
     history.push("/admin");
 
     event.target.reset();
-    setValidLogin(true);
   }
 
   return (
