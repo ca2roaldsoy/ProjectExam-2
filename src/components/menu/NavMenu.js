@@ -7,6 +7,7 @@ import {
   Switch,
   Route,
   NavLink,
+  Redirect,
 } from "react-router-dom";
 import Home from "../visitorSite/home/Home.js";
 import Contact from "../visitorSite/contact/Contact.js";
@@ -59,13 +60,19 @@ function NavMenu() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
-          <Route path="/admin" component={Admin} />
           <Route path="/make-enquiries" component={Enquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
-          <Route path="/newEstablishment/" component={newEstablishment} />
-          <Route path="/enquiries/" component={viewEnquiries} />
-          <Route path="/messages/" component={ContactMsg} />
+          {user ? (
+            <>
+              <Route path="/admin" component={Admin} />
+              <Route path="/newEstablishment/" component={newEstablishment} />
+              <Route path="/enquiries/" component={viewEnquiries} />
+              <Route path="/messages/" component={ContactMsg} />
+            </>
+          ) : (
+            <Redirect to="/" />
+          )}
         </Switch>
       </Container>
     </Router>

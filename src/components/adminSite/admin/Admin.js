@@ -8,12 +8,6 @@ import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
 
 function Admin() {
-  const getUser = localStorage.getItem("user");
-
-  if (getUser === null || getUser === undefined) {
-    return <Redirect to="/" />;
-  }
-
   return (
     <Row>
       <Col lg={6}>
