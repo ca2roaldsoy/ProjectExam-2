@@ -21,9 +21,16 @@ import LogOut from "../adminSite/logout/LogOut";
 import Enquiries from "../visitorSite/makeEnquiries/Enquiries.js";
 import Establishment from "../visitorSite/establishment/Establishment.js";
 import EstablishmentDetails from "../visitorSite/establishment/EstablishmentDetail.js";
+import Permission from "./Permission.js";
 
 function NavMenu() {
   const { user } = useContext(AdminContext);
+
+  function permission() {
+    if (!user) {
+      return <Redirect to="/menu" />;
+    }
+  }
 
   return (
     <Router>
@@ -63,6 +70,7 @@ function NavMenu() {
           <Route path="/make-enquiries" component={Enquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
+          <Route path="/menu" component={Permission} />
           {user ? (
             <>
               <Route path="/admin" component={Admin} />
@@ -71,7 +79,7 @@ function NavMenu() {
               <Route path="/messages/" component={ContactMsg} />
             </>
           ) : (
-            <Redirect to="/" />
+            permission()
           )}
         </Switch>
       </Container>
