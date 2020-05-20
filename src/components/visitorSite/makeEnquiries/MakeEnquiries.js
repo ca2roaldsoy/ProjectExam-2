@@ -2,7 +2,7 @@ import React from "react";
 import EnquiryForm from "./EnquiryForm";
 import Footer from "../footer/Footer";
 
-function Enquiries() {
+function MakeEnquiries() {
   return (
     <>
       <h1>Make an Enquiry</h1>
@@ -12,4 +12,4 @@ function Enquiries() {
   );
 }
 
-export default Enquiries;
+export default MakeEnquiries;
