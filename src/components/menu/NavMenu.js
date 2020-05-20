@@ -75,7 +75,7 @@ function NavMenu() {
             <>
               <Route path="/admin" component={Admin} />
               <Route path="/newEstablishment/" component={NewEstablishment} />
-              <Route path="/enquiries/" component={ViewEnquiries} />
+              <Route path="/viewEnquiries/" component={ViewEnquiries} />
               <Route path="/messages/" component={ContactMsg} />
             </>
           ) : (
