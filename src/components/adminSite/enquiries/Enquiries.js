@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BASE_URL, headers } from "../../../constants/api";
 
-function ViewEnquiries() {
+function Enquiries() {
   const url = BASE_URL + "enquiries";
   const options = { headers };
 
@@ -15,4 +15,4 @@ function ViewEnquiries() {
   return <div>hello</div>;
 }
 
-export default ViewEnquiries;
+export default Enquiries;
