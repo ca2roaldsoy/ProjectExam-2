@@ -14,7 +14,7 @@ import Contact from "../visitorSite/contact/Contact.js";
 import Admin from "../adminSite/admin/Admin.js";
 import { AdminContext } from "../context/AdminContext";
 import newEstablishment from "../adminSite/newEstablishment/newEstablishment";
-import viewEnquiries from "../adminSite/viewEnquiries/viewEnquiries";
+import ViewEnquiries from "../adminSite/viewEnquiries/ViewEnquiries";
 import ContactMsg from "../adminSite/contactMsg/Messages";
 import Login from "../visitorSite/login/Login";
 import LogOut from "../adminSite/logout/LogOut";
@@ -75,7 +75,7 @@ function NavMenu() {
             <>
               <Route path="/admin" component={Admin} />
               <Route path="/newEstablishment/" component={newEstablishment} />
-              <Route path="/enquiries/" component={viewEnquiries} />
+              <Route path="/enquiries/" component={ViewEnquiries} />
               <Route path="/messages/" component={ContactMsg} />
             </>
           ) : (

@@ -1,7 +1,7 @@
 import React from "react";
 import Card, { ListGroup, Button } from "react-bootstrap";
 
-function viewEnquiruesDetails() {
+function ViewEnquiruesDetails() {
   return (
     <Card>
       <Card.Title></Card.Title>
@@ -19,4 +19,4 @@ function viewEnquiruesDetails() {
   );
 }
 
-export default viewEnquiruesDetails;
+export default ViewEnquiruesDetails;

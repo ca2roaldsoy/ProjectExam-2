@@ -6,6 +6,8 @@ import Form from "react-bootstrap/Form";
 import Validated from "./Validated";
 import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
+import CreateEnquiry from "./CreateEnquiry";
+import { v4 as uuidv4 } from "uuid";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -17,7 +19,7 @@ const schema = yup.object().shape({
     .email("Please enter a valid emai"),
 });
 
-function ContactForm() {
+function EnquiryForm() {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
@@ -30,6 +32,15 @@ function ContactForm() {
     console.log("data", data);
 
     setValidated(true);
+    return (
+      <CreateEnquiry
+        name={data.name}
+        email={data.email}
+        establishmentId={uuidv4()}
+        checkIn={data.checkIn}
+        checkOut={data.checkout}
+      />
+    );
   }
 
   // reset form
@@ -62,17 +73,33 @@ function ContactForm() {
 
         <Form.Group>
           <Form.Label>Check In</Form.Label>
+          <Form.Control
+            type="text"
+            name="checkIn"
+            ref={register}
+            value={checkIn.toISOString().slice(0, 10)}
+            readOnly
+          />
           <DatePicker
             selected={checkIn}
             onChange={(date) => setCheckIn(date)}
+            dateFormat="yyyy/MM/dd"
           />
         </Form.Group>
 
         <Form.Group>
           <Form.Label>Check Out</Form.Label>
+          <Form.Control
+            type="text"
+            name="checkOut"
+            ref={register}
+            value={checkOut.toISOString().slice(0, 10)}
+            readOnly
+          />
           <DatePicker
             selected={checkOut}
             onChange={(date) => setCheckOut(date)}
+            dateFormat="yyyy/MM/dd"
           />
         </Form.Group>
 
@@ -87,4 +114,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export default EnquiryForm;
