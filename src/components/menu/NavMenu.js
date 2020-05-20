@@ -7,30 +7,24 @@ import {
   Switch,
   Route,
   NavLink,
-  Redirect,
 } from "react-router-dom";
 import Home from "../visitorSite/home/Home.js";
 import Contact from "../visitorSite/contact/Contact.js";
-import Admin from "../adminSite/admin/Admin.js";
-import { AdminContext } from "../context/AdminContext";
-import NewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
-import ViewEnquiries from "../adminSite/viewEnquiries/ViewEnquiries";
-import ContactMsg from "../adminSite/contactMsg/Messages";
-import Login from "../visitorSite/login/Login";
-import LogOut from "../adminSite/logout/LogOut";
-import Enquiries from "../visitorSite/makeEnquiries/Enquiries.js";
+import MakeEnquiries from "../visitorSite/makeEnquiries/MakeEnquiries.js";
 import Establishment from "../visitorSite/establishment/Establishment.js";
 import EstablishmentDetails from "../visitorSite/establishment/EstablishmentDetail.js";
+import Admin from "../adminSite/admin/Admin.js";
+import NewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
+import Login from "../visitorSite/login/Login";
+import Enquiries from "../adminSite/enquiries/Enquiries";
+import ContactMsg from "../adminSite/contactMsg/Messages";
+import LogOut from "../adminSite/logout/LogOut";
+import { AdminContext } from "../context/AdminContext";
 import Permission from "./Permission.js";
+import Protect from "./Protect";
 
 function NavMenu() {
   const { user } = useContext(AdminContext);
-
-  function permission() {
-    if (!user) {
-      return <Redirect to="/menu" />;
-    }
-  }
 
   return (
     <Router>
@@ -67,20 +61,14 @@ function NavMenu() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
-          <Route path="/make-enquiries" component={Enquiries} />
+          <Route path="/makeEnquiries" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
           <Route path="/menu" component={Permission} />
-          {user ? (
-            <>
-              <Route path="/admin" component={Admin} />
-              <Route path="/newEstablishment/" component={NewEstablishment} />
-              <Route path="/viewEnquiries/" component={ViewEnquiries} />
-              <Route path="/messages/" component={ContactMsg} />
-            </>
-          ) : (
-            permission()
-          )}
+          <Protect path="/admin" component={Admin} />
+          <Protect path="/newEstablishment/" component={NewEstablishment} />
+          <Protect path="/enquiries/" component={Enquiries} />
+          <Protect path="/messages/" component={ContactMsg} />
         </Switch>
       </Container>
     </Router>

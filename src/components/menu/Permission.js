@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import StopSign from "../../images/stop.png";
 import Card from "react-bootstrap/Card";
+import StopSign from "../../images/stop.png";
 
 function Permission() {
   const history = useHistory();
