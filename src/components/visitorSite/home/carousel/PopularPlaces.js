@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 // Popular Places Carousel
 function PopularPlaces({ place, image }) {
+  console.log(image);
   return <HomeCarousel place={place} image={image} />;
 }
 

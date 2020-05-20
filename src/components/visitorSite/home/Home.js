@@ -13,10 +13,10 @@ import Loading from "../../spinner/Loading";
 import { Responsive } from "../../../constants/responsiveCarousel";
 
 function Home() {
-  const [establishments, setEstablishments] = useState([]);
-  const [searchEstablishments, setSearchEstablishments] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [searchEstablishments, setSearchEstablishments] = useState([]);
+  const [establishments, setEstablishments] = useState([]);
 
   const url = BASE_URL + "establishments";
   const options = { headers };
@@ -25,12 +25,13 @@ function Home() {
     fetch(url, options)
       .then((response) => response.json())
       .then((json) => {
+        setLoading(false);
         setEstablishments(json);
         setSearchEstablishments(json);
-        setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [url, options]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // filter establishment after search
   const findEstablishment = (e) => {
