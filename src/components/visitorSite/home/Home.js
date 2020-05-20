@@ -3,7 +3,7 @@ import ExploreBergen from "./carousel/ExploreBergen";
 import ImgTop from "../../../images/bergen/bg_img_v2.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
-import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
+import { BASE_URL, headers } from "../../../constants/api";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
 import PopularPlaces from "./carousel/PopularPlaces";
@@ -19,18 +19,18 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   const url = BASE_URL + "establishments";
+  const options = { headers };
 
   useEffect(() => {
-    fetch(url, FETCH_OPTIONS)
+    fetch(url, options)
       .then((response) => response.json())
-      .then((data) => {
-        setEstablishments(data);
-        setSearchEstablishments(data);
+      .then((json) => {
+        setEstablishments(json);
+        setSearchEstablishments(json);
         setLoading(false);
-        console.log(data);
       })
       .catch((err) => console.log(err));
-  }, [url]);
+  }, [url, options]);
 
   // filter establishment after search
   const findEstablishment = (e) => {

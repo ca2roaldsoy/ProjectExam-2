@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
-import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
+import { BASE_URL, headers } from "../../../constants/api";
 
 function ViewEnquiries() {
   const url = BASE_URL + "enquiries";
+  const options = { headers };
 
   useEffect(() => {
-    fetch(url, FETCH_OPTIONS)
+    fetch(url, options)
       .then((response) => response.json())
-      .then((enquiry) => console.log(enquiry))
+      .then((data) => console.log(data))
       .catch((err) => console.log(err));
-  }, [url]);
+  }, [url, options]);
 
   return <div>hello</div>;
 }

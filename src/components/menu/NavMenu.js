@@ -13,7 +13,7 @@ import Home from "../visitorSite/home/Home.js";
 import Contact from "../visitorSite/contact/Contact.js";
 import Admin from "../adminSite/admin/Admin.js";
 import { AdminContext } from "../context/AdminContext";
-import newEstablishment from "../adminSite/newEstablishment/newEstablishment";
+import NewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
 import ViewEnquiries from "../adminSite/viewEnquiries/ViewEnquiries";
 import ContactMsg from "../adminSite/contactMsg/Messages";
 import Login from "../visitorSite/login/Login";
@@ -74,7 +74,7 @@ function NavMenu() {
           {user ? (
             <>
               <Route path="/admin" component={Admin} />
-              <Route path="/newEstablishment/" component={newEstablishment} />
+              <Route path="/newEstablishment/" component={NewEstablishment} />
               <Route path="/enquiries/" component={ViewEnquiries} />
               <Route path="/messages/" component={ContactMsg} />
             </>

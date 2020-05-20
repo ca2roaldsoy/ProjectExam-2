@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
@@ -6,8 +6,8 @@ import Form from "react-bootstrap/Form";
 import Validated from "./Validated";
 import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
-import CreateEnquiry from "./CreateEnquiry";
 import { v4 as uuidv4 } from "uuid";
+import { BASE_URL, headers } from "../../../constants/api";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -31,16 +31,20 @@ function EnquiryForm() {
   function onSubmit(data) {
     console.log("data", data);
 
+    const url = BASE_URL + "enquiries";
+
+    const options = {
+      headers,
+      method: "POST",
+      body: JSON.stringify(data),
+    };
+
+    fetch(url, options)
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
+
     setValidated(true);
-    return (
-      <CreateEnquiry
-        name={data.name}
-        email={data.email}
-        establishmentId={uuidv4()}
-        checkIn={data.checkIn}
-        checkOut={data.checkout}
-      />
-    );
   }
 
   // reset form

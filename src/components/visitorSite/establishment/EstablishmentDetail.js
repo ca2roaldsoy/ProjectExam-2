@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BASE_URL, FETCH_OPTIONS } from "../../../constants/api";
+import { BASE_URL, headers } from "../../../constants/api";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
@@ -14,16 +14,17 @@ function Establishment() {
 
   const { id } = useParams();
   const url = BASE_URL + "establishments/" + id;
+  const options = { headers };
 
   useEffect(() => {
-    fetch(url, FETCH_OPTIONS)
+    fetch(url, options)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setEstablishment(data);
         setLoading(false);
       });
-  }, [url]);
+  }, [url, options]);
 
   if (loading) {
     return <Loading />;
