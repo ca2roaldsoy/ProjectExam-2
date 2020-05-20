@@ -28,6 +28,7 @@ function Home() {
         setLoading(false);
         setEstablishments(json);
         setSearchEstablishments(json);
+        //console.log(json);
       })
       .catch((err) => console.log(err));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -82,12 +83,13 @@ function Home() {
 
       <h2>Popular Places</h2>
       <Carousel responsive={Responsive} showDots={true}>
-        {establishments.map((popular) => {
-          const { name, image, id } = popular;
-          return <PopularPlaces key={id} place={name} image={image} />;
+        {establishments.slice(0, 5).map((popular) => {
+          const { name, image, id, price } = popular;
+          return (
+            <PopularPlaces key={id} place={name} image={image} price={price} />
+          );
         })}
       </Carousel>
-
       <BrowseAll />
 
       <h2>Explore Bergen</h2>
