@@ -5,3 +5,4 @@ export const headers = {
   "Content-Type": "application/json",
   key: KEY,
 };
+export const DELETE = "DELETE";
