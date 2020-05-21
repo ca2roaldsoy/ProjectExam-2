@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
@@ -12,7 +12,6 @@ import Row from "react-bootstrap/Row";
 // validate input fields
 const schema = yup.object().shape({
   name: yup.string().required("First Name is required"),
-  lastName: yup.string().required("Last Name is required"),
   email: yup
     .string()
     .required("Please enter a valid email adress")
@@ -43,8 +42,15 @@ function EstablishmentForm() {
 
     const newEstablishment = {
       name: data.Name,
-      lastname: data.lastName,
       email: data.email,
+      imageUrl: data.imageUrl,
+      price: data.price,
+      maxGuests: data.maxGuests,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      description: data.description,
+      selfCatering: data.selfCatering,
+      id: data.establishmentId,
     };
 
     const options = {
