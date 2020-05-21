@@ -18,8 +18,8 @@ const schema = yup.object().shape({
     .required("Please enter a valid email adress")
     .email("Please enter a valid emai"),
   imageUrl: yup.string(),
-  price: yup.number().required("Please enter a valid amount"),
-  maxGuests: yup.number().required("Please enter a valid number"),
+  price: yup.number().typeError("Please enter a valid amount").required(),
+  maxGuests: yup.number().typeError("Please enter a valid number").required(),
   latitude: yup.number(),
   longitude: yup.number(),
   description: yup
