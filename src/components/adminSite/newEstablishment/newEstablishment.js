@@ -26,7 +26,7 @@ const schema = yup.object().shape({
     .string()
     .required("Please write a description")
     .min(3, "description must contain of least 3 characters"),
-  selfCatering: yup.bool().required("this field is required"),
+  selfCatering: yup.bool().typeError("Please select one").required(),
 });
 
 function NewEstablishment() {
