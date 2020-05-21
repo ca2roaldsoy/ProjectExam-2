@@ -4,7 +4,7 @@ import EstablishmentForm from "./EstablishmentForm";
 function NewEstablishment() {
   return (
     <div>
-      <h1>Create New Establishment</h1>
+      <h1>Create Nw Establishment</h1>
       <EstablishmentForm />
     </div>
   );
