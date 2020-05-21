@@ -19,7 +19,8 @@ function Establishment() {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [url, options]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (loading) {
     return <Loading />;
