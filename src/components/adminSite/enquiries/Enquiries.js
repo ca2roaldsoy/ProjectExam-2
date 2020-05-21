@@ -16,10 +16,10 @@ function Enquiries() {
       .then((response) => response.json())
       .then((data) => {
         setEnquiry(data);
+        setLoading(false);
         console.log(data);
       })
-      .catch((err) => console.log(err))
-      .finally(setLoading(false));
+      .catch((err) => console.log(err));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -30,7 +30,7 @@ function Enquiries() {
 
   function noEnquiries() {
     if (enquiry.length === 0) {
-      return <p>There is no Enquiry yet</p>;
+      return <p>There is no enquiries yet</p>;
     }
     return enquiry.map((enq, i) => {
       const {
