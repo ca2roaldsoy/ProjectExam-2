@@ -24,13 +24,13 @@ function LoginForm() {
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
-  const { registerUser } = useContext(AdminContext);
+  const { localStoreUser } = useContext(AdminContext);
   const history = useHistory();
 
   function onSubmit(data, event) {
     console.log("data", data);
 
-    registerUser(data.userName);
+    localStoreUser(data.userName);
     history.push("/admin");
 
     event.target.reset();

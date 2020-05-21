@@ -5,10 +5,10 @@ const AdminContext = createContext();
 const AdminContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
-  function registerUser(username) {
-    localStorage.setItem("user", JSON.stringify(username));
+  function localStoreUser(user) {
+    localStorage.setItem("user", user);
 
-    setUser(username);
+    setUser(user);
   }
 
   function logout() {
@@ -17,7 +17,7 @@ const AdminContextProvider = ({ children }) => {
   }
 
   return (
-    <AdminContext.Provider value={{ user, registerUser, logout }}>
+    <AdminContext.Provider value={{ user, localStoreUser, logout }}>
       {children}
     </AdminContext.Provider>
   );
