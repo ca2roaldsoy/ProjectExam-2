@@ -28,7 +28,7 @@ function Home() {
         setLoading(false);
         setEstablishments(json);
         setSearchEstablishments(json);
-        //console.log(json);
+        console.log(json);
       })
       .catch((err) => console.log(err));
     // eslint-disable-next-line react-hooks/exhaustive-deps
