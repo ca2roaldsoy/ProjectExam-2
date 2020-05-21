@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
@@ -6,21 +6,18 @@ import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
 import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
-import { v4 as uuidv4 } from "uuid";
 import { BASE_URL, headers } from "../../../constants/api";
-//import { useParams } from "react-router-dom";
 
 // validate input fields
 const schema = yup.object().shape({
-  firstName: yup.string().required("First Name is required"),
-  lastName: yup.string().required("Last Name is required"),
+  name: yup.string().required("First Name is required"),
   email: yup
     .string()
     .required("Please enter a valid email adress")
     .email("Please enter a valid emai"),
 });
 
-function EnquiryForm({ id, name }) {
+function EnquiryForm({ id }) {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
@@ -35,7 +32,8 @@ function EnquiryForm({ id, name }) {
     const url = BASE_URL + "enquiries";
 
     const enquiryData = {
-      name: name,
+      name: data.name,
+      email: data.email,
       establishmentId: id,
       checkIn: data.checkIn,
       checkOut: data.checkOut,
@@ -52,8 +50,6 @@ function EnquiryForm({ id, name }) {
       .then((json) => console.log(json))
       .catch((err) => console.log(err));
 
-    console.log(enquiryData);
-
     setValidated(true);
   }
 
@@ -66,17 +62,9 @@ function EnquiryForm({ id, name }) {
       <Validated validated={validated} message={1} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control type="text" name="firstName" ref={register} />
-          {errors.firstName && (
-            <Form.Text>{errors.firstName.message}</Form.Text>
-          )}
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control type="text" name="lastName" ref={register} />
-          {errors.lastName && <Form.Text>{errors.lastName.message}</Form.Text>}
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" name="name" ref={register} />
+          {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
