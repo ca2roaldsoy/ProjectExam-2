@@ -10,7 +10,8 @@ function Enquiries() {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
-  }, [url, options]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return <div>hello</div>;
 }
