@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { AdminContext } from "../context/AdminContext";
+import Permission from "./Permission";
 
 const Protect = ({ component: Component, ...rest }) => {
   const { user } = useContext(AdminContext);
@@ -9,7 +10,7 @@ const Protect = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={(props) =>
-        user ? <Component {...rest} {...props} /> : <Redirect to="/menu" />
+        user ? <Component {...rest} {...props} /> : <Permission />
       }
     />
   );

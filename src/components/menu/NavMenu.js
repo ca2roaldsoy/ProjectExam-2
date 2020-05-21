@@ -20,7 +20,6 @@ import Enquiries from "../adminSite/enquiries/Enquiries";
 import ContactMsg from "../adminSite/contactMsg/Messages";
 import LogOut from "../adminSite/logout/LogOut";
 import { AdminContext } from "../context/AdminContext";
-import Permission from "./Permission.js";
 import Protect from "./Protect";
 
 function NavMenu() {
@@ -39,6 +38,7 @@ function NavMenu() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
+            {/*check if user exist in local storage*/}
             {!user ? (
               <>
                 <NavLink to="/" exact className="nav-link" role="link">
@@ -64,7 +64,6 @@ function NavMenu() {
           <Route path="/makeEnquiries" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
-          <Route path="/menu" component={Permission} />
           <Protect path="/admin" component={Admin} />
           <Protect path="/newEstablishment/" component={NewEstablishment} />
           <Protect path="/enquiries/" component={Enquiries} />
