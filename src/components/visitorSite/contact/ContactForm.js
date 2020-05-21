@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Validated from "./Validated";
+import Validated from "../../formValidation/Validated";
 
 // validate form
 const schema = yup.object().shape({
@@ -36,7 +36,7 @@ function ContactForm() {
 
   return (
     <>
-      <Validated validated={validated} />
+      <Validated validated={validated} message={2} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
           <Form.Label>First Name</Form.Label>

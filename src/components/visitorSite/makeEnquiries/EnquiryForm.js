@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Validated from "./Validated";
+import Validated from "../../formValidation/Validated";
 import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
 import { v4 as uuidv4 } from "uuid";
@@ -53,7 +53,7 @@ function EnquiryForm() {
   return (
     <>
       <CheckDate checkIn={checkIn} checkOut={checkOut} />
-      <Validated validated={validated} />
+      <Validated validated={validated} message={1} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
           <Form.Label>First Name</Form.Label>

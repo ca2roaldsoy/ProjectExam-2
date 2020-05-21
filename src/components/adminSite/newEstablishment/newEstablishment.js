@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Validated from "../../visitorSite/makeEnquiries/Validated";
+import Validated from "../../formValidation/Validated";
 import { BASE_URL, headers } from "../../../constants/api";
 import { v4 as uuidv4 } from "uuid";
 import Col from "react-bootstrap/Col";
@@ -64,7 +64,7 @@ function NewEstablishment() {
 
   return (
     <>
-      <Validated validated={validated} />
+      <Validated validated={validated} message={3} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row>
           <Col lg={12}>
