@@ -8,7 +8,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 import { v4 as uuidv4 } from "uuid";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Establishment from "../../visitorSite/establishment/Establishment";
 
 // validate input fields
 const schema = yup.object().shape({
