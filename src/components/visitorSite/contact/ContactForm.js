@@ -4,11 +4,11 @@ import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
+import { BASE_URL, headers } from "../../../constants/api";
 
 // validate form
 const schema = yup.object().shape({
-  firstName: yup.string().required("First Name is required"),
-  lastName: yup.string().required("Last Name is required"),
+  name: yup.string().required("Name is required"),
   email: yup
     .string()
     .required("Please enter a valid email adress")
@@ -28,6 +28,24 @@ function ContactForm() {
   function onSubmit(data) {
     console.log("data", data);
 
+    const contactData = {
+      name: data.name,
+      email: data.email,
+      message: data.message,
+    };
+
+    const url = BASE_URL + "contacts";
+    const options = {
+      headers,
+      method: "POST",
+      body: JSON.stringify(contactData),
+    };
+
+    fetch(url, options)
+      .then((response) => response.json())
+      .then((j) => console.log(j))
+      .catch((err) => console.log(err));
+
     setValidated(true);
   }
 
@@ -39,17 +57,9 @@ function ContactForm() {
       <Validated validated={validated} message={2} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control type="text" name="firstName" ref={register} />
-          {errors.firstName && (
-            <Form.Text>{errors.firstName.message}</Form.Text>
-          )}
-        </Form.Group>
-
-        <Form.Group>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control type="text" name="lastName" ref={register} />
-          {errors.lastName && <Form.Text>{errors.lastName.message}</Form.Text>}
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" name="name" ref={register} />
+          {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
