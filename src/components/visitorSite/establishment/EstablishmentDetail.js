@@ -24,7 +24,8 @@ function Establishment() {
         setEstablishment(data);
         setLoading(false);
       });
-  }, [url, options]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (loading) {
     return <Loading />;
@@ -66,7 +67,7 @@ function Establishment() {
         {newPrice()}
 
         <div className="d-flex">
-          <Link to="../makeEnquiries">
+          <Link to={"../makeEnquiries/" + establishment.name + "/" + id}>
             <Button> Book </Button>
           </Link>
           <Card.Img src={Map} alt="map icon" />

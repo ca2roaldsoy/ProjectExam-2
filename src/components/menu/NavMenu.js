@@ -61,7 +61,7 @@ function NavMenu() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
-          <Route path="/makeEnquiries" component={MakeEnquiries} />
+          <Route path="/makeEnquiries/:name/:id" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
           <Protect path="/admin" component={Admin} />
