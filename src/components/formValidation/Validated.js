@@ -6,11 +6,11 @@ function Validated({ validated, message }) {
   if (validated) {
     switch (message) {
       case 1:
-        return <div>Enquiry sent</div>;
+        return <p>Enquiry sent</p>;
       case 2:
-        return <div>Message sent</div>;
+        return <p>Message sent</p>;
       case 3:
-        return <div>Establishment Created</div>;
+        return <p>Establishment Created</p>;
       default:
         return null;
     }
@@ -20,7 +20,7 @@ function Validated({ validated, message }) {
 
 Validated.propTypes = {
   validated: PropTypes.bool.isRequired,
-  message: PropTypes.string.isRequired,
+  message: PropTypes.number.isRequired,
 };
 
 export default Validated;
