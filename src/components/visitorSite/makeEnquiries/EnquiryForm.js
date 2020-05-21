@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
 import { v4 as uuidv4 } from "uuid";
 import { BASE_URL, headers } from "../../../constants/api";
+//import { useParams } from "react-router-dom";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -19,7 +20,7 @@ const schema = yup.object().shape({
     .email("Please enter a valid emai"),
 });
 
-function EnquiryForm() {
+function EnquiryForm({ id, name }) {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
@@ -33,16 +34,25 @@ function EnquiryForm() {
 
     const url = BASE_URL + "enquiries";
 
+    const enquiryData = {
+      name: name,
+      establishmentId: id,
+      checkIn: data.checkIn,
+      checkOut: data.checkOut,
+    };
+
     const options = {
       headers,
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(enquiryData),
     };
 
     fetch(url, options)
       .then((response) => response.json())
       .then((json) => console.log(json))
       .catch((err) => console.log(err));
+
+    console.log(enquiryData);
 
     setValidated(true);
   }
