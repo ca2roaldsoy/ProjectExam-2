@@ -5,15 +5,28 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../visitorSite/makeEnquiries/Validated";
 import { BASE_URL, headers } from "../../../constants/api";
+import { v4 as uuidv4 } from "uuid";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 // validate input fields
 const schema = yup.object().shape({
-  firstName: yup.string().required("First Name is required"),
+  name: yup.string().required("First Name is required"),
   lastName: yup.string().required("Last Name is required"),
   email: yup
     .string()
     .required("Please enter a valid email adress")
     .email("Please enter a valid emai"),
+  imageUrl: yup.string(),
+  price: yup.number().required("Please enter a valid amount"),
+  maxGuests: yup.number().required("Please enter a valid number"),
+  latitude: yup.number(),
+  longitude: yup.number(),
+  description: yup
+    .string()
+    .required("Please write a description")
+    .min(3, "description must contain of least 3 characters"),
+  selfCatering: yup.bool().required("this field is required"),
 });
 
 function NewEstablishment() {
@@ -29,7 +42,7 @@ function NewEstablishment() {
     const url = BASE_URL + "establishments";
 
     const newEstablishment = {
-      name: data.firstName,
+      name: data.Name,
       lastname: data.lastName,
       email: data.email,
     };
@@ -49,39 +62,113 @@ function NewEstablishment() {
     setValidated(true);
   }
 
-  // reset form
-  const reset = () => setValidated(false);
-
   return (
     <>
       <Validated validated={validated} />
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group>
-          <Form.Label>First Name</Form.Label>
-          <Form.Control type="text" name="firstName" ref={register} />
-          {errors.firstName && (
-            <Form.Text>{errors.firstName.message}</Form.Text>
-          )}
-        </Form.Group>
+        <Row>
+          <Col lg={12}>
+            <Form.Group>
+              <Form.Label>Establishment Name</Form.Label>
+              <Form.Control type="text" name="name" ref={register} />
+              {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control type="text" name="lastName" ref={register} />
-          {errors.lastName && <Form.Text>{errors.lastName.message}</Form.Text>}
-        </Form.Group>
+            <Form.Group>
+              <Form.Label>Establishment Email</Form.Label>
+              <Form.Control type="email" name="email" ref={register} />
+              {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" name="email" ref={register} />
-          {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
-        </Form.Group>
+            <Form.Group>
+              <Form.Label>Establishment Image URL</Form.Label>
+              <Form.Control type="text" name="imageUrl" ref={register} />
+            </Form.Group>
+          </Col>
 
-        <Button type="submit" role="button">
-          Send Request
-        </Button>
-        <Button type="reset" onClick={reset} role="button">
-          Reset
-        </Button>
+          <Col lg={6}>
+            <Form.Group>
+              <Form.Label>Establishment Price</Form.Label>
+              <Form.Control type="number" name="price" ref={register} />
+              {errors.price && <Form.Text>{errors.price.message}</Form.Text>}
+            </Form.Group>
+          </Col>
+          <Col lg={6}>
+            <Form.Group>
+              <Form.Label>MaxGuests</Form.Label>
+              <Form.Control type="number" name="maxGuests" ref={register} />
+              {errors.maxGuests && (
+                <Form.Text>{errors.maxGuests.message}</Form.Text>
+              )}
+            </Form.Group>
+          </Col>
+          <Col lg={6}>
+            <Form.Group>
+              <Form.Label>Latitude</Form.Label>
+              <Form.Control type="text" name="latitude" ref={register} />
+            </Form.Group>
+          </Col>
+          <Col lg={6}>
+            <Form.Group>
+              <Form.Label>Longitude</Form.Label>
+              <Form.Control type="text" name="longitude" ref={register} />
+            </Form.Group>
+          </Col>
+          <Col lg={12}>
+            <Form.Group>
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                type="text"
+                as="textarea"
+                name="description"
+                ref={register}
+              />
+              {errors.description && (
+                <Form.Text>{errors.description.message}</Form.Text>
+              )}
+            </Form.Group>
+          </Col>
+
+          <Col lg={6}>
+            <Form.Group>
+              <Form.Label>Self Catering</Form.Label>
+
+              <Form.Check
+                type="radio"
+                label="Yes"
+                name="selfCatering"
+                ref={register}
+              />
+
+              <Form.Check
+                type="radio"
+                label="No"
+                name="selfCatering"
+                ref={register}
+              />
+              {errors.selfCatering && (
+                <Form.Text>{errors.selfCatering.message}</Form.Text>
+              )}
+            </Form.Group>
+          </Col>
+          <Col lg={6}>
+            <Form.Group>
+              <Form.Label>Establishment ID</Form.Label>
+              <Form.Control
+                type="text"
+                readOnly
+                name="establishmentId"
+                placeholder={uuidv4()}
+                ref={register}
+              />
+            </Form.Group>
+          </Col>
+          <Col lg={12}>
+            <Button type="submit" role="button">
+              SUBMIT
+            </Button>
+          </Col>
+        </Row>
       </Form>
     </>
   );
