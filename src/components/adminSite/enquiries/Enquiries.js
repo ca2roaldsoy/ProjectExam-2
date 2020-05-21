@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BASE_URL, headers } from "../../../constants/api";
+import EnquiryDetails from "./EnquiriesDetails";
 
 function Enquiries() {
   const url = BASE_URL + "enquiries";
@@ -13,7 +14,12 @@ function Enquiries() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div>hello</div>;
+  return (
+    <>
+      <h1>Enquiries</h1>
+      <EnquiryDetails />
+    </>
+  );
 }
 
 export default Enquiries;
