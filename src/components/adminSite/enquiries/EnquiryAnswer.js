@@ -10,7 +10,13 @@ function EnquiryAnswer({ accepted, rejected, created }) {
     return (
       <Card>
         <Card.Title>Accepted</Card.Title>
-        <Image src={Accept} fluid className="img-responsive" role="img" />
+        <Image
+          src={Accept}
+          alt="accept"
+          fluid
+          className="img-responsive"
+          role="img"
+        />
         <Card.Footer>{created.slice(0, 10)}</Card.Footer>
       </Card>
     );
@@ -20,7 +26,13 @@ function EnquiryAnswer({ accepted, rejected, created }) {
     return (
       <Card>
         <Card.Title>Rejected</Card.Title>
-        <Image src={Reject} fluid className="img-responsive" role="img" />
+        <Image
+          src={Reject}
+          alt="reject"
+          fluid
+          className="img-responsive"
+          role="img"
+        />
         <Card.Footer>{created.slice(0, 10)}</Card.Footer>
       </Card>
     );
