@@ -10,7 +10,7 @@ function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
   const [rejected, setRejected] = useState(false);
 
   return (
-    <Col>
+    <Col lg={4}>
       {accepted || rejected ? (
         <EnquiryAnswer
           accepted={accepted}
