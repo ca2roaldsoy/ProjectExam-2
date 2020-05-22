@@ -35,7 +35,7 @@ function EnquiryForm({ id }) {
     const enquiryData = {
       name: data.name,
       email: data.email,
-      establishmentId: uuidv4(),
+      establishmentId: id,
       checkIn: data.checkIn,
       checkOut: data.checkOut,
     };

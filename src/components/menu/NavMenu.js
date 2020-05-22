@@ -21,7 +21,6 @@ import ContactMsg from "../adminSite/contactMsg/Messages";
 import LogOut from "../adminSite/logout/LogOut";
 import { AdminContext } from "../context/AdminContext";
 import Protect from "./Protect";
-import ManageEnquiries from "../adminSite/enquiries/ManageEnquiries";
 
 function NavMenu() {
   const { user } = useContext(AdminContext);
@@ -68,7 +67,6 @@ function NavMenu() {
           <Protect path="/admin" component={Admin} />
           <Protect path="/newEstablishment/" component={NewEstablishment} />
           <Protect path="/enquiries/" component={Enquiries} />
-          <Protect path="/manageEnquiries/:id" component={ManageEnquiries} />
           <Protect path="/messages/" component={ContactMsg} />
         </Switch>
       </Container>
