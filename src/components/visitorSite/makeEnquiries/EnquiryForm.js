@@ -7,6 +7,7 @@ import Validated from "../../formValidation/Validated";
 import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
 import { BASE_URL, headers } from "../../../constants/api";
+import { v4 as uuidv4 } from "uuid";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -34,7 +35,7 @@ function EnquiryForm({ id }) {
     const enquiryData = {
       name: data.name,
       email: data.email,
-      establishmentId: id,
+      establishmentId: uuidv4(),
       checkIn: data.checkIn,
       checkOut: data.checkOut,
     };
