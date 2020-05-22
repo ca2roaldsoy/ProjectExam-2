@@ -16,16 +16,12 @@ const schema = yup.object().shape({
     .string()
     .required("Please enter a valid email adress")
     .email("Please enter a valid emai"),
-  imageUrl: yup.string(),
   price: yup.number().typeError("Please enter a valid amount").required(),
   maxGuests: yup.number().typeError("Please enter a valid number").required(),
-  latitude: yup.number(),
-  longitude: yup.number(),
   description: yup
     .string()
     .required("Please write a description")
     .min(3, "description must contain of least 3 characters"),
-  selfCatering: yup.bool().typeError("Please select one").required(),
 });
 
 function EstablishmentForm() {
@@ -40,23 +36,10 @@ function EstablishmentForm() {
 
     const url = BASE_URL + "establishments";
 
-    const newEstablishment = {
-      name: data.Name,
-      email: data.email,
-      imageUrl: data.imageUrl,
-      price: data.price,
-      maxGuests: data.maxGuests,
-      latitude: data.latitude,
-      longitude: data.longitude,
-      description: data.description,
-      selfCatering: data.selfCatering,
-      id: data.establishmentId,
-    };
-
     const options = {
       headers,
       method: "POST",
-      body: JSON.stringify(newEstablishment),
+      body: JSON.stringify(data),
     };
 
     fetch(url, options)
@@ -87,10 +70,9 @@ function EstablishmentForm() {
 
             <Form.Group>
               <Form.Label>Establishment Image URL</Form.Label>
-              <Form.Control type="text" name="imageUrl" ref={register} />
+              <Form.Control type="text" name="image" ref={register} />
             </Form.Group>
           </Col>
-
           <Col lg={6}>
             <Form.Group>
               <Form.Label>Establishment Price</Form.Label>
@@ -110,13 +92,13 @@ function EstablishmentForm() {
           <Col lg={6}>
             <Form.Group>
               <Form.Label>Latitude</Form.Label>
-              <Form.Control type="text" name="latitude" ref={register} />
+              <Form.Control type="number" name="lat" ref={register} />
             </Form.Group>
           </Col>
           <Col lg={6}>
             <Form.Group>
               <Form.Label>Longitude</Form.Label>
-              <Form.Control type="text" name="longitude" ref={register} />
+              <Form.Control type="number" name="lng" ref={register} />
             </Form.Group>
           </Col>
           <Col lg={12}>
@@ -133,16 +115,16 @@ function EstablishmentForm() {
               )}
             </Form.Group>
           </Col>
-
           <Col lg={6}>
             <Form.Group>
               <Form.Label>Self Catering</Form.Label>
 
               <Form.Check
                 type="radio"
-                label="Yes"
+                label={"Yes"}
                 name="selfCatering"
                 ref={register}
+                value={"on" ? true : null}
               />
 
               <Form.Check
@@ -150,22 +132,11 @@ function EstablishmentForm() {
                 label="No"
                 name="selfCatering"
                 ref={register}
+                value={"off" ? false : null}
               />
               {errors.selfCatering && (
                 <Form.Text>{errors.selfCatering.message}</Form.Text>
               )}
-            </Form.Group>
-          </Col>
-          <Col lg={6}>
-            <Form.Group>
-              <Form.Label>Establishment ID</Form.Label>
-              <Form.Control
-                type="text"
-                readOnly
-                name="establishmentId"
-                placeholder={uuidv4()}
-                ref={register}
-              />
             </Form.Group>
           </Col>
           <Col lg={12}>
