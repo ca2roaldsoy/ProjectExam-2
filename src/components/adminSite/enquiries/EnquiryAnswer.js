@@ -1,11 +1,9 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Accept from "../../../images/accept.png";
 import Reject from "../../../images/reject.png";
+import PropTypes from "prop-types";
 
 function EnquiryAnswer({ accepted, rejected, created }) {
   if (accepted) {
@@ -27,6 +25,12 @@ function EnquiryAnswer({ accepted, rejected, created }) {
       </Card>
     );
   }
+
+  EnquiryAnswer.propTypes = {
+    accepted: PropTypes.bool.isRequired,
+    rejected: PropTypes.bool.isRequired,
+    created: PropTypes.string.isRequired,
+  };
 }
 
 export default EnquiryAnswer;
