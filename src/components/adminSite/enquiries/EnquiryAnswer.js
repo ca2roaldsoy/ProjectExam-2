@@ -37,12 +37,12 @@ function EnquiryAnswer({ accepted, rejected, created }) {
       </Card>
     );
   }
-
-  EnquiryAnswer.propTypes = {
-    accepted: PropTypes.bool.isRequired,
-    rejected: PropTypes.bool.isRequired,
-    created: PropTypes.string.isRequired,
-  };
 }
+
+EnquiryAnswer.propTypes = {
+  accepted: PropTypes.bool.isRequired,
+  rejected: PropTypes.bool.isRequired,
+  created: PropTypes.string.isRequired,
+};
 
 export default EnquiryAnswer;

@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import EnquiryAnswer from "./EnquiryAnswer";
+import PropTypes from "prop-types";
 
 function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
   const [accepted, setAccepted] = useState(false);
@@ -42,5 +43,14 @@ function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
     </Col>
   );
 }
+
+EnquiriesDetails.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  checkIn: PropTypes.string.isRequired,
+  checkOut: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
+};
 
 export default EnquiriesDetails;
