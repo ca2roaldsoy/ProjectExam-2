@@ -57,19 +57,19 @@ function ContactForm() {
       <Validated validated={validated} message={2} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
-          <Form.Label>Name</Form.Label>
+          <Form.Label htmlFor="name">Name</Form.Label>
           <Form.Control type="text" name="name" ref={register} />
           {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Email</Form.Label>
+          <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control type="email" name="email" ref={register} />
           {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Message</Form.Label>
+          <Form.Label htmlFor="message">Message</Form.Label>
           <Form.Control
             type="message"
             name="message"

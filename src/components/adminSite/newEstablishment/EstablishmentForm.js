@@ -56,32 +56,32 @@ function EstablishmentForm() {
         <Row>
           <Col lg={12}>
             <Form.Group>
-              <Form.Label>Establishment Name</Form.Label>
+              <Form.Label htmlFor="name">Establishment Name</Form.Label>
               <Form.Control type="text" name="name" ref={register} />
               {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Establishment Email</Form.Label>
+              <Form.Label htmlFor="email">Establishment Email</Form.Label>
               <Form.Control type="email" name="email" ref={register} />
               {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Establishment Image URL</Form.Label>
+              <Form.Label htmlFor="image">Establishment Image URL</Form.Label>
               <Form.Control type="text" name="image" ref={register} />
             </Form.Group>
           </Col>
           <Col lg={6}>
             <Form.Group>
-              <Form.Label>Establishment Price</Form.Label>
+              <Form.Label htmlFor="price">Establishment Price</Form.Label>
               <Form.Control type="number" name="price" ref={register} />
               {errors.price && <Form.Text>{errors.price.message}</Form.Text>}
             </Form.Group>
           </Col>
           <Col lg={6}>
             <Form.Group>
-              <Form.Label>MaxGuests</Form.Label>
+              <Form.Label htmlFor="guests">MaxGuests</Form.Label>
               <Form.Control type="number" name="maxGuests" ref={register} />
               {errors.maxGuests && (
                 <Form.Text>{errors.maxGuests.message}</Form.Text>
@@ -90,19 +90,19 @@ function EstablishmentForm() {
           </Col>
           <Col lg={6}>
             <Form.Group>
-              <Form.Label>Latitude</Form.Label>
+              <Form.Label htmlFor="latitude">Latitude</Form.Label>
               <Form.Control type="number" name="lat" ref={register} />
             </Form.Group>
           </Col>
           <Col lg={6}>
             <Form.Group>
-              <Form.Label>Longitude</Form.Label>
+              <Form.Label htmlFor="longitude">Longitude</Form.Label>
               <Form.Control type="number" name="lng" ref={register} />
             </Form.Group>
           </Col>
           <Col lg={12}>
             <Form.Group>
-              <Form.Label>Description</Form.Label>
+              <Form.Label htmlFor="description">Description</Form.Label>
               <Form.Control
                 type="text"
                 as="textarea"
@@ -116,7 +116,7 @@ function EstablishmentForm() {
           </Col>
           <Col lg={6}>
             <Form.Group>
-              <Form.Label>Self Catering</Form.Label>
+              <Form.Label htmlFor="self catering">Self Catering</Form.Label>
 
               <Form.Check
                 type="radio"

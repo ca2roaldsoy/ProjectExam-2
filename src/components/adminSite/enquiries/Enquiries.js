@@ -58,7 +58,9 @@ function Enquiries() {
   return (
     <>
       <h1>Enquiries</h1>
-      <CardDeck>{noEnquiries()}</CardDeck>
+      <CardDeck as="main" role="main">
+        {noEnquiries()}
+      </CardDeck>
     </>
   );
 }

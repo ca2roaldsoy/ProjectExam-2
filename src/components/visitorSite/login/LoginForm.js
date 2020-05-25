@@ -40,13 +40,13 @@ function LoginForm() {
     <>
       <Form onSubmit={handleSubmit(onSubmit)} role="form">
         <Form.Group>
-          <Form.Label>Username</Form.Label>
+          <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control type="text" name="userName" ref={register()} />
           {errors.userName && <Form.Text>{errors.userName.message}</Form.Text>}
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label htmlFor="password">Password</Form.Label>
           <Form.Control type="text" name="password" ref={register()} />
           {errors.password && <Form.Text>{errors.password.message}</Form.Text>}
         </Form.Group>

@@ -9,7 +9,7 @@ function BrowseAll() {
   return (
     <>
       <h2>Not sure where to stay?</h2>
-      <Button>
+      <Button role="button">
         <Link to={"./establishment"}>Browse all accommodations</Link>
       </Button>
       <Image src={ImgBlur} alt="panorama view over Bergen" fluid />

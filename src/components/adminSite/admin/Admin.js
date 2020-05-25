@@ -13,18 +13,18 @@ function Admin() {
         <h1>Holidaze</h1>
 
         <Link to="/enquiries">
-          <Button>Enquiries</Button>
+          <Button role="button">Enquiries</Button>
         </Link>
         <Link to="./messages">
-          <Button>Messages</Button>
+          <Button role="button">Messages</Button>
         </Link>
         <Link to="./newEstablishment">
-          <Button>Create New Establishment</Button>
+          <Button role="button">Create New Establishment</Button>
         </Link>
       </Col>
 
       <Col lg={6}>
-        <Image src={AdminImg} alt="aurora borealis" fluid />
+        <Image src={AdminImg} alt="aurora borealis" fluid role="img" />
       </Col>
     </Row>
   );

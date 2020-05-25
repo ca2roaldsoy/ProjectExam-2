@@ -5,15 +5,15 @@ import MessageRespond from "./MessageRespond";
 
 function MessagesLayout({ name, email, message }) {
   return (
-    <Card>
-      <ListGroup variant="flush">
-        <ListGroup.Item>
+    <Card as="section">
+      <ListGroup variant="flush" as="ul">
+        <ListGroup.Item as="li">
           <b>From:</b> {name}
         </ListGroup.Item>
-        <ListGroup.Item>
+        <ListGroup.Item as="li">
           <b>E-mail:</b> {email}
         </ListGroup.Item>
-        <ListGroup.Item>
+        <ListGroup.Item as="li">
           <b>Message:</b> {message}
         </ListGroup.Item>
       </ListGroup>

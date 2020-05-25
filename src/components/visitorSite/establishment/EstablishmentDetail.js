@@ -45,10 +45,14 @@ function Establishment() {
   }
 
   return (
-    <Card>
+    <Card as="main" role="main">
       <Card.Title>{establishment.name}</Card.Title>
       <Card.Body>
-        <Card.Img src={establishment.image} alt={establishment.name} />
+        <Card.Img
+          src={establishment.image}
+          alt={establishment.name}
+          role="img"
+        />
 
         <div className="d-flex">
           <Badge variant="primary">MaxGuests: {establishment.maxGuests}</Badge>
@@ -68,7 +72,7 @@ function Establishment() {
 
         <div className="d-flex">
           <Link to={"../makeEnquiries/" + establishment.name + "/" + id}>
-            <Button> Book </Button>
+            <Button role="button"> Book </Button>
           </Link>
           <Card.Img src={Map} alt="map icon" />
         </div>

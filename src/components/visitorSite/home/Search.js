@@ -6,10 +6,11 @@ import FormControl from "react-bootstrap/FormControl";
 // search
 export default function Search({ handleSearch }) {
   return (
-    <InputGroup className="search">
+    <InputGroup className="search" role="searchbox">
       <FormControl
         placeholder="Search by name..."
         onChange={(event) => handleSearch(event)}
+        role="search"
       />
     </InputGroup>
   );

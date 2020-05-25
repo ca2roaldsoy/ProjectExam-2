@@ -9,7 +9,7 @@ function EnquiryAnswer({ accepted, rejected, created }) {
   if (accepted) {
     return (
       <Card>
-        <Card.Title>Accepted</Card.Title>
+        <Card.Title as="h3">Accepted</Card.Title>
         <Image
           src={Accept}
           alt="accept"
@@ -25,7 +25,7 @@ function EnquiryAnswer({ accepted, rejected, created }) {
   if (rejected) {
     return (
       <Card>
-        <Card.Title>Rejected</Card.Title>
+        <Card.Title as="h3">Rejected</Card.Title>
         <Image
           src={Reject}
           alt="reject"

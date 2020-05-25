@@ -43,7 +43,9 @@ function Messages() {
   return (
     <>
       <h1>Messages</h1>
-      <CardDeck>{noMsg()}</CardDeck>
+      <CardDeck as="article" role="article">
+        {noMsg()}
+      </CardDeck>
     </>
   );
 }

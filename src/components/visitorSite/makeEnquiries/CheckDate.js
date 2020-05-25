@@ -8,7 +8,7 @@ function CheckDate({ checkIn, checkOut }) {
   if (checkOut < checkIn) {
     return (
       <>
-        <Alert variant="danger">
+        <Alert variant="danger" role="alert">
           <Alert.Heading>Warning</Alert.Heading>
           <p>You are trying to check out before checking in.</p>
         </Alert>

@@ -12,7 +12,9 @@ function MessageRespond({ name, email }) {
 
   return (
     <>
-      <Button onClick={openModal}>Respond</Button>
+      <Button onClick={openModal} role="button">
+        Respond
+      </Button>
       <Modal size="lg" show={modal} onHide={closeModal}>
         <small>To: {name}</small>
         <small>Email: {email}</small>

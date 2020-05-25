@@ -48,10 +48,10 @@ function AllEstablishments({
   }
 
   return (
-    <Card>
+    <Card as="section">
       <Row>
         <Col sm={5}>
-          <Card.Img src={image} alt={name} />
+          <Card.Img src={image} alt={name} role="img" />
         </Col>
 
         <Col sm={5}>
@@ -75,7 +75,7 @@ function AllEstablishments({
 
         <Col sm={2}>
           {updatePrice()}
-          <Button>
+          <Button role="button">
             <Link to={"establishment/" + id}> View </Link>
           </Button>
         </Col>

@@ -12,7 +12,11 @@ function LogOut() {
     history.push("/");
   }
 
-  return <Button onClick={doLogOut}>Log Out</Button>;
+  return (
+    <Button onClick={doLogOut} role="button">
+      Log Out
+    </Button>
+  );
 }
 
 export default LogOut;
