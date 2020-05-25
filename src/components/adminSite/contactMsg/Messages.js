@@ -25,12 +25,19 @@ function Messages() {
       return <p>No messages</p>;
     }
     return contactMsg.map((contact) => {
-      const { name, email, message } = contact;
-      return <MessagesLayout name={name} email={email} message={message} />;
+      const { name, email, message, id } = contact;
+      return (
+        <MessagesLayout key={id} name={name} email={email} message={message} />
+      );
     });
   }
 
-  return <CardDeck>{noMsg}</CardDeck>;
+  return (
+    <>
+      <h1>Messages</h1>
+      <CardDeck>{noMsg()}</CardDeck>
+    </>
+  );
 }
 
 export default Messages;
