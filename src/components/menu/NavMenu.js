@@ -28,7 +28,7 @@ function NavMenu() {
   return (
     <Router>
       <Navbar role="navigation" expand="md">
-        <Navbar.Brand>
+        <Navbar.Brand as="h1">
           <NavLink to="/" exact role="link">
             Holidaze
           </NavLink>
