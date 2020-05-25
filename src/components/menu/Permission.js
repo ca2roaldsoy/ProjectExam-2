@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import StopSign from "../../images/stop.png";
 
+// if user has no permission to site,
+// display message and redirect user to home page
 function Permission() {
   const history = useHistory();
 

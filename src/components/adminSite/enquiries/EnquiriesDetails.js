@@ -12,6 +12,7 @@ function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
 
   return (
     <Col lg={4} as="section">
+      {/*get answer*/}
       {accepted || rejected ? (
         <EnquiryAnswer
           accepted={accepted}

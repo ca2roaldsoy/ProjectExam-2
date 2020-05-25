@@ -28,10 +28,12 @@ function Enquiries() {
     return <Loading />;
   }
 
+  // if no enquiries, display message...
   function noEnquiries() {
     if (enquiry.length === 0) {
       return <p>There is no enquiries yet</p>;
     }
+    // ...else
     return enquiry.map((enq, i) => {
       const {
         name,

@@ -6,6 +6,7 @@ import Reject from "../../../images/reject.png";
 import PropTypes from "prop-types";
 
 function EnquiryAnswer({ accepted, rejected, created }) {
+  // if enquiry is accepted
   if (accepted) {
     return (
       <Card>
@@ -22,6 +23,7 @@ function EnquiryAnswer({ accepted, rejected, created }) {
     );
   }
 
+  // if enquiry is rejected
   if (rejected) {
     return (
       <Card>

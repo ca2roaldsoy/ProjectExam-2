@@ -33,6 +33,7 @@ function EstablishmentForm() {
   function onSubmit(data) {
     console.log("data", data);
 
+    // Post new establishment to visitor site
     const url = BASE_URL + "establishments";
 
     const options = {
@@ -51,6 +52,7 @@ function EstablishmentForm() {
 
   return (
     <>
+      {/*if form is correct, display message after clicking submit*/}
       <Validated validated={validated} message={3} />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Row>
