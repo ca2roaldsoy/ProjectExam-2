@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
+import MessageRespond from "./MessageRespond";
 
 function MessagesLayout({ name, email, message }) {
   return (
@@ -11,7 +12,7 @@ function MessagesLayout({ name, email, message }) {
         <ListGroup.Item>E-mail: {email}</ListGroup.Item>
         <ListGroup.Item>Message: {message}</ListGroup.Item>
       </ListGroup>
-      <Button>Respond</Button>
+      <MessageRespond name={name} email={email} />
     </Card>
   );
 }
