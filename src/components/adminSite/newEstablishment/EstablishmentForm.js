@@ -5,7 +5,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
 import { BASE_URL, headers } from "../../../constants/api";
-import { v4 as uuidv4 } from "uuid";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 

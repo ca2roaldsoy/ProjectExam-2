@@ -3,10 +3,7 @@ import "./styles/style.scss";
 import "react-multi-carousel/lib/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
 import NavMenu from "./components/menu/NavMenu";
-import {
-  AdminContextProvider,
-  AdminContext,
-} from "./components/context/AdminContext";
+import { AdminContextProvider } from "./components/context/AdminContext";
 
 function App() {
   return (
