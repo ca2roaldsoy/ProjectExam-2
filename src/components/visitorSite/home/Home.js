@@ -92,7 +92,7 @@ function Home() {
           <div className="carousel__title--after"></div>
         </div>
         <Carousel responsive={Responsive} showDots={true}>
-          {establishments.slice(0, 5).map((popular) => {
+          {establishments.slice(3, 8).map((popular) => {
             const { name, image, id, price } = popular;
             return (
               <PopularPlaces
