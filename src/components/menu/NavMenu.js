@@ -27,24 +27,33 @@ function NavMenu() {
 
   return (
     <Router>
-      <Navbar role="navigation" expand="md">
-        <Navbar.Brand as="h1">
-          <NavLink to="/" exact role="link">
+      <Navbar role="navigation" expand="md" className="navbarTop">
+        <Navbar.Brand as="h1" className="navbarTop__title">
+          <NavLink to="/" exact role="link" className="navbarTop__title--text">
             Holidaze
           </NavLink>
         </Navbar.Brand>
 
         {/* hamburger menu */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+        <Navbar.Collapse id="basic-navbar-nav" className="navbarTop__title">
+          <Nav className="ml-auto navbarTop--link">
             {/*check if user exist in local storage*/}
             {!user ? (
               <>
-                <NavLink to="/" exact className="nav-link" role="link">
+                <NavLink
+                  to="/"
+                  exact
+                  className="navbarTop--link--item"
+                  role="link"
+                >
                   Home
                 </NavLink>
-                <NavLink to="/contact" className="nav-link" role="link">
+                <NavLink
+                  to="/contact"
+                  className="navbarTop--link--item"
+                  role="link"
+                >
                   Contact
                 </NavLink>
                 <Login />

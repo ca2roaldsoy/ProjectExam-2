@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import NavLink from "react-bootstrap/NavLink";
+import { NavLink } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
 // Navigation Menu
@@ -12,7 +12,9 @@ function Login() {
 
   return (
     <>
-      <NavLink onClick={openModal}>Admin</NavLink>
+      <NavLink onClick={openModal} to="#" className="navbarTop--link--item">
+        Admin
+      </NavLink>
       <Modal size="lg" show={modal} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>Log In</Modal.Title>
