@@ -12,7 +12,7 @@ function Login() {
 
   return (
     <>
-      <NavLink onClick={openModal} to="#" className="navbarTop--link--item">
+      <NavLink onClick={openModal} to="#" className="navbarTop__link--item">
         Admin
       </NavLink>
       <Modal size="lg" show={modal} onHide={closeModal}>

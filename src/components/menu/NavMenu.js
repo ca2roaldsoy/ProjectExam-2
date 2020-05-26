@@ -36,22 +36,22 @@ function NavMenu() {
 
         {/* hamburger menu */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="navbarTop__title">
-          <Nav className="ml-auto navbarTop--link">
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto navbarTop__link">
             {/*check if user exist in local storage*/}
             {!user ? (
               <>
                 <NavLink
                   to="/"
                   exact
-                  className="navbarTop--link--item"
+                  className="navbarTop__link--item"
                   role="link"
                 >
                   Home
                 </NavLink>
                 <NavLink
                   to="/contact"
-                  className="navbarTop--link--item"
+                  className="navbarTop__link--item"
                   role="link"
                 >
                   Contact
@@ -66,9 +66,9 @@ function NavMenu() {
       </Navbar>
 
       {/* Navigation showing correct component */}
-      <Container>
-        <Switch>
-          <Route path="/" exact component={Home} />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Container>
           <Route path="/contact" component={Contact} />
           <Route path="/makeEnquiries/:name/:id" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
@@ -77,8 +77,8 @@ function NavMenu() {
           <Protect path="/newEstablishment/" component={NewEstablishment} />
           <Protect path="/enquiries/" component={Enquiries} />
           <Protect path="/messages/" component={ContactMsg} />
-        </Switch>
-      </Container>
+        </Container>
+      </Switch>
     </Router>
   );
 }
