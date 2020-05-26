@@ -11,6 +11,7 @@ import Carousel from "react-multi-carousel";
 import BrowseAll from "./BrowseAll";
 import Loading from "../../spinner/Loading";
 import { Responsive } from "../../../constants/responsiveCarousel";
+import Container from "react-bootstrap/Container";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,24 +77,35 @@ function Home() {
 
   return (
     <>
-      <Image src={ImgTop} alt="man on hike looking over Bergen" fluid />
+      <Image
+        src={ImgTop}
+        alt="man on hike looking over Bergen"
+        className="homeImgTop"
+      />
+      <Container>
+        <Search handleSearch={findEstablishment} />
+        {results()}
 
-      <Search handleSearch={findEstablishment} />
-      {results()}
-
-      <h2>Popular Places</h2>
-      <Carousel responsive={Responsive} showDots={true}>
-        {establishments.slice(0, 5).map((popular) => {
-          const { name, image, id, price } = popular;
-          return (
-            <PopularPlaces key={id} place={name} image={image} price={price} />
-          );
-        })}
-      </Carousel>
+        <h2>Popular Places</h2>
+        <Carousel responsive={Responsive} showDots={true}>
+          {establishments.slice(0, 5).map((popular) => {
+            const { name, image, id, price } = popular;
+            return (
+              <PopularPlaces
+                key={id}
+                place={name}
+                image={image}
+                price={price}
+              />
+            );
+          })}
+        </Carousel>
+      </Container>
       <BrowseAll />
-
-      <h2>Explore Bergen</h2>
-      <ExploreBergen />
+      <Container>
+        <h2>Explore Bergen</h2>
+        <ExploreBergen />
+      </Container>
       <Footer />
     </>
   );
