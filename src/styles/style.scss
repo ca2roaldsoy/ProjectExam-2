@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Gloria";
+  src: url("../fonts/Gloria.ttf");
+}
+
+@import "./partials/variables";
+@import "./partials/blocktags";
+@import "./partials/navbar";
