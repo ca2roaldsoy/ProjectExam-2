@@ -86,7 +86,11 @@ function Home() {
         <Search handleSearch={findEstablishment} />
         {results()}
 
-        <h2>Popular Places</h2>
+        <div className="carousel">
+          <div className="carousel__title--before"></div>
+          <h2 className="carousel__title">Popular Places</h2>
+          <div className="carousel__title--after"></div>
+        </div>
         <Carousel responsive={Responsive} showDots={true}>
           {establishments.slice(0, 5).map((popular) => {
             const { name, image, id, price } = popular;
@@ -103,7 +107,11 @@ function Home() {
       </Container>
       <BrowseAll />
       <Container>
-        <h2>Explore Bergen</h2>
+        <div className="carousel">
+          <div className="carousel__title--before"></div>
+          <h2 className="carousel__title">Explore Bergen</h2>
+          <div className="carousel__title--after"></div>
+        </div>
         <ExploreBergen />
       </Container>
       <Footer />

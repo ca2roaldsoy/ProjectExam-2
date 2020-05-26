@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 function HomeCarousel({ image, text, place }) {
   return (
-    <Figure>
-      <Figure.Image src={image} alt={place} />
+    <Figure className="carousel__figure">
+      <Figure.Image src={image} alt={place} className="carousel__figure--img" />
       {place}
       <Figure.Caption>{text}</Figure.Caption>
     </Figure>
