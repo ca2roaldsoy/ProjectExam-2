@@ -40,12 +40,13 @@ function Enquiries() {
         checkIn,
         checkOut,
         createdAt,
+        id,
       } = enq;
       return (
         <EnquiryDetails
           name={name}
           email={email}
-          id={establishmentId}
+          id={id}
           key={i}
           checkIn={checkIn}
           checkOut={checkOut}

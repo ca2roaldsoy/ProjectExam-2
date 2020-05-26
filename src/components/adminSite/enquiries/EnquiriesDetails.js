@@ -4,16 +4,19 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import { useHistory } from "react-router-dom";
+import { BASE_URL, headers } from "../../../constants/api";
 
 function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
   const history = useHistory();
 
   const manageEnquiry = (e) => {
     if (e.target.textContent === "Accept") {
-      history.push("./manageEnquiries/" + id);
-    }
+      const url = BASE_URL + "enquiries/" + id;
+      const options = { headers, method: "DELETE" };
 
-    console.log(e.target.textContent);
+      fetch(url, options);
+      history.push("./enquiries");
+    }
   };
 
   return (
