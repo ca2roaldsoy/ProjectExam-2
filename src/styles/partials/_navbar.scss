@@ -1,0 +1,29 @@
+@import "variables";
+
+.navbarTop {
+  background-color: $darkYellow;
+  line-height: 1.2;
+  padding: 0 20px;
+
+  &__title {
+    font-size: 48px;
+    font-family: $Gloria;
+
+    &--text {
+      color: $black;
+    }
+  }
+
+  &__link {
+    align-items: center;
+
+    & > a {
+      padding: 8px;
+      color: $black;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
