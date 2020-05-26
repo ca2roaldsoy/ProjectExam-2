@@ -1,18 +1,47 @@
+// HomePage Top Image
 .homeImgTop {
   width: 100%;
 }
 
+// SearchBar
 .search {
   margin-top: 50px;
   margin-bottom: 20px;
+
+  & > input {
+    height: 75px;
+  }
 }
 
+// Browse all section
+.browseAll {
+  text-align: center;
+  margin: 50px auto;
+
+  &__overlay {
+    margin-top: 50px;
+
+    &--btn {
+      margin-top: 25px;
+      background-color: $darkBlue;
+      width: 300px;
+      height: 75px;
+
+      & > a {
+        color: $white;
+      }
+    }
+  }
+}
+
+// HomePage Carousels
 .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   margin: 25px auto;
+  margin-top: 50px;
 
   &__title {
     width: 60%;
