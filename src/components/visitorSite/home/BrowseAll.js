@@ -1,19 +1,25 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import Image from "react-bootstrap/Image";
 import ImgBlur from "../../../images/bergen/bergen_blur_v2.jpg";
+import Card from "react-bootstrap/Card";
 
 // browse all establishments
 function BrowseAll() {
   return (
-    <>
-      <h2>Not sure where to stay?</h2>
-      <Button role="button">
-        <Link to={"./establishment"}>Browse all accommodations</Link>
-      </Button>
-      <Image src={ImgBlur} alt="panorama view over Bergen" fluid />
-    </>
+    <Card className="browseAll">
+      <Card.Img src={ImgBlur} className="browseAll__img" />
+      <Card.ImgOverlay className="browseAll__overlay">
+        <Card.Title as="h2" className="browseAll__overlay--title">
+          Not sure where to stay?
+        </Card.Title>
+        <Link to={"./establishment"}>
+          <Button role="button" className="browseAll__overlay--btn">
+            Browse all accommodations
+          </Button>
+        </Link>
+      </Card.ImgOverlay>
+    </Card>
   );
 }
 
