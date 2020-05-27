@@ -3,13 +3,21 @@ import Button from "react-bootstrap/Button";
 import EnquiryAnswer from "./EnquiryAnswer";
 import PropTypes from "prop-types";
 
-function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
+function EnquiriesDetails({
+  name,
+  email,
+  id,
+  checkIn,
+  checkOut,
+  created,
+  estId,
+}) {
   const [accepted, setAccepted] = useState(false);
   const [rejected, setRejected] = useState(false);
 
   return (
     <tr>
-      <td>{id}</td>
+      <td>{estId}</td>
       <td>{name}</td>
       <td>{email}</td>
       <td>{checkIn.slice(0, 10)}</td>
@@ -45,6 +53,7 @@ EnquiriesDetails.propTypes = {
   checkIn: PropTypes.string.isRequired,
   checkOut: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
+  estId: PropTypes.string.isRequired,
 };
 
 export default EnquiriesDetails;

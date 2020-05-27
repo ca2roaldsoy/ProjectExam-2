@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { BASE_URL, headers } from "../../../constants/api";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
@@ -28,5 +29,11 @@ function DeleteEstDetail({ name, id, created }) {
     </Col>
   );
 }
+
+DeleteEstDetail.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  created: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default DeleteEstDetail;

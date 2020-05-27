@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
-import { BASE_URL, headers } from "../../../constants/api";
 
 // validate input field
 const schema = yup.object().shape({
   respondMsg: yup.string().required("Please enter a message"),
 });
 
-function MessageRespondForm({ closeModal, setViewed }) {
+function MessageRespondForm({ closeModal }) {
   const [validated, setValidated] = useState(false);
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
@@ -24,8 +24,6 @@ function MessageRespondForm({ closeModal, setViewed }) {
   }
 
   if (validated) {
-    setViewed(true);
-
     return (
       <>
         <Validated validated={validated} message={2} />
@@ -59,5 +57,9 @@ function MessageRespondForm({ closeModal, setViewed }) {
     </>
   );
 }
+
+MessageRespondForm.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};
 
 export default MessageRespondForm;

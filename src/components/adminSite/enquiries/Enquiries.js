@@ -36,7 +36,15 @@ function Enquiries() {
     }
     // ...else
     return enquiry.map((enq, i) => {
-      const { name, email, id, checkIn, checkOut, createdAt } = enq;
+      const {
+        name,
+        email,
+        id,
+        checkIn,
+        checkOut,
+        createdAt,
+        establishmentId,
+      } = enq;
       return (
         <EnquiryDetails
           name={name}
@@ -46,6 +54,7 @@ function Enquiries() {
           checkIn={checkIn}
           checkOut={checkOut}
           created={createdAt}
+          estId={establishmentId}
         />
       );
     });
@@ -57,7 +66,7 @@ function Enquiries() {
       <Button onClick={() => (window.location.href = "./enquiries")}>
         Remove resolved enquiries
       </Button>
-      <Table striped bordered hover responsive>
+      <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr>
             <th>ID</th>

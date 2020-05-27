@@ -51,7 +51,7 @@ function EnquiryAnswer({ accepted, rejected, id }) {
 EnquiryAnswer.propTypes = {
   accepted: PropTypes.bool.isRequired,
   rejected: PropTypes.bool.isRequired,
-  created: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default EnquiryAnswer;

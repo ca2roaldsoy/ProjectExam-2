@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MessageRespondForm from "./MessageRespondForm";
@@ -17,6 +18,7 @@ function ViewMessage({ id }) {
       .then((response) => response.json())
       .then((msg) => setViewMsg(msg))
       .catch((err) => console.log(err));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const closeModal = () => {
@@ -25,8 +27,10 @@ function ViewMessage({ id }) {
 
     fetch(url, options);
     setModal(false);
+    setViewed(true);
   };
   const openModal = () => setModal(true);
+  const setView = () => setViewed(true);
 
   return (
     <>
@@ -44,14 +48,14 @@ function ViewMessage({ id }) {
           <Modal.Title>Message</Modal.Title>
         </Modal.Header>
         <Modal.Body>{viewMsg.message}</Modal.Body>
-        <MessageRespondForm
-          closeModal={closeModal}
-          setViewed={setViewed}
-          id={id}
-        />
+        <MessageRespondForm closeModal={closeModal} id={id} />
       </Modal>
     </>
   );
 }
+
+ViewMessage.propTypes = {
+  id: PropTypes.string.isRequired,
+};
 
 export default ViewMessage;
