@@ -66,9 +66,9 @@ function NavMenu() {
       </Navbar>
 
       {/* Navigation showing correct component */}
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Container>
+      <Container fluid>
+        <Switch>
+          <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
           <Route path="/makeEnquiries/:name/:id" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
@@ -77,8 +77,8 @@ function NavMenu() {
           <Protect path="/newEstablishment/" component={NewEstablishment} />
           <Protect path="/enquiries/" component={Enquiries} />
           <Protect path="/messages/" component={ContactMsg} />
-        </Container>
-      </Switch>
+        </Switch>
+      </Container>
     </Router>
   );
 }
