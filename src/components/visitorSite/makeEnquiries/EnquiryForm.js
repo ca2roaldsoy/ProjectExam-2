@@ -26,7 +26,7 @@ function EnquiryForm({ id }) {
     validationSchema: schema,
   });
 
-  function onSubmit(data) {
+  function onSubmit(data, event) {
     console.log("data", data);
 
     const url = BASE_URL + "enquiries";
@@ -50,6 +50,7 @@ function EnquiryForm({ id }) {
       .then((json) => console.log(json))
       .catch((err) => console.log(err));
 
+    event.target.reset();
     setValidated(true);
   }
 
