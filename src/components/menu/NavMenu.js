@@ -23,6 +23,7 @@ import LogOut from "../adminSite/logout/LogOut";
 import { AdminContext } from "../context/AdminContext";
 import Protect from "./Protect";
 import DeleteEstablishment from "../adminSite/newEstablishment/DeleteEstablishment.js";
+import ViewMessage from "../adminSite/contactMsg/ViewMessage.js";
 
 function NavMenu() {
   const { user } = useContext(AdminContext);
@@ -90,6 +91,7 @@ function NavMenu() {
           />
           <Protect path="/enquiries/" component={Enquiries} />
           <Protect path="/messages/" component={ContactMsg} />
+          <Protect path="/show-messages/:id" component={ViewMessage} />
         </Switch>
       </Container>
     </Router>

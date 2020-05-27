@@ -4,26 +4,28 @@ import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
+import { BASE_URL, headers } from "../../../constants/api";
 
 // validate input field
 const schema = yup.object().shape({
   respondMsg: yup.string().required("Please enter a message"),
 });
 
-function MessageRespondForm({ closeModal }) {
+function MessageRespondForm({ closeModal, setViewed }) {
   const [validated, setValidated] = useState(false);
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
 
-  function onSubmit(data, event) {
+  function onSubmit(data) {
     console.log("data", data);
 
-    event.target.reset();
     setValidated(true);
   }
 
   if (validated) {
+    setViewed(true);
+
     return (
       <>
         <Validated validated={validated} message={2} />
@@ -38,7 +40,7 @@ function MessageRespondForm({ closeModal }) {
     <>
       <Form onSubmit={handleSubmit(onSubmit)} role="form">
         <Form.Group>
-          <Form.Label>Message</Form.Label>
+          <Form.Label>Respond</Form.Label>
           <Form.Control
             type="text"
             as="textarea"

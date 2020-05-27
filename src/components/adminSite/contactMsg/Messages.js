@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CardDeck from "react-bootstrap/CardDeck";
 import { BASE_URL, headers } from "../../../constants/api";
 import MessagesLayout from "./MessagesLayout";
 import Loading from "../../spinner/Loading";
+import Table from "react-bootstrap/Table";
 
 function Messages() {
   const [contactMsg, setContactMsg] = useState([]);
@@ -35,7 +35,13 @@ function Messages() {
     return contactMsg.map((contact) => {
       const { name, email, message, id } = contact;
       return (
-        <MessagesLayout key={id} name={name} email={email} message={message} />
+        <MessagesLayout
+          key={id}
+          name={name}
+          email={email}
+          message={message}
+          id={id}
+        />
       );
     });
   }
@@ -43,9 +49,15 @@ function Messages() {
   return (
     <>
       <h1>Messages</h1>
-      <CardDeck as="article" role="article">
+      <Table striped bordered hover responsive variant="dark">
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>E-mail</th>
+          </tr>
+        </thead>
         {noMsg()}
-      </CardDeck>
+      </Table>
     </>
   );
 }
