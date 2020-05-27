@@ -3,6 +3,7 @@ import { BASE_URL, headers } from "../../../constants/api";
 import EnquiryDetails from "./EnquiriesDetails";
 import Loading from "../../spinner/Loading";
 import CardDeck from "react-bootstrap/CardDeck";
+import Button from "react-bootstrap/Button";
 
 function Enquiries() {
   const [enquiry, setEnquiry] = useState([]);
@@ -35,19 +36,12 @@ function Enquiries() {
     }
     // ...else
     return enquiry.map((enq, i) => {
-      const {
-        name,
-        email,
-        establishmentId,
-        checkIn,
-        checkOut,
-        createdAt,
-      } = enq;
+      const { name, email, id, checkIn, checkOut, createdAt } = enq;
       return (
         <EnquiryDetails
           name={name}
           email={email}
-          id={establishmentId}
+          id={id}
           key={i}
           checkIn={checkIn}
           checkOut={checkOut}
@@ -60,6 +54,9 @@ function Enquiries() {
   return (
     <>
       <h1>Enquiries</h1>
+      <Button onClick={() => (window.location.href = "./enquiries")}>
+        Remove resolved enquiries
+      </Button>
       <CardDeck as="main" role="main">
         {noEnquiries()}
       </CardDeck>
