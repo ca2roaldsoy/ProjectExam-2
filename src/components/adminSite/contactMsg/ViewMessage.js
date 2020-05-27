@@ -30,7 +30,6 @@ function ViewMessage({ id }) {
     setViewed(true);
   };
   const openModal = () => setModal(true);
-  const setView = () => setViewed(true);
 
   return (
     <>
