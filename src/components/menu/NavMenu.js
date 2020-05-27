@@ -14,13 +14,15 @@ import MakeEnquiries from "../visitorSite/makeEnquiries/MakeEnquiries.js";
 import Establishment from "../visitorSite/establishment/Establishment.js";
 import EstablishmentDetails from "../visitorSite/establishment/EstablishmentDetail.js";
 import Admin from "../adminSite/admin/Admin.js";
-import NewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
+import ManageEstablishment from "../adminSite/newEstablishment/ManageEstablishment";
+import CreateNewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
 import Login from "../visitorSite/login/Login";
 import Enquiries from "../adminSite/enquiries/Enquiries";
 import ContactMsg from "../adminSite/contactMsg/Messages";
 import LogOut from "../adminSite/logout/LogOut";
 import { AdminContext } from "../context/AdminContext";
 import Protect from "./Protect";
+import DeleteEstablishment from "../adminSite/newEstablishment/DeleteEstablishment.js";
 
 function NavMenu() {
   const { user } = useContext(AdminContext);
@@ -74,8 +76,20 @@ function NavMenu() {
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
           <Protect path="/admin" component={Admin} />
-          <Protect path="/newEstablishment/" component={NewEstablishment} />
+          <Protect path="/newEstablishment/" component={ManageEstablishment} />
+          <Protect
+            path="/createNewEstablishment/"
+            component={CreateNewEstablishment}
+          />
+          <Protect
+            path="/deleteEstablishment/"
+            component={DeleteEstablishment}
+          />
           <Protect path="/enquiries/" component={Enquiries} />
+          <Protect
+            path="/deleteEstablishment/"
+            component={DeleteEstablishment}
+          />
           <Protect path="/messages/" component={ContactMsg} />
         </Switch>
       </Container>

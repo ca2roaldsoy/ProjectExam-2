@@ -19,7 +19,7 @@ function Admin() {
           <Button role="button">Messages</Button>
         </Link>
         <Link to="./newEstablishment">
-          <Button role="button">Create New Establishment</Button>
+          <Button role="button">Establishments</Button>
         </Link>
       </Col>
 
