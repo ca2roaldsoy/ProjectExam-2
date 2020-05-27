@@ -30,7 +30,11 @@ function Messages() {
 
   function noMsg() {
     if (contactMsg.length === 0) {
-      return <p>No messages</p>;
+      return (
+        <tr>
+          <td>No messages</td>
+        </tr>
+      );
     }
     return contactMsg.map((contact) => {
       const { name, email, message, id } = contact;

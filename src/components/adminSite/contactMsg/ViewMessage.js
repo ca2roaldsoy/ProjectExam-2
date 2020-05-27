@@ -9,6 +9,7 @@ function ViewMessage({ id }) {
   const [modal, setModal] = useState(false);
   const [viewMsg, setViewMsg] = useState([]);
   const [viewed, setViewed] = useState(false);
+  const [validated, setValidated] = useState(false);
 
   const url = BASE_URL + "contacts/" + id;
   const options = { headers };
@@ -27,13 +28,12 @@ function ViewMessage({ id }) {
 
     fetch(url, options);
     setModal(false);
-    setViewed(true);
   };
   const openModal = () => setModal(true);
 
   return (
     <>
-      {!viewed ? (
+      {!validated ? (
         <Button onClick={openModal} role="button">
           View Message
         </Button>
@@ -47,7 +47,12 @@ function ViewMessage({ id }) {
           <Modal.Title>Message</Modal.Title>
         </Modal.Header>
         <Modal.Body>{viewMsg.message}</Modal.Body>
-        <MessageRespondForm closeModal={closeModal} id={id} />
+        <MessageRespondForm
+          closeModal={closeModal}
+          validated={validated}
+          setValidated={setValidated}
+          id={id}
+        />
       </Modal>
     </>
   );
