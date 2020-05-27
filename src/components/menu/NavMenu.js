@@ -61,7 +61,10 @@ function NavMenu() {
                 <Login />
               </>
             ) : (
-              <LogOut />
+              <>
+                <NavLink to="/admin">Admin</NavLink>
+                <LogOut />
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
