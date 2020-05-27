@@ -71,7 +71,7 @@ function Establishment() {
         {newPrice()}
 
         <div className="d-flex">
-          <Link to={"../makeEnquiries/" + establishment.name + "/" + id}>
+          <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
             <Button role="button"> Book </Button>
           </Link>
           <Card.Img src={Map} alt="map icon" />

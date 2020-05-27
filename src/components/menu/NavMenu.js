@@ -72,24 +72,22 @@ function NavMenu() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
-          <Route path="/makeEnquiries/:name/:id" component={MakeEnquiries} />
+          <Route path="/make-enquiries/:name/:id" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
           <Protect path="/admin" component={Admin} />
-          <Protect path="/newEstablishment/" component={ManageEstablishment} />
+          <Protect path="/establishments/" component={ManageEstablishment} />
           <Protect
-            path="/createNewEstablishment/"
+            path="/create-establishments/"
+            exact
             component={CreateNewEstablishment}
           />
           <Protect
-            path="/deleteEstablishment/"
+            path="/delete-establishments/"
+            exact
             component={DeleteEstablishment}
           />
           <Protect path="/enquiries/" component={Enquiries} />
-          <Protect
-            path="/deleteEstablishment/"
-            component={DeleteEstablishment}
-          />
           <Protect path="/messages/" component={ContactMsg} />
         </Switch>
       </Container>

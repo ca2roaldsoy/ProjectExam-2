@@ -18,7 +18,7 @@ function Admin() {
         <Link to="./messages">
           <Button role="button">Messages</Button>
         </Link>
-        <Link to="./newEstablishment">
+        <Link to="./establishments">
           <Button role="button">Establishments</Button>
         </Link>
       </Col>

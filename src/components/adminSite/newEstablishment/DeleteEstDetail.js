@@ -15,7 +15,7 @@ function DeleteEstDetail({ name, id, created }) {
     const options = { headers, method: "DELETE" };
 
     fetch(url, options).then(setDeleteEst(false));
-    history.push("./deleteEstablishment");
+    history.push("./delete-establishment/");
   }
 
   return (

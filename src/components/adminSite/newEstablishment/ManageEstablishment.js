@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 function ManageEstablishment() {
   return (
     <>
-      <NavLink to="./createNewEstablishment">
+      <NavLink to="./create-establishments/">
         <Button>Create New Establishment</Button>
       </NavLink>
-      <NavLink to="./deleteEstablishment">
+      <NavLink to="./delete-establishments/">
         <Button>Delete Establishment</Button>
       </NavLink>
     </>
