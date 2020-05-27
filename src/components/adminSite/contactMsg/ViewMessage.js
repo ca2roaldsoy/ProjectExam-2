@@ -8,7 +8,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 function ViewMessage({ id }) {
   const [modal, setModal] = useState(false);
   const [viewMsg, setViewMsg] = useState([]);
-  const [viewed, setViewed] = useState(false);
   const [validated, setValidated] = useState(false);
 
   const url = BASE_URL + "contacts/" + id;
