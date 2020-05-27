@@ -7,6 +7,7 @@ import Validated from "../../formValidation/Validated";
 import { BASE_URL, headers } from "../../../constants/api";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import InputGroup from "react-bootstrap/InputGroup";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -78,8 +79,13 @@ function EstablishmentForm() {
           <Col lg={6}>
             <Form.Group>
               <Form.Label htmlFor="price">Establishment Price</Form.Label>
-              <Form.Control type="number" name="price" ref={register} />
-              {errors.price && <Form.Text>{errors.price.message}</Form.Text>}
+              <InputGroup>
+                <InputGroup.Prepend>
+                  <InputGroup.Text>$</InputGroup.Text>
+                </InputGroup.Prepend>
+                <Form.Control type="number" name="price" ref={register} />
+                {errors.price && <Form.Text>{errors.price.message}</Form.Text>}
+              </InputGroup>
             </Form.Group>
           </Col>
           <Col lg={6}>
