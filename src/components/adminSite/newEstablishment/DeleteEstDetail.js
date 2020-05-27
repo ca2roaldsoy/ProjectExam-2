@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import { BASE_URL, headers } from "../../../constants/api";
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
 
 function DeleteEstDetail({ name, id, created }) {
   const [deleteEst, setDeleteEst] = useState(true);
@@ -20,20 +18,21 @@ function DeleteEstDetail({ name, id, created }) {
   }
 
   return (
-    <Col sm={4} lg={3} as="section">
-      <Card style={deleteEst ? { display: "flex" } : { display: "none" }}>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{created.slice(0, 10)}</Card.Text>
+    <tr style={deleteEst ? { display: "table-row" } : { display: "none" }}>
+      <td>{id}</td>
+      <td>{name}</td>
+      <td>{created.slice(0, 10)}</td>
+      <td>
         <Button onClick={deleteEstablishment}>Delete establishment</Button>
-      </Card>
-    </Col>
+      </td>
+    </tr>
   );
 }
 
 DeleteEstDetail.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  created: PropTypes.instanceOf(Date).isRequired,
+  created: PropTypes.string.isRequired,
 };
 
 export default DeleteEstDetail;

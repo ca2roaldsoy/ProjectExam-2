@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL, headers } from "../../../constants/api";
 import DeleteEstDetail from "./DeleteEstDetail";
 import Loading from "../../spinner/Loading";
-import CardDeck from "react-bootstrap/CardDeck";
+import Table from "react-bootstrap/Table";
 
 function DeleteEstablishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -38,9 +38,17 @@ function DeleteEstablishment() {
   }
 
   return (
-    <CardDeck as="article" role="article">
-      {deleteEstablishmentDetail()}
-    </CardDeck>
+    <Table striped bordered hover responsive variant="dark">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Created</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>{deleteEstablishmentDetail()}</tbody>
+    </Table>
   );
 }
 export default DeleteEstablishment;
