@@ -1,12 +1,11 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import Accept from "../../../images/accept.png";
 import Reject from "../../../images/reject.png";
 import PropTypes from "prop-types";
 import { BASE_URL, headers } from "../../../constants/api";
 
-function EnquiryAnswer({ accepted, rejected, created, id }) {
+function EnquiryAnswer({ accepted, rejected, id }) {
   function deleteEstablishment() {
     const url = BASE_URL + "enquiries/" + id;
     const options = { headers, method: "DELETE" };
@@ -19,16 +18,14 @@ function EnquiryAnswer({ accepted, rejected, created, id }) {
     return (
       <>
         {deleteEstablishment()}
-        <>
-          Accepted
-          <Image
-            src={Accept}
-            alt="accept"
-            fluid
-            className="img-responsive"
-            role="img"
-          />
-        </>
+        Accepted
+        <Image
+          src={Accept}
+          alt="accept"
+          fluid
+          className="img-responsive"
+          role="img"
+        />
       </>
     );
   }
@@ -38,17 +35,14 @@ function EnquiryAnswer({ accepted, rejected, created, id }) {
     return (
       <>
         {deleteEstablishment()}
-        <Card>
-          <Card.Title as="h3">Rejected</Card.Title>
-          <Image
-            src={Reject}
-            alt="reject"
-            fluid
-            className="img-responsive"
-            role="img"
-          />
-          <Card.Footer>{created.slice(0, 10)}</Card.Footer>
-        </Card>
+        Rejected
+        <Image
+          src={Reject}
+          alt="reject"
+          fluid
+          className="img-responsive"
+          role="img"
+        />
       </>
     );
   }

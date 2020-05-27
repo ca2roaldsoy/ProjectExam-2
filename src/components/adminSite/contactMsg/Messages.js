@@ -56,7 +56,7 @@ function Messages() {
             <th>E-mail</th>
           </tr>
         </thead>
-        {noMsg()}
+        <tbody>{noMsg()}</tbody>
       </Table>
     </>
   );

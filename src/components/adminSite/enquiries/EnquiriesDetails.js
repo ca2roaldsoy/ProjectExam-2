@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import EnquiryAnswer from "./EnquiryAnswer";
 import PropTypes from "prop-types";
 
@@ -12,6 +9,7 @@ function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
 
   return (
     <tr>
+      <td>{id}</td>
       <td>{name}</td>
       <td>{email}</td>
       <td>{checkIn.slice(0, 10)}</td>

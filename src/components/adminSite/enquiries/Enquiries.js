@@ -57,14 +57,16 @@ function Enquiries() {
       <Button onClick={() => (window.location.href = "./enquiries")}>
         Remove resolved enquiries
       </Button>
-      <Table striped bordered>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Check in</th>
             <th>Check Out</th>
             <th>Created</th>
+            <th>Resolve</th>
           </tr>
         </thead>
         <tbody>{noEnquiries()}</tbody>
