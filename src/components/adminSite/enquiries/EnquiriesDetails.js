@@ -18,6 +18,7 @@ function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
           accepted={accepted}
           rejected={rejected}
           created={created}
+          id={id}
         />
       ) : (
         <>
