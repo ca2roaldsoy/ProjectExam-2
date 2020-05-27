@@ -19,7 +19,7 @@ function DeleteEstDetail({ name, id, created }) {
   }
 
   return (
-    <Col sm={3} as="section">
+    <Col sm={4} lg={3} as="section">
       <Card style={deleteEst ? { display: "flex" } : { display: "none" }}>
         <Card.Title>{name}</Card.Title>
         <Card.Text>{created.slice(0, 10)}</Card.Text>

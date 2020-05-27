@@ -3,7 +3,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 import DeleteEstDetail from "./DeleteEstDetail";
 import Loading from "../../spinner/Loading";
 import CardDeck from "react-bootstrap/CardDeck";
-import Row from "react-bootstrap/Row";
 
 function DeleteEstablishment() {
   const [establishment, setEstablishment] = useState([]);
