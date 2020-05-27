@@ -82,12 +82,10 @@ function NavMenu() {
           <Protect path="/establishments/" component={ManageEstablishment} />
           <Protect
             path="/create-establishments/"
-            exact
             component={CreateNewEstablishment}
           />
           <Protect
             path="/delete-establishments/"
-            exact
             component={DeleteEstablishment}
           />
           <Protect path="/enquiries/" component={Enquiries} />
