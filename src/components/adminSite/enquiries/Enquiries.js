@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL, headers } from "../../../constants/api";
 import EnquiryDetails from "./EnquiriesDetails";
 import Loading from "../../spinner/Loading";
-import CardDeck from "react-bootstrap/CardDeck";
+import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
 function Enquiries() {
@@ -57,9 +57,18 @@ function Enquiries() {
       <Button onClick={() => (window.location.href = "./enquiries")}>
         Remove resolved enquiries
       </Button>
-      <CardDeck as="main" role="main">
-        {noEnquiries()}
-      </CardDeck>
+      <Table striped bordered>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Check in</th>
+            <th>Check Out</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>{noEnquiries()}</tbody>
+      </Table>
     </>
   );
 }

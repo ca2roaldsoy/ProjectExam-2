@@ -11,42 +11,32 @@ function EnquiriesDetails({ name, email, id, checkIn, checkOut, created }) {
   const [rejected, setRejected] = useState(false);
 
   return (
-    <Col lg={4} as="section">
-      {/*get answer*/}
-      {accepted || rejected ? (
-        <EnquiryAnswer
-          accepted={accepted}
-          rejected={rejected}
-          created={created}
-          id={id}
-        />
-      ) : (
-        <>
-          <Card>
-            <Card.Title as="h5">{name}</Card.Title>
-            <Card.Body>
-              <ListGroup variant="flush" as="ul">
-                <ListGroup.Item as="li">E-mail: {email}</ListGroup.Item>
-                <ListGroup.Item as="li">
-                  Check In: {checkIn.slice(0, 10)}
-                </ListGroup.Item>
-                <ListGroup.Item as="li">
-                  Check Out: {checkOut.slice(0, 10)}
-                </ListGroup.Item>
-                <ListGroup.Item as="li">{id}</ListGroup.Item>
-              </ListGroup>
-            </Card.Body>
-            <Card.Footer>{created.slice(0, 10)}</Card.Footer>
+    <tr>
+      <td>{name}</td>
+      <td>{email}</td>
+      <td>{checkIn.slice(0, 10)}</td>
+      <td>{checkOut.slice(0, 10)}</td>
+      <td>{created.slice(0, 10)}</td>
+      <td>
+        {accepted || rejected ? (
+          <EnquiryAnswer
+            accepted={accepted}
+            rejected={rejected}
+            created={created}
+            id={id}
+          />
+        ) : (
+          <>
             <Button onClick={() => setAccepted(true)} role="button">
               Accept
             </Button>
             <Button onClick={() => setRejected(true)} role="button">
               Reject
             </Button>
-          </Card>
-        </>
-      )}
-    </Col>
+          </>
+        )}
+      </td>
+    </tr>
   );
 }
 

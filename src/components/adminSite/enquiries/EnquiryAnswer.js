@@ -19,8 +19,8 @@ function EnquiryAnswer({ accepted, rejected, created, id }) {
     return (
       <>
         {deleteEstablishment()}
-        <Card>
-          <Card.Title as="h3">Accepted</Card.Title>
+        <>
+          Accepted
           <Image
             src={Accept}
             alt="accept"
@@ -28,8 +28,7 @@ function EnquiryAnswer({ accepted, rejected, created, id }) {
             className="img-responsive"
             role="img"
           />
-          <Card.Footer>{created.slice(0, 10)}</Card.Footer>
-        </Card>
+        </>
       </>
     );
   }
