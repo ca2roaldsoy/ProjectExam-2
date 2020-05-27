@@ -7,6 +7,10 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import PropTypes from "prop-types";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import InfoIcon from "../../../images/icons/information.png";
+import Image from "react-bootstrap/Image";
 
 function AllEstablishments({
   id,
@@ -65,8 +69,27 @@ function AllEstablishments({
                   backgroundColor: selfCatering ? "green" : "red",
                 }}
               >
-                selfCatering: {selfCatering ? "Yes" : "No"}
+                Self Catering: {selfCatering ? "Yes" : "No"}
               </Badge>
+              <OverlayTrigger
+                placement="right"
+                overlay={
+                  <Tooltip>
+                    <h5>Self Catering:</h5>
+                    <p>
+                      Guests have facilities for making their own meals and
+                      cooking.
+                    </p>
+                  </Tooltip>
+                }
+              >
+                <Image
+                  src={InfoIcon}
+                  alt="information icon"
+                  fluid
+                  className="img-responsive"
+                />
+              </OverlayTrigger>
             </div>
 
             <Card.Img src={Map} alt="map icon" />
