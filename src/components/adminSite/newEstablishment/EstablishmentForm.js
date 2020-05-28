@@ -83,7 +83,12 @@ function EstablishmentForm() {
                 <InputGroup.Prepend>
                   <InputGroup.Text>$</InputGroup.Text>
                 </InputGroup.Prepend>
-                <Form.Control type="number" name="price" ref={register} />
+                <Form.Control
+                  type="number"
+                  name="price"
+                  step=".01"
+                  ref={register}
+                />
                 {errors.price && <Form.Text>{errors.price.message}</Form.Text>}
               </InputGroup>
             </Form.Group>
@@ -100,13 +105,23 @@ function EstablishmentForm() {
           <Col lg={6}>
             <Form.Group>
               <Form.Label htmlFor="latitude">Latitude</Form.Label>
-              <Form.Control type="number" name="lat" ref={register} />
+              <Form.Control
+                type="number"
+                name="lat"
+                step="any"
+                ref={register}
+              />
             </Form.Group>
           </Col>
           <Col lg={6}>
             <Form.Group>
               <Form.Label htmlFor="longitude">Longitude</Form.Label>
-              <Form.Control type="number" name="lng" ref={register} />
+              <Form.Control
+                type="number"
+                name="lng"
+                step="any"
+                ref={register}
+              />
             </Form.Group>
           </Col>
           <Col lg={12}>
