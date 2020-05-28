@@ -4,6 +4,7 @@
   background-color: $darkYellow;
   line-height: 1.2;
   padding: 0 20px;
+  width: 100%;
 
   &__title {
     font-size: 48px;
@@ -15,15 +16,20 @@
   }
 
   &__link {
-    align-items: center;
-
     & > a {
       margin: 10px;
       color: $black;
+      align-items: center;
 
       &:hover {
         color: $white;
       }
     }
   }
+}
+
+.logOut__btn {
+  margin: 2px 0 10px 0px;
+  max-width: 100px;
+  font-size: 14px;
 }

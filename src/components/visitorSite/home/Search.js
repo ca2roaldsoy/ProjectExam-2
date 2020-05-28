@@ -16,7 +16,12 @@ export default function Search({ handleSearch }) {
       />
       <InputGroup.Append>
         <InputGroup.Text>
-          <Image src={SearchIcon} alt="search icon" fluid />
+          <Image
+            src={SearchIcon}
+            alt="search icon"
+            fluid
+            className="search__icon"
+          />
         </InputGroup.Text>
       </InputGroup.Append>
     </InputGroup>

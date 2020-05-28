@@ -1,0 +1,22 @@
+@media only screen and (min-width: 769px) {
+  .homeImgTop {
+    display: block;
+    width: 100%;
+  }
+
+  .browseAll__overlay {
+    margin-top: 15px;
+
+    &--title {
+      font-size: 24px;
+    }
+
+    &--btn {
+      max-width: 100%;
+    }
+  }
+
+  .footer__title {
+    padding-left: 25px;
+  }
+}

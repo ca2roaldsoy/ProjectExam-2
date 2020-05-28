@@ -1,6 +1,15 @@
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
 // HomePage Top Image
 .homeImgTop {
-  width: 100%;
+  display: none;
 }
 
 // SearchBar
@@ -9,7 +18,11 @@
   margin-bottom: 20px;
 
   & > input {
-    height: 75px;
+    height: 50px;
+  }
+
+  &__icon {
+    height: 30px;
   }
 }
 
@@ -19,17 +32,18 @@
   margin: 50px auto;
 
   &__overlay {
-    margin-top: 50px;
-
     &--btn {
-      margin-top: 25px;
       background-color: $darkBlue;
-      width: 300px;
-      height: 75px;
+      max-width: 90%;
+      height: auto;
 
       & > a {
         color: $white;
       }
+    }
+
+    &--title {
+      font-size: 18px;
     }
   }
 }
@@ -38,7 +52,6 @@
 .carousel {
   display: flex;
   align-items: center;
-  justify-content: center;
   text-align: center;
   margin: 25px auto;
   margin-top: 50px;
@@ -60,7 +73,23 @@
 
     &--img {
       width: 100%;
-      height: 230px;
+      height: auto;
     }
+  }
+}
+
+// Footer
+.footer {
+  background-color: #c8c8c8;
+  text-align: center;
+  margin-top: 25px;
+  padding: 25px 0;
+  width: 100%;
+  align-items: center;
+
+  &__social img {
+    width: 50px;
+    height: auto;
+    margin: 10px;
   }
 }

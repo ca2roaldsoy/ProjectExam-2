@@ -13,7 +13,7 @@ function LogOut() {
   }
 
   return (
-    <Button onClick={doLogOut} role="button">
+    <Button onClick={doLogOut} role="button" className="logOut__btn">
       Log Out
     </Button>
   );

@@ -8,18 +8,18 @@ import FooterContact from "./FooterContact";
 
 function Footer() {
   return (
-    <Row as="footer" role="contentinfo">
-      <Col lg={3} as="section">
+    <Row as="footer" role="contentinfo" className="footer">
+      <Col sm={12} md={3} lg={3} as="section" className="footer__title">
         <h1>Holidaze</h1>
       </Col>
-      <Col lg={3} as="section">
+      <Col sm={12} md={3} lg={3} as="section" className="footer__contact">
         <FooterContact />
       </Col>
-      <Col lg={3} as="section">
+      <Col sm={12} md={3} lg={3} as="section" className="footer__social">
         <Image src={FacebookIcon} alt="facebook" fluid role="link" />
         <Image src={TwitterIcon} alt="twitter" fluid role="link" />
       </Col>
-      <Col lg={3} as="section">
+      <Col sm={12} md={3} lg={3} as="section" className="footer__copy">
         <p>Copyright &copy;</p>
         <p>2020 Holidaze</p>
       </Col>

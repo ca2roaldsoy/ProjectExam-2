@@ -12,6 +12,7 @@ import BrowseAll from "./BrowseAll";
 import Loading from "../../spinner/Loading";
 import { Responsive } from "../../../constants/responsiveCarousel";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,7 @@ function Home() {
   }
 
   return (
-    <>
+    <Row className="home">
       <Image
         src={ImgTop}
         alt="man on hike looking over Bergen"
@@ -92,7 +93,7 @@ function Home() {
           <div className="carousel__title--after"></div>
         </div>
         <Carousel responsive={Responsive} showDots={true}>
-          {establishments.slice(3, 8).map((popular) => {
+          {establishments.slice(5, 9).map((popular) => {
             const { name, image, id, price } = popular;
             return (
               <PopularPlaces
@@ -115,7 +116,7 @@ function Home() {
         <ExploreBergen />
       </Container>
       <Footer />
-    </>
+    </Row>
   );
 }
 
