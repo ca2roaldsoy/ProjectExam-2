@@ -25,7 +25,7 @@ function ContactForm() {
     validationSchema: schema,
   });
 
-  function onSubmit(data) {
+  function onSubmit(data, event) {
     console.log("data", data);
 
     const contactData = {
@@ -46,6 +46,7 @@ function ContactForm() {
       .then((j) => console.log(j))
       .catch((err) => console.log(err));
 
+    event.target.reset();
     setValidated(true);
   }
 
