@@ -13,6 +13,7 @@ import Loading from "../../spinner/Loading";
 import { Responsive } from "../../../constants/responsiveCarousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import DropDown from "react-bootstrap/Dropdown";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,15 +65,19 @@ function Home() {
 
     // open dropdown search result
     if (isOpen) {
-      return searchEstablishments.map((establishment) => {
-        return (
-          <DropDownResult
-            key={establishment.id}
-            name={establishment.name}
-            idx={establishment.id}
-          />
-        );
-      });
+      return (
+        <DropDown>
+          {searchEstablishments.map((establishment) => {
+            return (
+              <DropDownResult
+                key={establishment.id}
+                name={establishment.name}
+                idx={establishment.id}
+              />
+            );
+          })}
+        </DropDown>
+      );
     }
   }
 
