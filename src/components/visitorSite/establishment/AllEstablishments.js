@@ -76,7 +76,7 @@ function AllEstablishments({
 
             <div className="establishment__badges">
               <Badge className="establishment__badges--maxGuests">
-                MaxGuests: {maxGuests}
+                Max Guests: {maxGuests}
               </Badge>
               <Badge
                 style={{
