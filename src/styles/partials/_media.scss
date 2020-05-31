@@ -3,17 +3,17 @@
     text-align: left;
 
     &__badges {
-      display: block;
-
-      &--selfCatering {
-        margin: 0;
-        margin-top: 10px;
-      }
+      justify-content: start;
     }
 
     &__price {
       text-align: center;
       padding-top: 1.6rem;
+      margin-bottom: 0;
+
+      &--org {
+        margin-bottom: 12px;
+      }
     }
 
     &__btn {
@@ -42,5 +42,25 @@
 
   .footer__title {
     padding-left: 25px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .card-body {
+    padding: 10px;
+  }
+
+  .establishment {
+    &__deal {
+      margin-top: 25px;
+    }
+
+    &__price {
+      padding-top: 15px;
+    }
+
+    &__mapIcon {
+      margin-top: 25px;
+    }
   }
 }
