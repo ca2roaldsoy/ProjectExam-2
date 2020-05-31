@@ -41,7 +41,7 @@ function AllEstablishments({
       );
     }
     return (
-      <Card.Text>
+      <Card.Text className="establishment__price--org">
         <strong>$ {price}</strong>
       </Card.Text>
     );
@@ -68,7 +68,7 @@ function AllEstablishments({
           <Card.Img src={image} alt={name} role="img" />
         </Col>
 
-        <Col sm={6} lg={5}>
+        <Col sm={8} md={6} lg={5}>
           <Card.Body>
             <Card.Title className="establishment__title" as="h3">
               {name}
@@ -117,7 +117,7 @@ function AllEstablishments({
           </Card.Body>
         </Col>
 
-        <Col sm={6} lg={2} as="section" className="establishment__price">
+        <Col sm={4} md={6} lg={2} as="section" className="establishment__price">
           {updatePrice()}
           <Button role="button" className="establishment__btn">
             <Link
