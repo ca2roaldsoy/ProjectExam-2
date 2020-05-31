@@ -92,8 +92,8 @@ function AllEstablishments({
                   <Tooltip>
                     <h6>Self Catering:</h6>
                     <p>
-                      Guests have facilities for making their own meals and
-                      cooking.
+                      Whether or not guests have facilities for making their own
+                      meals and cooking.
                     </p>
                   </Tooltip>
                 }
