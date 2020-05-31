@@ -7,6 +7,9 @@ import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
 import Loading from "../../spinner/Loading";
 import { Link } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -38,46 +41,90 @@ function Establishment() {
     if (establishment.price < 100) {
       return (
         <>
-          <Card.Text>$ {newPrice}</Card.Text>
+          <Card.Text className="establishmentDetail__price--new">
+            $ {newPrice}
+          </Card.Text>
         </>
       );
     }
   }
 
   return (
-    <Card as="main" role="main">
-      <Card.Title>{establishment.name}</Card.Title>
-      <Card.Body>
-        <Card.Img
-          src={establishment.image}
-          alt={establishment.name}
-          role="img"
-        />
+    <Container className="establishmentDetailContainer">
+      <Card as="main" role="main" className="establishmentDetail">
+        <Col sm={12}>
+          <Card.Title as="h2" className="establishmentDetail__title">
+            {establishment.name}
+          </Card.Title>
+        </Col>
+        <Card.Body className="establishmentDetail__body">
+          <Col sm={12}>
+            <Card.Img
+              src={establishment.image}
+              alt={establishment.name}
+              role="img"
+              className="establishmentDetail__img"
+            />
+          </Col>
 
-        <div className="d-flex">
-          <Badge variant="primary">MaxGuests: {establishment.maxGuests}</Badge>
-          <Badge
-            style={{
-              backgroundColor: establishment.selfCatering ? "green" : "red",
-            }}
-          >
-            selfCatering: {establishment.selfCatering ? "Yes" : "No"}
-          </Badge>
-          <Card.Text>{establishment.email}</Card.Text>
-        </div>
+          <Col sm={12} className="establishmentDetail__badges">
+            <Col sm={6} md={4}>
+              <Badge
+                variant="primary"
+                className="establishmentDetail__badges--maxGuests"
+              >
+                Max Guests: {establishment.maxGuests}
+              </Badge>
+            </Col>
 
-        <Card.Text>{establishment.description}</Card.Text>
-        <Card.Text>$ {establishment.price}</Card.Text>
-        {newPrice()}
+            <Col sm={6} md={4}>
+              <Badge
+                style={{
+                  backgroundColor: establishment.selfCatering
+                    ? "#5EBB47"
+                    : "#FF333A",
+                }}
+                className="establishmentDetail__badges--selfCatering"
+              >
+                Self Catering: {establishment.selfCatering ? "Yes" : "No"}
+              </Badge>
+            </Col>
 
-        <div className="d-flex">
-          <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
-            <Button role="button"> Book </Button>
-          </Link>
-          <Card.Img src={Map} alt="map icon" />
-        </div>
-      </Card.Body>
-    </Card>
+            <Col sm={12} md={4}>
+              <Card.Text className="establishmentDetail__email">
+                {establishment.email}
+              </Card.Text>
+            </Col>
+          </Col>
+
+          <Col sm={12}>
+            <Card.Text className="establishmentDetail__desc">
+              {establishment.description}
+            </Card.Text>
+          </Col>
+
+          <Col sm={12}>
+            <Card.Text className="establishmentDetail__price">
+              $ {establishment.price}
+            </Card.Text>
+            {newPrice()}
+
+            <div className="d-flex">
+              <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
+                <Button role="button" className="establishmentDetail__btn">
+                  Book
+                </Button>
+              </Link>
+              <Card.Img
+                src={Map}
+                alt="map icon"
+                className="establishmentDetail__mapIcon"
+              />
+            </div>
+          </Col>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 }
 

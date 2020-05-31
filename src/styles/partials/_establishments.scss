@@ -73,3 +73,43 @@
     margin-top: 40px;
   }
 }
+
+.establishmentDetailContainer,
+.establishmentDetail__body {
+  padding: 0;
+}
+
+.establishmentDetail {
+  border: none;
+
+  &__title {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__badges {
+    padding: 0;
+    font-size: 18px;
+
+    &--maxGuests {
+      background-color: $blue;
+      color: $white;
+
+      padding: 5px;
+    }
+
+    &--selfCatering {
+      padding: 5px;
+    }
+  }
+
+  &__mapIcon {
+    width: 35px;
+    height: auto;
+    margin-top: 30px;
+  }
+}
