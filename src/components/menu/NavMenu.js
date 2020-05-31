@@ -30,7 +30,7 @@ function NavMenu() {
 
   return (
     <Router>
-      <Navbar role="navigation" expand="md" className="navbarTop">
+      <Navbar role="navigation" expand="sm" className="navbarTop">
         <Navbar.Brand as="h1" className="navbarTop__title">
           <NavLink to="/" exact role="link" className="navbarTop__title--text">
             Holidaze
