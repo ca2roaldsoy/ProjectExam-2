@@ -20,62 +20,77 @@ function AllEstablishments({
   selfCatering,
   price,
 }) {
+  let newPrice = Math.ceil((price * 70) / 100 - 5);
+  let roomsLeft = Math.floor(maxGuests * 2);
+  let decrease = price - newPrice;
+  let discount = Math.ceil((decrease / price) * 100);
+
   // Discounts
   function updatePrice() {
-    let newPrice = Math.ceil((price * 70) / 100);
-    let roomsLeft = Math.floor(maxGuests * 2);
-
     if (price < 100) {
       return (
         <>
-          <Card.Text>$ {price}</Card.Text>
-          <Card.Text>$ {newPrice}</Card.Text>
-          {deal()}
+          <Card.Text className="establishment__price--discount">
+            Save: {discount}&#37;
+          </Card.Text>
+          <Card.Text className="establishment__price--old">$ {price}</Card.Text>
+          <Card.Text className="establishment__price--new">
+            <strong>$ {newPrice}</strong>
+          </Card.Text>
         </>
       );
     }
+    return (
+      <Card.Text>
+        <strong>$ {price}</strong>
+      </Card.Text>
+    );
+  }
 
-    // Display few rooms left
-    function deal() {
-      if (newPrice < 50) {
-        return (
-          <>
-            <Card.Text>Don't miss out!</Card.Text>
-            <Card.Text>
-              There are only: <strong>{roomsLeft}</strong> rooms left
-            </Card.Text>
-          </>
-        );
-      }
+  // Display few rooms left
+  function deal() {
+    if (newPrice < 50) {
+      return (
+        <div className="establishment__deal">
+          <Card.Text>Don't miss out!</Card.Text>
+          <Card.Text>
+            There are only: <strong>{roomsLeft}</strong> rooms left
+          </Card.Text>
+        </div>
+      );
     }
-    return <Card.Text>$ {price}</Card.Text>;
   }
 
   return (
-    <Card as="section">
+    <Card as="section" className="establishment">
       <Row>
-        <Col sm={5}>
+        <Col sm={12} lg={5} className="establishment__img">
           <Card.Img src={image} alt={name} role="img" />
         </Col>
 
-        <Col sm={5}>
+        <Col sm={6} lg={5}>
           <Card.Body>
-            <Card.Title>{name}</Card.Title>
+            <Card.Title className="establishment__title" as="h3">
+              {name}
+            </Card.Title>
 
-            <div className="d-flex">
-              <Badge variant="primary">MaxGuests: {maxGuests}</Badge>
+            <div className="establishment__badges">
+              <Badge className="establishment__badges--maxGuests">
+                MaxGuests: {maxGuests}
+              </Badge>
               <Badge
                 style={{
-                  backgroundColor: selfCatering ? "green" : "red",
+                  backgroundColor: selfCatering ? "#5EBB47" : "#FF333A",
                 }}
+                className="establishment__badges--selfCatering"
               >
                 Self Catering: {selfCatering ? "Yes" : "No"}
               </Badge>
               <OverlayTrigger
-                placement="right"
+                placement="bottom"
                 overlay={
                   <Tooltip>
-                    <h5>Self Catering:</h5>
+                    <h6>Self Catering:</h6>
                     <p>
                       Guests have facilities for making their own meals and
                       cooking.
@@ -87,19 +102,30 @@ function AllEstablishments({
                   src={InfoIcon}
                   alt="information icon"
                   fluid
-                  className="img-responsive"
+                  className="img-responsive establishment__badges--infoIcon"
                 />
               </OverlayTrigger>
             </div>
 
-            <Card.Img src={Map} alt="map icon" />
+            {deal()}
+
+            <Card.Img
+              src={Map}
+              alt="map icon"
+              className="establishment__mapIcon"
+            />
           </Card.Body>
         </Col>
 
-        <Col sm={2}>
+        <Col sm={6} lg={2} as="section" className="establishment__price">
           {updatePrice()}
-          <Button role="button">
-            <Link to={"establishment/" + id}> View </Link>
+          <Button role="button" className="establishment__btn">
+            <Link
+              to={"establishment/" + id}
+              className="establishment__btn--text"
+            >
+              View
+            </Link>
           </Button>
         </Col>
       </Row>

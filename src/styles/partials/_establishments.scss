@@ -1,0 +1,71 @@
+.establishment {
+  margin: 20px auto;
+  background-color: rgb(240, 240, 240);
+  line-height: 1.2;
+  text-align: center;
+
+  &__img {
+    padding: 0;
+  }
+
+  &__badges {
+    display: flex;
+    justify-content: center;
+
+    &--maxGuests {
+      padding: 10px;
+      background-color: $blue;
+      color: $white;
+    }
+
+    &--selfCatering {
+      margin: 0 2px 0 10px;
+      padding: 10px;
+    }
+
+    &--infoIcon {
+      width: 25px;
+      height: 25px;
+      margin-top: 3px;
+    }
+  }
+
+  &__price {
+    padding: 10px 20px 25px 20px;
+    margin-bottom: 0px;
+    font-size: 18px;
+    position: relative;
+
+    &--new {
+      font-size: 22px;
+    }
+
+    &--discount {
+      color: #217a0b;
+      font-size: 22px;
+    }
+
+    &--old {
+      text-decoration: line-through;
+      text-decoration-color: #ff333a;
+    }
+  }
+
+  &__mapIcon {
+    width: 35px;
+    height: auto;
+    margin-top: 30px;
+  }
+
+  &__btn {
+    background-color: $darkBlue;
+    width: 100%;
+    &--text {
+      color: $white;
+    }
+  }
+
+  &__deal {
+    margin-top: 40px;
+  }
+}

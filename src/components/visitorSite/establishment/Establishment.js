@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL, headers } from "../../../constants/api";
 import AllEstablishments from "./AllEstablishments";
 import Loading from "../../spinner/Loading";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -26,20 +28,24 @@ function Establishment() {
     return <Loading />;
   }
 
-  return establishment.map((hotels) => {
-    const { id, image, name, maxGuests, selfCatering, price } = hotels;
+  return (
+    <Container>
+      {establishment.map((hotels) => {
+        const { id, image, name, maxGuests, selfCatering, price } = hotels;
 
-    return (
-      <AllEstablishments
-        image={image}
-        name={name}
-        maxGuests={maxGuests}
-        selfCatering={selfCatering}
-        price={price}
-        key={id}
-        id={id}
-      />
-    );
-  });
+        return (
+          <AllEstablishments
+            image={image}
+            name={name}
+            maxGuests={maxGuests}
+            selfCatering={selfCatering}
+            price={price}
+            key={id}
+            id={id}
+          />
+        );
+      })}
+    </Container>
+  );
 }
 export default Establishment;
