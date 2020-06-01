@@ -87,6 +87,7 @@ function EnquiryForm({ id }) {
             selected={checkIn}
             onChange={(date) => setCheckIn(date)}
             dateFormat="yyyy/MM/dd"
+            className="form__date"
           />
         </Form.Group>
 
@@ -103,6 +104,7 @@ function EnquiryForm({ id }) {
             selected={checkOut}
             onChange={(date) => setCheckOut(date)}
             dateFormat="yyyy/MM/dd"
+            className="form__date"
           />
         </Form.Group>
 

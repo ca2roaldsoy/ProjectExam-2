@@ -31,4 +31,11 @@
       border: none;
     }
   }
+  &__date {
+    padding-left: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
