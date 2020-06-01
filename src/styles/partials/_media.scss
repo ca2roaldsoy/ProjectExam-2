@@ -41,6 +41,11 @@
   .footer__title {
     padding-left: 25px;
   }
+
+  .establishmentDetailContainer,
+  .establishmentDetail__body {
+    padding: 15px;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -59,6 +64,18 @@
 
     &__mapIcon {
       margin-top: 25px;
+    }
+  }
+
+  .establishmentDetailContainer,
+  .establishmentDetail__body {
+    padding: 15px;
+  }
+
+  .establishmentDetail {
+    &__badges {
+      display: flex;
+      justify-content: center;
     }
   }
 }

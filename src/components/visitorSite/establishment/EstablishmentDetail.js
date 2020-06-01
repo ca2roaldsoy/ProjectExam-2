@@ -37,12 +37,17 @@ function Establishment() {
   // Discounts
   function newPrice() {
     let newPrice = Math.ceil((establishment.price * 70) / 100);
+    let decrease = establishment.price - newPrice;
+    let discount = Math.ceil((decrease / establishment.price) * 100);
 
     if (establishment.price < 100) {
       return (
         <>
           <Card.Text className="establishmentDetail__price--new">
             $ {newPrice}
+          </Card.Text>
+          <Card.Text className="establishmentDetail__price--discount">
+            Save: {discount}&#37;
           </Card.Text>
         </>
       );
@@ -108,20 +113,21 @@ function Establishment() {
               $ {establishment.price}
             </Card.Text>
             {newPrice()}
-
-            <div className="d-flex">
-              <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
-                <Button role="button" className="establishmentDetail__btn">
-                  Book
-                </Button>
-              </Link>
-              <Card.Img
-                src={Map}
-                alt="map icon"
-                className="establishmentDetail__mapIcon"
-              />
-            </div>
           </Col>
+
+          <div className="d-flex establishmentDetail__bottom">
+            <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
+              <Button role="button" className="establishmentDetail__btn">
+                Book
+              </Button>
+            </Link>
+
+            <Card.Img
+              src={Map}
+              alt="map icon"
+              className="establishmentDetail__mapIcon"
+            />
+          </div>
         </Card.Body>
       </Card>
     </Container>

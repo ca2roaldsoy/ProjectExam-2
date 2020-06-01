@@ -98,18 +98,55 @@
     &--maxGuests {
       background-color: $blue;
       color: $white;
-
       padding: 5px;
     }
 
     &--selfCatering {
       padding: 5px;
+      margin: 5px auto;
     }
+  }
+
+  &__email {
+    font-size: 15px;
   }
 
   &__mapIcon {
     width: 35px;
     height: auto;
     margin-top: 30px;
+  }
+
+  &__desc {
+    margin: 10px auto;
+  }
+
+  &__price {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-decoration: line-through;
+    text-decoration-color: #ff333a;
+
+    &--new {
+      font-size: 24px;
+    }
+
+    &--discount {
+      color: #217a0b;
+      font-size: 22px;
+    }
+  }
+
+  &__bottom {
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  &__btn {
+    margin-top: 15px;
+  }
+
+  &__mapIcon {
+    margin: 0;
   }
 }

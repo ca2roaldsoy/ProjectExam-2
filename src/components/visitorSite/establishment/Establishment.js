@@ -3,7 +3,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 import AllEstablishments from "./AllEstablishments";
 import Loading from "../../spinner/Loading";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
