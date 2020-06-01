@@ -76,6 +76,10 @@
   }
 
   .establishmentDetail {
+    &__title {
+      text-align: left;
+    }
+
     &__badges {
       display: inline-flex;
     }
