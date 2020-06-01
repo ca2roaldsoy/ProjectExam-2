@@ -70,42 +70,40 @@ function Establishment() {
         </Col>
 
         <Card.Body className="establishmentDetail__body">
-          <Col sm={12} className="establishmentDetail__content">
-            <Col sm={12} className="establishmentDetail__badges">
-              <Col sm={6} md={4}>
-                <Badge
-                  variant="primary"
-                  className="establishmentDetail__badges--maxGuests"
-                >
-                  Max Guests: {establishment.maxGuests}
-                </Badge>
-              </Col>
-
-              <Col sm={6} md={4}>
-                <Badge
-                  style={{
-                    backgroundColor: establishment.selfCatering
-                      ? "#5EBB47"
-                      : "#FF333A",
-                  }}
-                  className="establishmentDetail__badges--selfCatering"
-                >
-                  Self Catering: {establishment.selfCatering ? "Yes" : "No"}
-                </Badge>
-              </Col>
-
-              <Col sm={12} md={4}>
-                <Card.Text className="establishmentDetail__email">
-                  Email: {establishment.email}
-                </Card.Text>
-              </Col>
+          <Col sm={12} className="establishmentDetail__badges">
+            <Col sm={6} md={4}>
+              <Badge
+                variant="primary"
+                className="establishmentDetail__badges--maxGuests"
+              >
+                Max Guests: {establishment.maxGuests}
+              </Badge>
             </Col>
 
-            <Col sm={12}>
-              <Card.Text className="establishmentDetail__desc">
-                {establishment.description}
+            <Col sm={6} md={4}>
+              <Badge
+                style={{
+                  backgroundColor: establishment.selfCatering
+                    ? "#5EBB47"
+                    : "#FF333A",
+                }}
+                className="establishmentDetail__badges--selfCatering"
+              >
+                Self Catering: {establishment.selfCatering ? "Yes" : "No"}
+              </Badge>
+            </Col>
+
+            <Col sm={12} md={4}>
+              <Card.Text className="establishmentDetail__email">
+                Email: {establishment.email}
               </Card.Text>
             </Col>
+          </Col>
+
+          <Col sm={12}>
+            <Card.Text className="establishmentDetail__desc">
+              {establishment.description}
+            </Card.Text>
           </Col>
 
           <Col sm={12} lg={3} className="establishmentDetail__bottomContainer">

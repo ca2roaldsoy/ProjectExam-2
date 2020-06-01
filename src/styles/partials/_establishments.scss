@@ -138,8 +138,10 @@
 
     &--btn {
       margin-top: 15px;
-      background-color: $yellow;
-      color: $black;
+      background-color: $darkBlue;
+      color: $white;
+      font-weight: bold;
+      width: 150px;
     }
 
     &--mapIcon {

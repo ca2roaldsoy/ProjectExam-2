@@ -1,4 +1,8 @@
 @media only screen and (min-width: 576px) {
+  .establishmentDetailContainer {
+    padding: 50px 0;
+  }
+
   .establishment {
     text-align: left;
 
@@ -47,6 +51,7 @@
 
     &--mapIcon {
       margin-left: 50px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -70,84 +75,21 @@
     }
   }
 
-  .establishmentDetailContainer,
-  .establishmentDetail__body {
-    padding: 15px;
-  }
-
   .establishmentDetail {
-    &__title {
-      text-align: left;
-    }
+    align-items: center;
 
     &__badges {
-      display: inline-flex;
+      display: flex;
+      justify-content: flex-start;
     }
 
-    &__bottomContainer {
-      position: absolute;
-      top: 71px;
-      left: 680px;
-      height: 375px;
-      background-color: $blue;
-      color: $white;
+    &__body {
+      background-color: $white;
+      padding: 5px;
     }
+
     &__price {
       font-size: 18px;
-
-      &--discount {
-        font-size: 36px;
-        color: $darkYellow;
-      }
-
-      &--new {
-        font-size: 36px;
-      }
-    }
-
-    &__bottom {
-      padding: 0;
-      padding-top: 100px;
-
-      &--btn {
-        width: 100px;
-        font-size: 18px;
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .establishmentDetail {
-    &__bottomContainer {
-      position: absolute;
-      top: 71px;
-      left: 816px;
-      height: 451px;
-      background-color: $blue;
-      color: $white;
-    }
-    &__price {
-      font-size: 28px;
-
-      &--discount {
-        font-size: 40px;
-        color: $darkYellow;
-      }
-
-      &--new {
-        font-size: 40px;
-      }
-    }
-
-    &__bottom {
-      padding: 0;
-      padding-top: 150px;
-
-      &--btn {
-        width: 150px;
-        font-weight: bold;
-      }
     }
   }
 }
