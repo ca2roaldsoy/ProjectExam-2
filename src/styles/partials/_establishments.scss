@@ -75,7 +75,8 @@
 }
 
 .establishmentDetailContainer,
-.establishmentDetail__body {
+.establishmentDetail__body,
+.establishmentDetail__content {
   padding: 0;
 }
 
@@ -89,6 +90,7 @@
 
   &__img {
     width: 100%;
+    padding: 0;
   }
 
   &__badges {
@@ -111,18 +113,12 @@
     font-size: 15px;
   }
 
-  &__mapIcon {
-    width: 35px;
-    height: auto;
-    margin-top: 30px;
-  }
-
   &__desc {
-    margin: 10px auto;
+    margin: 20px auto;
   }
 
   &__price {
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 0;
     text-decoration: line-through;
     text-decoration-color: #ff333a;
@@ -139,14 +135,17 @@
 
   &__bottom {
     justify-content: space-between;
-    padding: 0 15px;
-  }
 
-  &__btn {
-    margin-top: 15px;
-  }
+    &--btn {
+      margin-top: 15px;
+      background-color: $yellow;
+      color: $black;
+    }
 
-  &__mapIcon {
-    margin: 0;
+    &--mapIcon {
+      margin: 0;
+      width: 35px;
+      height: auto;
+    }
   }
 }
