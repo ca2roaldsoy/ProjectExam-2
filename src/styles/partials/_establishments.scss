@@ -84,12 +84,12 @@
   border: none;
 
   &__accept {
-    justify-content: center;
+    display: flex;
 
     & img {
       width: 20px;
       height: 20px;
-      margin-left: 50px;
+      margin-left: 10px;
     }
   }
 
@@ -130,8 +130,12 @@
   &__price {
     margin-top: 20px;
     margin-bottom: 0;
-    text-decoration: line-through;
-    text-decoration-color: #ff333a;
+    font-size: 24px;
+
+    &--old {
+      text-decoration: line-through;
+      text-decoration-color: #ff333a;
+    }
 
     &--new {
       font-size: 24px;

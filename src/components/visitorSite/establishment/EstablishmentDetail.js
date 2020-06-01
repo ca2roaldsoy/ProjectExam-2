@@ -45,6 +45,9 @@ function Establishment() {
     if (establishment.price < 100) {
       return (
         <>
+          <Card.Text className="establishmentDetail__price--old">
+            $ {establishment.price}
+          </Card.Text>
           <Card.Text className="establishmentDetail__price--discount">
             Save: {discount}&#37;
           </Card.Text>
@@ -54,12 +57,17 @@ function Establishment() {
         </>
       );
     }
+    return (
+      <Card.Text className="establishmentDetail__price">
+        <strong>$ {establishment.price}</strong>
+      </Card.Text>
+    );
   }
 
   return (
     <>
       <Container className="establishmentDetailContainer">
-        <div className="d-flex establishmentDetail__accept">
+        <div className="establishmentDetail__accept">
           <Image src={AcceptIcon} alt="v" fluid />
           No booking fees
           <Image src={AcceptIcon} alt="v" fluid />
@@ -123,9 +131,6 @@ function Establishment() {
               lg={3}
               className="establishmentDetail__bottomContainer"
             >
-              <Card.Text className="establishmentDetail__price">
-                $ {establishment.price}
-              </Card.Text>
               {newPrice()}
 
               <div className="d-flex establishmentDetail__bottom">
