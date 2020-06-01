@@ -13,8 +13,7 @@ function Validated({ validated, message }) {
             <Alert.Heading>Enquiry Sent</Alert.Heading>
             <p>Thank you for your enquiry</p>
             <p>
-              You can now return <Link to="/">home</Link>, or send a new enquiry
-              for this establishment
+              You can now return <Link to="/">home</Link>
             </p>
           </Alert>
         ); // message after sending enquiry
@@ -23,6 +22,9 @@ function Validated({ validated, message }) {
           <Alert variant="success" role="alert">
             <Alert.Heading>Message Sent</Alert.Heading>
             <p>Thank you for contacting us</p>
+            <p>
+              You can now return <Link to="/">home</Link>
+            </p>
           </Alert>
         ); // message after sending contact message
       case 3:
@@ -30,6 +32,9 @@ function Validated({ validated, message }) {
           <Alert variant="success" role="alert">
             <Alert.Heading>Success</Alert.Heading>
             <p>The establishment was created</p>
+            <p>
+              Return back to admin <Link to="/admin">home</Link>
+            </p>
           </Alert>
         ); // message after sending enquiry // message after establishment is created
       default:

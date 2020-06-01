@@ -5,10 +5,6 @@
   background-color: rgb(238, 238, 238);
 }
 
-body {
-  width: 100%;
-}
-
 h1 {
   @include typeface("h1", $Gloria);
 }
@@ -21,5 +17,10 @@ h5 {
 }
 
 body {
+  width: 100%;
   @include typeface("p");
+}
+
+input {
+  margin-bottom: 10px;
 }

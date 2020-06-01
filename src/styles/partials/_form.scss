@@ -18,6 +18,7 @@
   &__btn {
     display: flex;
     justify-content: space-between;
+    margin-top: 50px;
 
     &--submit {
       background-color: $darkBlue;
@@ -29,6 +30,10 @@
       background-color: #ff333a;
       color: $white;
       border: none;
+
+      &:hover {
+        background-color: #d3292f;
+      }
     }
   }
   &__date {
