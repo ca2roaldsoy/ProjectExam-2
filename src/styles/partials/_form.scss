@@ -1,0 +1,34 @@
+@import "variables";
+
+.containerForm {
+  padding: 20px;
+
+  &__form {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: $white;
+  }
+}
+
+.form {
+  &-text {
+    color: #ff333a;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+
+    &--submit {
+      background-color: $darkBlue;
+      color: $white;
+      border: none;
+    }
+
+    &--reset {
+      background-color: #ff333a;
+      color: $white;
+      border: none;
+    }
+  }
+}
