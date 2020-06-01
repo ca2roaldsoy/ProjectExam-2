@@ -83,6 +83,16 @@
 .establishmentDetail {
   border: none;
 
+  &__accept {
+    justify-content: center;
+
+    & img {
+      width: 20px;
+      height: 20px;
+      margin-left: 50px;
+    }
+  }
+
   &__title {
     text-align: center;
     margin-top: 20px;

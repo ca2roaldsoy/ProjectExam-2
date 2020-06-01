@@ -10,6 +10,8 @@ import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
 import Footer from "../footer/Footer";
+import AcceptIcon from "../../../images/accept.png";
+import Image from "react-bootstrap/Image";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -57,6 +59,14 @@ function Establishment() {
   return (
     <>
       <Container className="establishmentDetailContainer">
+        <div className="d-flex establishmentDetail__accept">
+          <Image src={AcceptIcon} alt="v" fluid />
+          No booking fees
+          <Image src={AcceptIcon} alt="v" fluid />
+          100% Customer Satisfaction
+          <Image src={AcceptIcon} alt="v" fluid />
+          Voucher Acceptence
+        </div>
         <Card as="main" role="main" className="establishmentDetail">
           <Col sm={12} lg={9}>
             <Card.Title as="h2" className="establishmentDetail__title">
