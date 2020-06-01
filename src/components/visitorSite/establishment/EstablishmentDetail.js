@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL, headers } from "../../../constants/api";
 import Card from "react-bootstrap/Card";
-import Badge from "react-bootstrap/Badge";
-import Button from "react-bootstrap/Button";
-import Map from "../../../images/icons/map_v1.png";
 import Loading from "../../spinner/Loading";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Badge from "react-bootstrap/Badge";
+import Button from "react-bootstrap/Button";
+import Map from "../../../images/icons/map_v1.png";
+import Footer from "../footer/Footer";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -54,84 +55,92 @@ function Establishment() {
   }
 
   return (
-    <Container className="establishmentDetailContainer">
-      <Card as="main" role="main" className="establishmentDetail">
-        <Col sm={12} lg={9}>
-          <Card.Title as="h2" className="establishmentDetail__title">
-            {establishment.name}
-          </Card.Title>
+    <>
+      <Container className="establishmentDetailContainer">
+        <Card as="main" role="main" className="establishmentDetail">
+          <Col sm={12} lg={9}>
+            <Card.Title as="h2" className="establishmentDetail__title">
+              {establishment.name}
+            </Card.Title>
 
-          <Card.Img
-            src={establishment.image}
-            alt={establishment.name}
-            role="img"
-            className="establishmentDetail__img"
-          />
-        </Col>
+            <Card.Img
+              src={establishment.image}
+              alt={establishment.name}
+              role="img"
+              className="establishmentDetail__img"
+            />
+          </Col>
 
-        <Card.Body className="establishmentDetail__body">
-          <Col sm={12} className="establishmentDetail__badges">
-            <Col sm={6} md={4}>
-              <Badge
-                variant="primary"
-                className="establishmentDetail__badges--maxGuests"
-              >
-                Max Guests: {establishment.maxGuests}
-              </Badge>
+          <Card.Body className="establishmentDetail__body">
+            <Col sm={12} className="establishmentDetail__badges">
+              <Col sm={6} md={4}>
+                <Badge
+                  variant="primary"
+                  className="establishmentDetail__badges--maxGuests"
+                >
+                  Max Guests: {establishment.maxGuests}
+                </Badge>
+              </Col>
+
+              <Col sm={6} md={4}>
+                <Badge
+                  style={{
+                    backgroundColor: establishment.selfCatering
+                      ? "#5EBB47"
+                      : "#FF333A",
+                  }}
+                  className="establishmentDetail__badges--selfCatering"
+                >
+                  Self Catering: {establishment.selfCatering ? "Yes" : "No"}
+                </Badge>
+              </Col>
+
+              <Col sm={12} md={4}>
+                <Card.Text className="establishmentDetail__email">
+                  Email: {establishment.email}
+                </Card.Text>
+              </Col>
             </Col>
 
-            <Col sm={6} md={4}>
-              <Badge
-                style={{
-                  backgroundColor: establishment.selfCatering
-                    ? "#5EBB47"
-                    : "#FF333A",
-                }}
-                className="establishmentDetail__badges--selfCatering"
-              >
-                Self Catering: {establishment.selfCatering ? "Yes" : "No"}
-              </Badge>
-            </Col>
-
-            <Col sm={12} md={4}>
-              <Card.Text className="establishmentDetail__email">
-                Email: {establishment.email}
+            <Col sm={12}>
+              <Card.Text className="establishmentDetail__desc">
+                {establishment.description}
               </Card.Text>
             </Col>
-          </Col>
 
-          <Col sm={12}>
-            <Card.Text className="establishmentDetail__desc">
-              {establishment.description}
-            </Card.Text>
-          </Col>
+            <Col
+              sm={12}
+              lg={3}
+              className="establishmentDetail__bottomContainer"
+            >
+              <Card.Text className="establishmentDetail__price">
+                $ {establishment.price}
+              </Card.Text>
+              {newPrice()}
 
-          <Col sm={12} lg={3} className="establishmentDetail__bottomContainer">
-            <Card.Text className="establishmentDetail__price">
-              $ {establishment.price}
-            </Card.Text>
-            {newPrice()}
+              <div className="d-flex establishmentDetail__bottom">
+                <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
+                  <Button
+                    role="button"
+                    className="establishmentDetail__bottom--btn"
+                  >
+                    Book
+                  </Button>
+                </Link>
 
-            <div className="d-flex establishmentDetail__bottom">
-              <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
-                <Button
-                  role="button"
-                  className="establishmentDetail__bottom--btn"
-                >
-                  Book
-                </Button>
-              </Link>
+                <Card.Img
+                  src={Map}
+                  alt="map icon"
+                  className="establishmentDetail__bottom--mapIcon"
+                />
+              </div>
+            </Col>
+          </Card.Body>
+        </Card>
+      </Container>
 
-              <Card.Img
-                src={Map}
-                alt="map icon"
-                className="establishmentDetail__bottom--mapIcon"
-              />
-            </div>
-          </Col>
-        </Card.Body>
-      </Card>
-    </Container>
+      <Footer />
+    </>
   );
 }
 
