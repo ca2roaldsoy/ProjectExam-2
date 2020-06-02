@@ -17,7 +17,7 @@ const schema = yup.object().shape({
     .email("Please enter a valid emai"),
 });
 
-function EnquiryForm({ id }) {
+function EnquiryForm({ id, name }) {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
@@ -34,7 +34,7 @@ function EnquiryForm({ id }) {
     const enquiryData = {
       name: data.name,
       email: data.email,
-      establishmentId: id,
+      establishmentId: name,
       checkIn: data.checkIn,
       checkOut: data.checkOut,
     };

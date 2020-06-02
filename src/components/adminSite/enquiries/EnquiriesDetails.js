@@ -10,14 +10,14 @@ function EnquiriesDetails({
   checkIn,
   checkOut,
   created,
-  estId,
+  establishmentName,
 }) {
   const [accepted, setAccepted] = useState(false);
   const [rejected, setRejected] = useState(false);
 
   return (
     <tr>
-      <td>{estId}</td>
+      <td>{establishmentName}</td>
       <td>{name}</td>
       <td>{email}</td>
       <td>{checkIn.slice(0, 10)}</td>
@@ -53,7 +53,7 @@ EnquiriesDetails.propTypes = {
   checkIn: PropTypes.string.isRequired,
   checkOut: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
-  estId: PropTypes.string.isRequired,
+  establishmentId: PropTypes.string.isRequired,
 };
 
 export default EnquiriesDetails;

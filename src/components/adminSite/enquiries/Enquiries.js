@@ -32,7 +32,11 @@ function Enquiries() {
   // if no enquiries, display message...
   function noEnquiries() {
     if (enquiry.length === 0) {
-      return <p>There is no enquiries yet</p>;
+      return (
+        <tr>
+          <td>There is no enquiries yet</td>
+        </tr>
+      );
     }
     // ...else
     return enquiry.map((enq, i) => {
@@ -54,7 +58,7 @@ function Enquiries() {
           checkIn={checkIn}
           checkOut={checkOut}
           created={createdAt}
-          estId={establishmentId}
+          establishmentName={establishmentId}
         />
       );
     });
@@ -69,7 +73,7 @@ function Enquiries() {
       <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Establishment</th>
             <th>Name</th>
             <th>Email</th>
             <th>Check in</th>
