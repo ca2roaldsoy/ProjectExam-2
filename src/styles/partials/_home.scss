@@ -37,6 +37,8 @@
 
 .dropdown {
   border: 1px solid #cacaca;
+  max-height: 200px;
+  overflow-y: scroll;
 
   &-item {
     padding: 10px;

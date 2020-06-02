@@ -91,7 +91,7 @@ function Home() {
       <Container>
         <section className="searchContainer">
           <h2 className="text-center searchContainer__title">
-            Search hotels, b&amp;b's and guesthouses
+            Find Accommodation across Bergen
           </h2>
           <Search handleSearch={findEstablishment} />
           {results()}
