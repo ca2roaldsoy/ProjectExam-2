@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExploreBergen from "./carousel/ExploreBergen";
-import ImgTop from "../../../images/bergen/bg_img_v2.jpg";
+import ImgTop from "../../../images/bergen/home_img.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, headers } from "../../../constants/api";
@@ -66,7 +66,7 @@ function Home() {
     // open dropdown search result
     if (isOpen) {
       return (
-        <DropDown>
+        <DropDown className="search__results">
           {searchEstablishments.map((establishment) => {
             return (
               <DropDownResult
@@ -89,8 +89,13 @@ function Home() {
         className="homeImgTop"
       />
       <Container>
-        <Search handleSearch={findEstablishment} />
-        {results()}
+        <section className="searchContainer">
+          <h2 className="text-center searchContainer__title">
+            Search hotels, b&amp;b's and guesthouses
+          </h2>
+          <Search handleSearch={findEstablishment} />
+          {results()}
+        </section>
 
         <div className="carousel">
           <div className="carousel__title--before"></div>

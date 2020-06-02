@@ -6,8 +6,8 @@ function HomeCarousel({ image, text, place }) {
   return (
     <Figure className="carousel__figure">
       <Figure.Image src={image} alt={place} className="carousel__figure--img" />
-      {place}
-      <Figure.Caption>{text}</Figure.Caption>
+      <h4>{place}</h4>
+      <Figure.Caption className="carousel__figure--text">{text}</Figure.Caption>
     </Figure>
   );
 }

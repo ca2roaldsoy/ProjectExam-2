@@ -6,7 +6,11 @@ function DropDownResult({ name, idx }) {
   // create a path that links to detail page of establishment
   const path = "establishment/" + idx;
 
-  return <DropDown.Item href={path}>{name}</DropDown.Item>;
+  return (
+    <DropDown.Item href={path} className="search__results--item">
+      {name}
+    </DropDown.Item>
+  );
 }
 
 DropDownResult.propTypes = {

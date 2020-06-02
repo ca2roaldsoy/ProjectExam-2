@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.home {
+  background-color: white;
+}
+
 .row {
   margin: 0;
 }
@@ -13,8 +17,14 @@
 }
 
 // SearchBar
+
+.searchContainer__title {
+  margin-top: 25px;
+  font-size: 24px;
+}
+
 .search {
-  margin-top: 50px;
+  margin-top: 25px;
 
   & > input {
     height: 50px;
@@ -87,14 +97,18 @@
       width: 100%;
       height: auto;
     }
+
+    &--text {
+      font-size: 16px;
+    }
   }
 }
 
 // Footer
 .footer {
-  background-color: #444444;
+  background-color: #696969;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 50px;
   padding: 25px 0;
   width: 100%;
   align-items: center;

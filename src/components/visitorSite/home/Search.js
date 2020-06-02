@@ -8,23 +8,25 @@ import Image from "react-bootstrap/Image";
 // search
 export default function Search({ handleSearch }) {
   return (
-    <InputGroup className="search" role="searchbox">
-      <FormControl
-        placeholder="Search by name..."
-        onChange={(event) => handleSearch(event)}
-        role="search"
-      />
-      <InputGroup.Append>
-        <InputGroup.Text>
-          <Image
-            src={SearchIcon}
-            alt="search icon"
-            fluid
-            className="search__icon"
-          />
-        </InputGroup.Text>
-      </InputGroup.Append>
-    </InputGroup>
+    <>
+      <InputGroup className="search" role="searchbox">
+        <FormControl
+          placeholder="Search by name..."
+          onChange={(event) => handleSearch(event)}
+          role="search"
+        />
+        <InputGroup.Append>
+          <InputGroup.Text>
+            <Image
+              src={SearchIcon}
+              alt="search icon"
+              fluid
+              className="search__icon"
+            />
+          </InputGroup.Text>
+        </InputGroup.Append>
+      </InputGroup>
+    </>
   );
 }
 
