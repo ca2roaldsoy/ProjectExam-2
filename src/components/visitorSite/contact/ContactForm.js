@@ -79,12 +79,20 @@ function ContactForm() {
           />
           {errors.message && <Form.Text>{errors.message.message}</Form.Text>}
         </Form.Group>
-        <Button type="submit" role="button">
-          Send
-        </Button>
-        <Button type="reset" onClick={reset} role="button">
-          Reset
-        </Button>
+
+        <Form.Group className="form__btn">
+          <Button type="submit" role="button" className="form__btn--submit">
+            Send
+          </Button>
+          <Button
+            type="reset"
+            onClick={reset}
+            role="button"
+            className="form__btn--reset"
+          >
+            Reset
+          </Button>
+        </Form.Group>
       </Form>
     </>
   );
