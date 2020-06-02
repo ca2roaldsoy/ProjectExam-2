@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExploreBergen from "./carousel/ExploreBergen";
-import ImgTop from "../../../images/bergen/home_imgTop.jpg";
+import ImgTop from "../../../images/bergen/bg-15.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, headers } from "../../../constants/api";
@@ -87,7 +87,7 @@ function Home() {
       <Container>
         <section className="searchContainer">
           <h2 className="text-center searchContainer__title">
-            Find Accommodation across Bergen
+            Find Accommodations
           </h2>
           <Search handleSearch={findEstablishment} />
           {results()}
