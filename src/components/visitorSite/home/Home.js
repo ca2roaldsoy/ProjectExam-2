@@ -113,7 +113,7 @@ function Home() {
         </Carousel>
       </Container>
       <BrowseAll />
-      <Container>
+      <Container className="exploreBergen">
         <div className="carousel">
           <div className="carousel__title--before"></div>
           <h2 className="carousel__title">Explore Bergen</h2>
