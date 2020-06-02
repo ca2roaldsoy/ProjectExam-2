@@ -21,7 +21,7 @@ function AllEstablishments({
   price,
 }) {
   let newPrice = Math.ceil((price * 70) / 100 - 5);
-  let roomsLeft = Math.floor(maxGuests * 2);
+  let roomsLeft = Math.floor(maxGuests / 2);
   let decrease = price - newPrice;
   let discount = Math.ceil((decrease / price) * 100);
 
@@ -49,7 +49,7 @@ function AllEstablishments({
 
   // Display few rooms left
   function deal() {
-    if (newPrice < 50) {
+    if (newPrice > 45) {
       return (
         <div className="establishment__deal">
           <Card.Text>Don't miss out!</Card.Text>
