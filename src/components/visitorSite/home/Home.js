@@ -83,11 +83,7 @@ function Home() {
 
   return (
     <Row className="home">
-      <Image
-        src={ImgTop}
-        alt="man on hike looking over Bergen"
-        className="homeImgTop"
-      />
+      <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
       <Container>
         <section className="searchContainer">
           <h2 className="text-center searchContainer__title">
