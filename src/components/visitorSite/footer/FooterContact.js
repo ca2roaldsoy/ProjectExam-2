@@ -3,7 +3,7 @@ import React from "react";
 function FooterContact() {
   return (
     <>
-      <h3>Contact Us</h3>
+      <h4 className="footer__contact--title">Contact Us</h4>
       <div>
         <p>CityOfBergen</p>
         <p>Strømsgaten 1</p>

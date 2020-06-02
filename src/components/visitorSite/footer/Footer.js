@@ -10,7 +10,7 @@ function Footer() {
   return (
     <Row as="footer" role="contentinfo" className="footer">
       <Col sm={12} md={3} lg={3} as="section" className="footer__title">
-        <h1>Holidaze</h1>
+        <h1 className="footer__title--text">Holidaze</h1>
       </Col>
       <Col sm={12} md={3} lg={3} as="section" className="footer__contact">
         <FooterContact />
