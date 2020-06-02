@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import ImgBlur from "../../../images/bergen/bergen_blur_v3.jpg";
+import ImgBlur from "../../../images/bergen/bergen_blur_v4.jpg";
 import Card from "react-bootstrap/Card";
 
 // browse all establishments
