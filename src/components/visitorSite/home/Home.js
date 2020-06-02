@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ExploreBergen from "./carousel/ExploreBergen";
-import ImgTop from "../../../images/bergen/home_img.jpg";
+import ImgTop from "../../../images/bergen/home_imgTop.jpg";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import { BASE_URL, headers } from "../../../constants/api";

@@ -35,10 +35,11 @@
   }
 
   .browseAll__overlay {
-    margin-top: 15px;
+    padding: 30px;
 
     &--title {
       font-size: 24px;
+      margin-bottom: 50px;
     }
 
     &--btn {
@@ -63,6 +64,22 @@
 @media only screen and (min-width: 992px) {
   .card-body {
     padding: 10px;
+  }
+
+  .browseAll__overlay {
+    &--title {
+      font-size: 2rem;
+      margin-bottom: 50px;
+      font-weight: 600;
+    }
+
+    &--btn {
+      width: 250px;
+      height: 60px;
+      max-width: 100%;
+      font-size: 1.6rem;
+      width: 350px;
+    }
   }
 
   .establishment {
@@ -97,7 +114,7 @@
 @media only screen and (min-width: 1200px) {
   .searchContainer {
     position: absolute;
-    top: 200px;
+    top: 150px;
     left: 25%;
     min-width: 50%;
     max-width: 51%;
@@ -126,6 +143,22 @@
 
     &--item {
       color: $white;
+    }
+  }
+
+  .browseAll__overlay {
+    margin-top: 30px;
+
+    &--title {
+      margin-bottom: 80px;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    &--btn {
+      font-size: 1.8rem;
+      height: 2em;
+      width: 30%;
     }
   }
 }
