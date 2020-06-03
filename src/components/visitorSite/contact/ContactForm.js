@@ -76,6 +76,7 @@ function ContactForm() {
             name="message"
             as="textarea"
             ref={register}
+            className="form__message"
           />
           {errors.message && <Form.Text>{errors.message.message}</Form.Text>}
         </Form.Group>
