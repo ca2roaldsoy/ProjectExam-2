@@ -71,6 +71,7 @@
   }
 
   &__deal {
+    margin: 0 auto;
     margin-top: 40px;
     outline: 1px solid #ff333a;
     outline-offset: 2px;
@@ -121,7 +122,7 @@
 
   &__badges {
     padding: 5px 0;
-    background-color: lightgray;
+    background-color: #d3d3d3;
 
     &--maxGuests {
       background-color: $blue;
@@ -150,7 +151,7 @@
 
   &__price {
     margin-bottom: 0;
-    background-color: lightgray;
+    background-color: #d3d3d3;
     padding: 20px;
 
     &--old {
@@ -175,16 +176,18 @@
 
   &__bottom {
     display: flex;
-    justify-content: space-between;
-    background-color: gray;
+    justify-content: center;
+    background-color: $white;
     padding: 10px;
 
     &--btn {
-      background-color: $darkBlue;
+      background-color: $blue;
       color: $white;
       font-weight: bold;
-      width: 150px;
+      width: 250px;
       height: 50px;
+      font-size: 24px;
+      border: 2px solid $black;
     }
 
     &--mapIcon {
