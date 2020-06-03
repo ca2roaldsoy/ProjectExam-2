@@ -72,6 +72,10 @@
 
   &__deal {
     margin-top: 40px;
+    outline: 1px solid #ff333a;
+    outline-offset: 2px;
+    outline-style: dashed;
+    width: 200px;
   }
 }
 

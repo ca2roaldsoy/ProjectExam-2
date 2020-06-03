@@ -54,7 +54,7 @@ function AllEstablishments({
     if (newPrice < 50) {
       return (
         <div className="establishment__deal">
-          <Card.Text>Don't miss out!</Card.Text>
+          <Card.Text>Hurry!</Card.Text>
           <Card.Text>
             There are only: <strong>{roomsLeft}</strong> room(s) left
           </Card.Text>
