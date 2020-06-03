@@ -85,6 +85,7 @@
 
   &__accept {
     display: flex;
+    padding: 5px 5px 5px 0;
 
     & img {
       width: 20px;
@@ -93,9 +94,14 @@
     }
   }
 
+  &__info {
+    background-color: $darkYellow;
+    padding: 20px 20px;
+  }
+
   &__title {
-    text-align: center;
-    margin-top: 20px;
+    text-align: left;
+    font-size: 36px;
   }
 
   &__img {
@@ -104,8 +110,8 @@
   }
 
   &__badges {
-    padding: 0;
-    font-size: 18px;
+    padding: 5px 0;
+    background-color: lightgray;
 
     &--maxGuests {
       background-color: $blue;
@@ -120,42 +126,54 @@
   }
 
   &__email {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   &__desc {
     margin: 20px auto;
   }
 
+  &__checkout {
+    align-items: center;
+    padding: 0;
+  }
+
   &__price {
-    margin-top: 20px;
     margin-bottom: 0;
-    font-size: 24px;
+    background-color: lightgray;
+    padding: 20px;
 
     &--old {
       text-decoration: line-through;
       text-decoration-color: #ff333a;
+      margin-bottom: 0px;
+      font-size: 22px;
     }
 
     &--new {
-      font-size: 24px;
+      font-size: 28px;
+      font-weight: 600;
     }
 
     &--discount {
       color: #217a0b;
-      font-size: 22px;
+      font-size: 24px;
+      margin-bottom: 0px;
     }
   }
 
   &__bottom {
+    display: flex;
     justify-content: space-between;
+    background-color: gray;
+    padding: 10px;
 
     &--btn {
-      margin-top: 15px;
       background-color: $darkBlue;
       color: $white;
       font-weight: bold;
       width: 150px;
+      height: 50px;
     }
 
     &--mapIcon {

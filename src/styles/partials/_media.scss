@@ -3,10 +3,6 @@
     font-size: 28px;
   }
 
-  .establishmentDetailContainer {
-    padding: 50px 0;
-  }
-
   .establishment {
     text-align: left;
 
@@ -71,12 +67,33 @@
     padding-left: 25px;
   }
 
-  .establishmentDetail__bottom {
-    justify-content: start;
+  .establishmentDetailContainer {
+    padding: 50px 0;
+  }
 
-    &--mapIcon {
-      margin-left: 50px;
-      margin-bottom: 20px;
+  .establishmentDetail {
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+
+    &__bottom {
+      justify-content: space-evenly;
+    }
+
+    &__badges {
+      display: flex;
+      justify-content: space-around;
+      word-wrap: normal;
+      align-items: center;
+    }
+
+    &__price {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &--new {
+        font-size: 36px;
+        margin: 0;
+      }
     }
   }
 }
@@ -120,13 +137,62 @@
     align-items: center;
 
     &__badges {
-      display: flex;
-      justify-content: flex-start;
+      text-align: center;
     }
 
     &__body {
       background-color: $white;
-      padding: 5px;
+      padding: 0px;
+      width: 100%;
+    }
+
+    &__info {
+      padding: 50px 20px;
+    }
+
+    &__title {
+      font-size: 48px;
+      margin: 0;
+    }
+
+    &__checkout {
+      display: flex;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__price {
+      text-align: center;
+      margin: 0;
+      padding: 18px;
+
+      &--discount {
+        font-size: 36px;
+        margin: 0;
+      }
+
+      &--new {
+        font-size: 40px;
+      }
+
+      &--old {
+        margin: 0;
+      }
+    }
+
+    &__bottom {
+      justify-content: space-around;
+      padding: 23px;
+      align-items: center;
+
+      &--btn {
+        margin-top: 0px;
+        font-size: 24px;
+      }
+
+      &--mapIcon {
+        margin: 0;
+      }
     }
   }
 }

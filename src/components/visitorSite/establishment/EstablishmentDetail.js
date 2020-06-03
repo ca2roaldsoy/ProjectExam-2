@@ -48,11 +48,11 @@ function Establishment() {
           <Card.Text className="establishmentDetail__price--old">
             $ {establishment.price}
           </Card.Text>
-          <Card.Text className="establishmentDetail__price--discount">
-            Save: {discount}&#37;
-          </Card.Text>
           <Card.Text className="establishmentDetail__price--new">
             $ {newPrice}
+          </Card.Text>
+          <Card.Text className="establishmentDetail__price--discount">
+            Save: {discount}&#37;
           </Card.Text>
         </>
       );
@@ -76,22 +76,18 @@ function Establishment() {
           Voucher Acceptence
         </div>
         <Card as="main" role="main" className="establishmentDetail">
-          <Col sm={12} lg={9}>
-            <Card.Title as="h2" className="establishmentDetail__title">
-              {establishment.name}
-            </Card.Title>
-
+          <Col sm={12} className="establishmentDetail__img">
             <Card.Img
               src={establishment.image}
               alt={establishment.name}
               role="img"
-              className="establishmentDetail__img"
+              className="establishmentDetail__img--img"
             />
           </Col>
 
           <Card.Body className="establishmentDetail__body">
             <Col sm={12} className="establishmentDetail__badges">
-              <Col sm={6} md={4}>
+              <Col sm={3}>
                 <Badge
                   variant="primary"
                   className="establishmentDetail__badges--maxGuests"
@@ -100,7 +96,7 @@ function Establishment() {
                 </Badge>
               </Col>
 
-              <Col sm={6} md={4}>
+              <Col sm={3}>
                 <Badge
                   style={{
                     backgroundColor: establishment.selfCatering
@@ -113,27 +109,29 @@ function Establishment() {
                 </Badge>
               </Col>
 
-              <Col sm={12} md={4}>
+              <Col sm={3}>
                 <Card.Text className="establishmentDetail__email">
-                  Email: {establishment.email}
+                  {establishment.email}
                 </Card.Text>
               </Col>
             </Col>
 
-            <Col sm={12}>
+            <Col sm={12} className="establishmentDetail__info">
+              <Card.Title as="h2" className="establishmentDetail__title">
+                {establishment.name}
+              </Card.Title>
+
               <Card.Text className="establishmentDetail__desc">
                 {establishment.description}
               </Card.Text>
             </Col>
 
-            <Col
-              sm={12}
-              lg={3}
-              className="establishmentDetail__bottomContainer"
-            >
-              {newPrice()}
+            <Col sm={12} className="establishmentDetail__checkout">
+              <Col sm={12} lg={6} className="establishmentDetail__price">
+                {newPrice()}
+              </Col>
 
-              <div className="d-flex establishmentDetail__bottom">
+              <Col sm={12} lg={6} className="establishmentDetail__bottom">
                 <Link to={"../make-enquiries/" + establishment.name + "/" + id}>
                   <Button
                     role="button"
@@ -148,7 +146,7 @@ function Establishment() {
                   alt="map icon"
                   className="establishmentDetail__bottom--mapIcon"
                 />
-              </div>
+              </Col>
             </Col>
           </Card.Body>
         </Card>
