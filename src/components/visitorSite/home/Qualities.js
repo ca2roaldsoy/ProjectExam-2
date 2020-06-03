@@ -33,7 +33,7 @@ function Qualities() {
           role="img"
           alt="letter v inside green circle"
         />
-        <p className="quality__text">Located in Bergen</p>
+        <p className="quality__text">Response in express time</p>
       </Col>
     </Col>
   );
