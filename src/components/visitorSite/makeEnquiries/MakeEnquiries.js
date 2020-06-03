@@ -1,8 +1,8 @@
 import React from "react";
 import EnquiryForm from "./EnquiryForm";
-import Footer from "../footer/Footer";
 import { useParams } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import Footer from "../footer/Footer";
 
 function MakeEnquiries() {
   const { name, id } = useParams();

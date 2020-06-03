@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ExploreBergen from "./carousel/ExploreBergen";
 import ImgTop from "../../../images/bergen/bg-15.jpg";
 import Image from "react-bootstrap/Image";
-import Footer from "../footer/Footer";
 import { BASE_URL, headers } from "../../../constants/api";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
@@ -15,6 +14,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import DropDown from "react-bootstrap/Dropdown";
 import Qualities from "./Qualities";
+import Footer from "../footer/Footer";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -146,8 +146,6 @@ function Home() {
       {/* Explore Bergen */}
       <Container className="exploreBergen">{exploreBergen()}</Container>
       <Qualities />
-
-      {/* Footer */}
       <Footer />
     </Row>
   );

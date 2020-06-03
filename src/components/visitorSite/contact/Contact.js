@@ -1,7 +1,7 @@
 import React from "react";
 import ContactForm from "./ContactForm";
-import Footer from "../footer/Footer";
 import Container from "react-bootstrap/Container";
+import Footer from "../footer/Footer";
 
 function Contact() {
   return (

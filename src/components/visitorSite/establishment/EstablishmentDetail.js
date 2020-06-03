@@ -9,9 +9,9 @@ import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Map from "../../../images/icons/map_v1.png";
-import Footer from "../footer/Footer";
 import AcceptIcon from "../../../images/accept.png";
 import Image from "react-bootstrap/Image";
+import Footer from "../footer/Footer";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -151,7 +151,6 @@ function Establishment() {
           </Card.Body>
         </Card>
       </Container>
-
       <Footer />
     </>
   );
