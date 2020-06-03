@@ -1,10 +1,6 @@
 @import "variables";
 @import "mixins";
 
-.container-fluid {
-  background-color: rgb(238, 238, 238);
-}
-
 h1 {
   @include typeface("h1", $Gloria);
 }
