@@ -81,23 +81,15 @@ function Home() {
     }
   }
 
-  return (
-    <Row className="home">
-      <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
-      <Container>
-        <section className="searchContainer">
-          <h2 className="text-center searchContainer__title">
-            Find Accommodations
-          </h2>
-          <Search handleSearch={findEstablishment} />
-          {results()}
-        </section>
-
-        <div className="carousel">
+  function popular() {
+    return (
+      <>
+        <section className="carousel">
           <div className="carousel__title--before"></div>
           <h2 className="carousel__title">Popular Places</h2>
           <div className="carousel__title--after"></div>
-        </div>
+        </section>
+
         <Carousel responsive={Responsive} showDots={true}>
           {establishments.slice(5, 9).map((popular) => {
             const { name, image, id, price } = popular;
@@ -111,16 +103,49 @@ function Home() {
             );
           })}
         </Carousel>
-      </Container>
-      <BrowseAll />
-      <Container className="exploreBergen">
+      </>
+    );
+  }
+
+  function exploreBergen() {
+    return (
+      <>
         <div className="carousel">
           <div className="carousel__title--before"></div>
           <h2 className="carousel__title">Explore Bergen</h2>
           <div className="carousel__title--after"></div>
         </div>
         <ExploreBergen />
+      </>
+    );
+  }
+
+  return (
+    <Row className="home">
+      <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
+
+      {/* Search */}
+      <Container>
+        <section className="searchContainer">
+          <h2 className="text-center searchContainer__title">
+            Find Accommodations
+          </h2>
+          <Search handleSearch={findEstablishment} />
+          {/* Search Results */}
+          {results()}
+        </section>
+
+        {/* Popular Places */}
+        {popular()}
       </Container>
+
+      {/* Browse All Accommodation Section */}
+      <BrowseAll />
+
+      {/* Explore Bergen */}
+      <Container className="exploreBergen">{exploreBergen()}</Container>
+
+      {/* Footer */}
       <Footer />
     </Row>
   );
