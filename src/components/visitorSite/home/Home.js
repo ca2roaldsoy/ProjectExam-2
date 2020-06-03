@@ -14,6 +14,7 @@ import { Responsive } from "../../../constants/responsiveCarousel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import DropDown from "react-bootstrap/Dropdown";
+import Qualities from "./Qualities";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -144,6 +145,7 @@ function Home() {
 
       {/* Explore Bergen */}
       <Container className="exploreBergen">{exploreBergen()}</Container>
+      <Qualities />
 
       {/* Footer */}
       <Footer />

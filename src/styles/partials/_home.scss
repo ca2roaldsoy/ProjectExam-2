@@ -121,46 +121,23 @@
   margin-top: 200px;
 }
 
-// Footer
-.footer {
-  background-color: #696969;
+// Qualities
+
+.qualityContainer {
+  display: flex;
+}
+
+.quality {
+  margin-top: 50px;
+  background-color: $darkYellow;
   text-align: center;
-  margin-top: 100px;
-  padding-bottom: 25px;
-  padding-top: 80px;
-  width: 100%;
-  align-items: center;
-  line-height: 1;
-  color: $white;
-  position: relative;
+  padding: 10px 0px;
 
-  &__top {
-    display: flex;
-    position: absolute;
-    top: -20px;
-
-    &--img {
-      width: 40px;
-      height: auto;
-    }
-
-    &--text {
-      margin-top: 10px;
-    }
+  &__img {
+    width: 35px;
   }
 
-  &__title--text {
-    font-size: 72px;
-    color: $yellow;
-  }
-
-  &__contact--title {
-    margin-bottom: 20px;
-  }
-
-  &__social img {
-    width: 50px;
-    height: auto;
-    margin: 10px;
+  &__text {
+    margin: 0;
   }
 }
