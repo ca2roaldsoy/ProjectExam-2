@@ -12,6 +12,7 @@ import Map from "../../../images/icons/map_v1.png";
 import AcceptIcon from "../../../images/accept.png";
 import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
+import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -66,6 +67,7 @@ function Establishment() {
 
   return (
     <>
+      <BreadCrumbs crumb={4} estname={establishment.name} />
       <Container className="establishmentDetailContainer">
         <div className="establishmentDetail__accept">
           <Image src={AcceptIcon} alt="v" fluid />

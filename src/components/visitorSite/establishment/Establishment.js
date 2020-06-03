@@ -4,6 +4,7 @@ import AllEstablishments from "./AllEstablishments";
 import Loading from "../../spinner/Loading";
 import Container from "react-bootstrap/Container";
 import Footer from "../footer/Footer";
+import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -30,6 +31,7 @@ function Establishment() {
 
   return (
     <>
+      <BreadCrumbs crumb={3} />
       <Container>
         {establishment.map((hotels) => {
           const { id, image, name, maxGuests, selfCatering, price } = hotels;
