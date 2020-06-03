@@ -20,10 +20,12 @@ function AllEstablishments({
   selfCatering,
   price,
 }) {
-  let newPrice = Math.ceil((price * 70) / 100 - 5);
-  let roomsLeft = Math.ceil(maxGuests / 3);
-  let decrease = price - newPrice;
-  let discount = Math.ceil((decrease / price) * 100);
+  let newPrice = Math.ceil((price * 70) / 100 - 5); // calculate new price after discount
+  let roomsLeft = Math.ceil(maxGuests / 3); // calculate avaiable rooms left
+
+  // calculate discount in percent
+  let decrease = price - newPrice; // decrease amount
+  let discount = Math.ceil((decrease / price) * 100); // find percentage
 
   // Discounts
   function updatePrice() {
