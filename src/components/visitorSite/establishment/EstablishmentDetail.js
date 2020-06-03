@@ -59,7 +59,7 @@ function Establishment() {
       );
     }
     return (
-      <Card.Text className="establishmentDetail__price--org">
+      <Card.Text className="establishmentDetail__price--org text-center">
         <strong>Total: $ {establishment.price}</strong>
       </Card.Text>
     );
@@ -126,6 +126,12 @@ function Establishment() {
               <Card.Text className="establishmentDetail__desc">
                 {establishment.description}
               </Card.Text>
+
+              <Card.Img
+                src={Map}
+                alt="map icon"
+                className="establishmentDetail__bottom--mapIcon"
+              />
             </Col>
 
             <Col sm={12} className="establishmentDetail__checkout">
@@ -142,12 +148,6 @@ function Establishment() {
                     Book
                   </Button>
                 </Link>
-
-                <Card.Img
-                  src={Map}
-                  alt="map icon"
-                  className="establishmentDetail__bottom--mapIcon"
-                />
               </Col>
             </Col>
           </Card.Body>
