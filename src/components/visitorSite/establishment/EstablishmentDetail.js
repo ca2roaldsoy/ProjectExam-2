@@ -58,8 +58,8 @@ function Establishment() {
       );
     }
     return (
-      <Card.Text className="establishmentDetail__price">
-        <strong>$ {establishment.price}</strong>
+      <Card.Text className="establishmentDetail__price--org">
+        <strong>Total: $ {establishment.price}</strong>
       </Card.Text>
     );
   }
