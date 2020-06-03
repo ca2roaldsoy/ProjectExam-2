@@ -14,7 +14,6 @@ function Footer() {
         <Col sm={4}>
           <Image
             src={acceptIcon}
-            fluid
             className="footer__top--img img-responsive"
             role="img"
             alt="letter v inside green circle"
@@ -25,7 +24,6 @@ function Footer() {
         <Col sm={4}>
           <Image
             src={acceptIcon}
-            fluid
             className="footer__top--img img-responsive"
             role="img"
             alt="letter v inside green circle"
@@ -36,7 +34,6 @@ function Footer() {
         <Col sm={4}>
           <Image
             src={acceptIcon}
-            fluid
             className="footer__top--img img-responsive"
             role="img"
             alt="letter v inside green circle"
