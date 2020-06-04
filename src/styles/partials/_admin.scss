@@ -1,0 +1,37 @@
+.adminContainer {
+  padding: 0;
+}
+
+.admin {
+  &__section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../../images/bergen/admin_page.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    &--title {
+      color: $darkYellow;
+      font-size: 4em;
+      margin-bottom: 50px;
+      margin-top: 50px;
+    }
+
+    &--link {
+      margin-bottom: 20px;
+
+      & button {
+        width: 80%;
+        background-color: $darkBlue;
+        border-radius: 10px;
+        font-size: 24px;
+      }
+    }
+  }
+  &__img {
+    display: none;
+  }
+}

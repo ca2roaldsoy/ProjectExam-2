@@ -112,6 +112,12 @@
       }
     }
   }
+
+  .admin {
+    &__section--title {
+      font-size: 72px;
+    }
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -219,6 +225,36 @@
       &--mapIcon {
         margin: 0;
       }
+    }
+  }
+
+  .admin {
+    margin-top: 50px;
+
+    &__section {
+      background: none;
+      background-color: $black;
+      border: 1px solid;
+      height: 80vh;
+
+      &--title {
+        color: $darkYellow;
+        margin-bottom: 100px;
+      }
+
+      &--link {
+        margin-bottom: 50px;
+
+        & button {
+          background-color: $darkBlue;
+        }
+      }
+    }
+
+    &__img {
+      display: flex;
+      padding: 0;
+      max-height: 80vh;
     }
   }
 }
