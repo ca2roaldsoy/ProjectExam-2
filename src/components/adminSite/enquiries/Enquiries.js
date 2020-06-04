@@ -4,6 +4,7 @@ import EnquiryDetails from "./EnquiriesDetails";
 import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 function Enquiries() {
   const [enquiry, setEnquiry] = useState([]);
@@ -65,12 +66,22 @@ function Enquiries() {
   }
 
   return (
-    <>
-      <h1>Enquiries</h1>
-      <Button onClick={() => (window.location.href = "./enquiries")}>
+    <Container className="enquiries">
+      <h2 className="enquiries__title">Enquiries</h2>
+      <Button
+        onClick={() => (window.location.href = "./enquiries")}
+        className="enquiries__update"
+      >
         Remove resolved enquiries
       </Button>
-      <Table striped bordered hover responsive variant="dark">
+      <Table
+        striped
+        bordered
+        hover
+        responsive
+        variant="dark"
+        className="enquiries__table"
+      >
         <thead>
           <tr>
             <th>Establishment</th>
@@ -84,7 +95,7 @@ function Enquiries() {
         </thead>
         <tbody>{noEnquiries()}</tbody>
       </Table>
-    </>
+    </Container>
   );
 }
 

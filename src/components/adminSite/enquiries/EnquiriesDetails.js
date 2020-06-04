@@ -23,7 +23,7 @@ function EnquiriesDetails({
       <td>{checkIn.slice(0, 10)}</td>
       <td>{checkOut.slice(0, 10)}</td>
       <td>{created.slice(0, 10)}</td>
-      <td>
+      <td className="enquiries__resolveContainer">
         {accepted || rejected ? (
           <EnquiryAnswer
             accepted={accepted}
@@ -53,7 +53,7 @@ EnquiriesDetails.propTypes = {
   checkIn: PropTypes.string.isRequired,
   checkOut: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
-  establishmentId: PropTypes.string.isRequired,
+  establishmentName: PropTypes.string.isRequired,
 };
 
 export default EnquiriesDetails;

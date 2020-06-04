@@ -16,34 +16,34 @@ function EnquiryAnswer({ accepted, rejected, id }) {
   // if enquiry is accepted
   if (accepted) {
     return (
-      <>
+      <section className="enquiries__resolve">
         {deleteEstablishment()}
-        Accepted
+        <p className="enquiries__resolve--text">Accepted</p>
         <Image
           src={Accept}
           alt="accept"
           fluid
-          className="img-responsive"
+          className="img-responsive enquiries__resolve--img"
           role="img"
         />
-      </>
+      </section>
     );
   }
 
   // if enquiry is rejected
   if (rejected) {
     return (
-      <>
+      <section className="enquiries__resolve">
         {deleteEstablishment()}
-        Rejected
+        <p className="enquiries__resolve--text">Rejected</p>
         <Image
           src={Reject}
           alt="reject"
           fluid
-          className="img-responsive"
+          className="img-responsive enquiries__resolve--img"
           role="img"
         />
-      </>
+      </section>
     );
   }
 }

@@ -1,0 +1,26 @@
+.enquiries {
+  margin-top: 50px;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__update {
+    margin: 25px auto;
+    display: block;
+  }
+
+  &__resolveContainer button {
+    margin: 10px auto;
+    width: 100%;
+  }
+
+  &__resolve {
+    display: block;
+    text-align: center;
+
+    &--img {
+      max-width: 25px;
+    }
+  }
+}

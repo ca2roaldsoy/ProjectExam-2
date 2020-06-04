@@ -257,6 +257,25 @@
       max-height: 80vh;
     }
   }
+
+  .enquiries {
+    &__resolveContainer {
+      display: flex;
+      justify-content: flex-start;
+
+      & button {
+        width: auto;
+      }
+    }
+
+    &__resolve {
+      display: flex;
+
+      &--text {
+        margin: 0 10px;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 1200px) {
