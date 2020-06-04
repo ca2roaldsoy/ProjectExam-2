@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import EnquiryAnswer from "./EnquiryAnswer";
 import PropTypes from "prop-types";
+import EnquiryModal from "./EnquiryModal";
 
 function EnquiriesDetails({
   name,
@@ -14,6 +15,13 @@ function EnquiriesDetails({
 }) {
   const [accepted, setAccepted] = useState(false);
   const [rejected, setRejected] = useState(false);
+  const [confirmAccept, setConfirmAccept] = useState(false);
+  const [confirmReject, setConfirmReject] = useState(false);
+
+  const openAcceptModal = () => setAccepted(true);
+  const openRejectModal = () => setRejected(true);
+  const closeAcceptModal = () => setAccepted(false);
+  const closeRejectModal = () => setRejected(false);
 
   return (
     <tr>
@@ -24,21 +32,30 @@ function EnquiriesDetails({
       <td>{checkOut.slice(0, 10)}</td>
       <td>{created.slice(0, 10)}</td>
       <td className="enquiries__resolveContainer">
-        {accepted || rejected ? (
+        {confirmAccept || confirmReject ? (
           <EnquiryAnswer
-            accepted={accepted}
-            rejected={rejected}
-            created={created}
+            accept={confirmAccept}
+            reject={confirmReject}
             id={id}
           />
         ) : (
           <>
-            <Button onClick={() => setAccepted(true)} role="button">
+            <Button onClick={openAcceptModal} role="button">
               Accept
             </Button>
-            <Button onClick={() => setRejected(true)} role="button">
+
+            <Button onClick={openRejectModal} role="button">
               Reject
             </Button>
+
+            <EnquiryModal
+              accepted={accepted}
+              rejected={rejected}
+              setConfirmAccept={setConfirmAccept}
+              setConfirmReject={setConfirmReject}
+              closeAcceptModal={closeAcceptModal}
+              closeRejectModal={closeRejectModal}
+            />
           </>
         )}
       </td>

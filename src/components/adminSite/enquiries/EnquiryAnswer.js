@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "react-bootstrap/Image";
-import Accept from "../../../images/accept.png";
-import Reject from "../../../images/reject.png";
+import AcceptImg from "../../../images/accept.png";
+import RejectImg from "../../../images/reject.png";
 import PropTypes from "prop-types";
 import { BASE_URL, headers } from "../../../constants/api";
+import Modal from "react-bootstrap/Modal";
 
-function EnquiryAnswer({ accepted, rejected, id }) {
+function EnquiryAnswer({ accept, reject, id }) {
   function deleteEstablishment() {
     const url = BASE_URL + "enquiries/" + id;
     const options = { headers, method: "DELETE" };
@@ -14,14 +15,14 @@ function EnquiryAnswer({ accepted, rejected, id }) {
   }
 
   // if enquiry is accepted
-  if (accepted) {
+  if (accept) {
     return (
       <section className="enquiries__resolve">
         {deleteEstablishment()}
         <p className="enquiries__resolve--text">Accepted</p>
         <Image
-          src={Accept}
-          alt="accept"
+          src={AcceptImg}
+          alt="reject"
           fluid
           className="img-responsive enquiries__resolve--img"
           role="img"
@@ -30,14 +31,13 @@ function EnquiryAnswer({ accepted, rejected, id }) {
     );
   }
 
-  // if enquiry is rejected
-  if (rejected) {
+  if (reject) {
     return (
       <section className="enquiries__resolve">
         {deleteEstablishment()}
         <p className="enquiries__resolve--text">Rejected</p>
         <Image
-          src={Reject}
+          src={RejectImg}
           alt="reject"
           fluid
           className="img-responsive enquiries__resolve--img"
