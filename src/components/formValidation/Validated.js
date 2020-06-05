@@ -38,11 +38,7 @@ function Validated({ validated, message }) {
           </Alert>
         ); // message after sending enquiry // message after establishment is created
       default:
-        return (
-          <Alert variant="success" role="alert">
-            <Alert.Heading>Message Sent!</Alert.Heading>
-          </Alert>
-        );
+        return null;
     }
   }
   return null;
