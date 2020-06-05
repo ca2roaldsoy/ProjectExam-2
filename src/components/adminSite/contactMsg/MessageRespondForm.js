@@ -11,7 +11,7 @@ const schema = yup.object().shape({
   respondMsg: yup.string().required("Please enter a message"),
 });
 
-function MessageRespondForm({ closeModal, validated, setValidated, id }) {
+function MessageRespondForm({ closeModal, setValidated, id }) {
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -55,6 +55,8 @@ function MessageRespondForm({ closeModal, validated, setValidated, id }) {
 
 MessageRespondForm.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  setValidated: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default MessageRespondForm;
