@@ -1,12 +1,13 @@
 import React from "react";
 import EstablishmentForm from "./EstablishmentForm";
+import Container from "react-bootstrap/Container";
 
 function NewEstablishment() {
   return (
-    <div>
-      <h1>Create New Establishment</h1>
+    <Container>
+      <h2>Create New Establishment</h2>
       <EstablishmentForm />
-    </div>
+    </Container>
   );
 }
 
