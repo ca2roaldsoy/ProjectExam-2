@@ -38,14 +38,14 @@ function EnquiryModal({
                 <Button
                   onClick={() => setConfirmAccept(true)}
                   role="button"
-                  className="enquiriesModal__body--btn"
+                  className="modal__body--btn"
                 >
                   Yes
                 </Button>
                 <Button
                   onClick={closeAcceptModal}
                   role="button"
-                  className="enquiriesModal__body--btn"
+                  className="modal__body--btn"
                 >
                   Cancel
                 </Button>
@@ -67,14 +67,14 @@ function EnquiryModal({
                 <Button
                   onClick={() => setConfirmReject(true)}
                   role="button"
-                  className="enquiriesModal__body--btn"
+                  className="modal__body--btn"
                 >
                   Yes
                 </Button>
                 <Button
                   onClick={closeRejectModal}
                   role="button"
-                  className="enquiriesModal__body--btn"
+                  className="modal__body--btn"
                 >
                   Cancel
                 </Button>

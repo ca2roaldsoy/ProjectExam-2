@@ -3,6 +3,7 @@ import { BASE_URL, headers } from "../../../constants/api";
 import MessagesLayout from "./MessagesLayout";
 import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
+import Container from "react-bootstrap/Container";
 
 function Messages() {
   const [contactMsg, setContactMsg] = useState([]);
@@ -51,7 +52,7 @@ function Messages() {
   }
 
   return (
-    <>
+    <Container>
       <h2>Messages</h2>
       <Table striped bordered hover responsive variant="dark">
         <thead>
@@ -62,7 +63,7 @@ function Messages() {
         </thead>
         <tbody>{noMsg()}</tbody>
       </Table>
-    </>
+    </Container>
   );
 }
 

@@ -33,7 +33,12 @@ function ViewMessage({ id }) {
       ) : (
         "Message Sent"
       )}
-      <Modal size="lg" show={modal} onHide={closeModal}>
+      <Modal
+        size="lg"
+        show={modal}
+        onHide={closeModal}
+        className="messageModal"
+      >
         <small>From: {viewMsg.name}</small>
         <small>Email: {viewMsg.email}</small>
         <Modal.Header closeButton>

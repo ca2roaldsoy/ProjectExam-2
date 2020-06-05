@@ -31,7 +31,11 @@ function MessageRespondForm({ closeModal, setValidated, id }) {
 
   return (
     <>
-      <Form onSubmit={handleSubmit(onSubmit)} role="form">
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
+        role="form"
+        className="messageModal_respond"
+      >
         <Form.Group>
           <Form.Label>Respond</Form.Label>
           <Form.Control
@@ -45,7 +49,7 @@ function MessageRespondForm({ closeModal, setValidated, id }) {
           )}
         </Form.Group>
 
-        <Button type="submit" role="button">
+        <Button type="submit" role="button" className="modal__respond--btn">
           Send
         </Button>
       </Form>

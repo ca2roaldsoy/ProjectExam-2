@@ -1,0 +1,39 @@
+.modal-header {
+  background-color: $yellow;
+}
+
+.modal-content > small {
+  padding: 0px 5px;
+  background-color: lightgrey;
+
+  &:first-of-type {
+    padding-top: 3px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 3px;
+  }
+}
+
+.modal__body--btn {
+  background-color: $darkBlue;
+  width: 25%;
+  max-width: 100px;
+
+  &:last-of-type {
+    float: right;
+    background-color: $white;
+    border: 1px solid $black;
+    color: $black;
+
+    &:hover {
+      background-color: red;
+      color: $white;
+    }
+  }
+}
+
+.messageModal_respond {
+  padding: 10px 20px;
+  border-top: 1px solid $black;
+}
