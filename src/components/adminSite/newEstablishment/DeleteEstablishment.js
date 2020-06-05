@@ -3,6 +3,7 @@ import { BASE_URL, headers } from "../../../constants/api";
 import DeleteEstDetail from "./DeleteEstDetail";
 import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
+import Container from "react-bootstrap/Container";
 
 function DeleteEstablishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -38,17 +39,20 @@ function DeleteEstablishment() {
   }
 
   return (
-    <Table striped bordered hover responsive variant="dark">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Created</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>{deleteEstablishmentDetail()}</tbody>
-    </Table>
+    <Container>
+      <h2>Delete Establishment</h2>
+      <Table striped bordered hover responsive variant="dark">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Created</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>{deleteEstablishmentDetail()}</tbody>
+      </Table>
+    </Container>
   );
 }
 export default DeleteEstablishment;
