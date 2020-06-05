@@ -59,6 +59,7 @@ function Messages() {
           <tr>
             <th>From</th>
             <th>E-mail</th>
+            <th>View Message</th>
           </tr>
         </thead>
         <tbody>{noMsg()}</tbody>
