@@ -21,13 +21,7 @@ function ViewMessage({ id }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const closeModal = () => {
-    const url = BASE_URL + "contacts/" + id;
-    const options = { headers, method: "DELETE" };
-
-    fetch(url, options);
-    setModal(false);
-  };
+  const closeModal = () => setModal(false);
   const openModal = () => setModal(true);
 
   return (

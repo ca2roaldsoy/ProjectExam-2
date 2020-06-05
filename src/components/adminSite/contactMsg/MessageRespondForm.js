@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
+import { BASE_URL, headers } from "../../../constants/api";
 
 // validate input field
 const schema = yup.object().shape({
   respondMsg: yup.string().required("Please enter a message"),
 });
 
-function MessageRespondForm({ closeModal, validated, setValidated }) {
+function MessageRespondForm({ closeModal, validated, setValidated, id }) {
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -19,13 +20,18 @@ function MessageRespondForm({ closeModal, validated, setValidated }) {
   function onSubmit(data) {
     console.log("data", data);
 
+    const url = BASE_URL + "contacts/" + id;
+    const options = { headers, method: "DELETE" };
+
+    fetch(url, options);
+
     setValidated(true);
   }
 
   if (validated) {
     return (
       <>
-        <Validated validated={validated} message={2} />
+        <Validated validated={validated} />
         <Button type="button" role="button" onClick={closeModal}>
           Close
         </Button>
