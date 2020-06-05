@@ -48,8 +48,8 @@ function EnquiryAnswer({ accept, reject, id }) {
 }
 
 EnquiryAnswer.propTypes = {
-  accepted: PropTypes.bool.isRequired,
-  rejected: PropTypes.bool.isRequired,
+  accepted: PropTypes.bool,
+  rejected: PropTypes.bool,
   id: PropTypes.string.isRequired,
 };
 
