@@ -23,20 +23,11 @@ function MessageRespondForm({ closeModal, validated, setValidated, id }) {
     const url = BASE_URL + "contacts/" + id;
     const options = { headers, method: "DELETE" };
 
-    fetch(url, options);
+    fetch(url, options)
+      .then(closeModal)
+      .catch((err) => console.log(err));
 
     setValidated(true);
-  }
-
-  if (validated) {
-    return (
-      <>
-        <Validated validated={validated} />
-        <Button type="button" role="button" onClick={closeModal}>
-          Close
-        </Button>
-      </>
-    );
   }
 
   return (
