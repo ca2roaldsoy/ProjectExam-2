@@ -67,7 +67,7 @@ function Enquiries() {
 
   return (
     <Container className="enquiries">
-      <h2 className="enquiries__title">Enquiries</h2>
+      <h2>Enquiries</h2>
       <Button
         onClick={() => (window.location.href = "./enquiries")}
         className="enquiries__update"
