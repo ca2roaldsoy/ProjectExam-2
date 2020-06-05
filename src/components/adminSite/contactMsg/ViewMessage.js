@@ -27,7 +27,7 @@ function ViewMessage({ id }) {
   return (
     <>
       {!validated ? (
-        <Button onClick={openModal} role="button">
+        <Button onClick={openModal} role="button" className="message__btn">
           View Message
         </Button>
       ) : (
