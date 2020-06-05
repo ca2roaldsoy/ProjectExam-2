@@ -1,0 +1,139 @@
+@import "variables";
+
+// spinner
+.spinner {
+  margin: 250px auto;
+  display: block;
+}
+
+// table
+.table td {
+  vertical-align: middle;
+}
+
+// modal
+.modal-header {
+  background-color: $yellow;
+}
+
+.modal-content > small {
+  padding: 0px 5px;
+  background-color: lightgrey;
+
+  &:first-of-type {
+    padding-top: 3px;
+  }
+
+  &:last-of-type {
+    padding-bottom: 3px;
+  }
+}
+
+.modal__body--btn {
+  background-color: $darkBlue;
+  width: 25%;
+  max-width: 100px;
+
+  &:last-of-type {
+    float: right;
+    background-color: $white;
+    border: 1px solid $black;
+    color: $black;
+
+    &:hover {
+      background-color: red;
+      color: $white;
+    }
+  }
+}
+
+.messageModal_respond {
+  padding: 10px 20px;
+  border-top: 1px solid $black;
+}
+
+// form
+.containerForm {
+  margin: 20px auto;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  height: 85vh;
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+  &__form {
+    margin: 0px auto;
+    padding: 30px;
+
+    & h2 {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.form {
+  &-text {
+    color: #ff333a;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+
+    &--submit {
+      background-color: $darkBlue;
+      color: $white;
+      border: none;
+      width: 150px;
+    }
+
+    &--reset {
+      background-color: $white;
+      border: 1px solid $black;
+      color: $black;
+
+      &:hover {
+        background-color: #d3292f;
+      }
+    }
+  }
+  &__date {
+    padding-left: 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__message {
+    padding-bottom: 150px;
+  }
+}
+
+// footer
+.footer {
+  background-color: #696969;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  width: 100%;
+  align-items: center;
+  line-height: 1;
+  color: $white;
+
+  &__title--text {
+    font-size: 72px;
+    color: $yellow;
+  }
+
+  &__contact--title {
+    margin-bottom: 20px;
+  }
+
+  &__social img {
+    width: 50px;
+    height: auto;
+    margin: 10px;
+  }
+}
