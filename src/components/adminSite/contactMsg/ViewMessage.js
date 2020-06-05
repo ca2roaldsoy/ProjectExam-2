@@ -4,19 +4,33 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MessageRespondForm from "./MessageRespondForm";
 import { BASE_URL, headers } from "../../../constants/api";
+import ErrorHandler from "../../errorHandler/ErrorHandler";
+import Loading from "../../spinner/Loading";
 
 function ViewMessage({ id }) {
   const [modal, setModal] = useState(false);
   const [viewMsg, setViewMsg] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [validated, setValidated] = useState(false);
+  const [errorHandle, setErrorHandle] = useState(false);
 
   const url = BASE_URL + "contacts/" + id;
   const options = { headers };
 
   useEffect(() => {
     fetch(url, options)
-      .then((response) => response.json())
-      .then((msg) => setViewMsg(msg))
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          setLoading(false);
+          setErrorHandle(true);
+        }
+      })
+      .then((msg) => {
+        setViewMsg(msg);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -24,34 +38,45 @@ function ViewMessage({ id }) {
   const closeModal = () => setModal(false);
   const openModal = () => setModal(true);
 
+  // use spinner
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <>
-      {!validated ? (
-        <Button onClick={openModal} role="button" className="message__btn">
-          View Message
-        </Button>
+      {errorHandle ? (
+        <ErrorHandler />
       ) : (
-        "Message Sent"
+        <>
+          {!validated ? (
+            <Button onClick={openModal} role="button" className="message__btn">
+              View Message
+            </Button>
+          ) : (
+            "Message Sent"
+          )}
+          <Modal
+            size="lg"
+            show={modal}
+            onHide={closeModal}
+            className="messageModal"
+          >
+            <small>From: {viewMsg.name}</small>
+            <small>Email: {viewMsg.email}</small>
+            <Modal.Header closeButton>
+              <Modal.Title>Message</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>{viewMsg.message}</Modal.Body>
+            <MessageRespondForm
+              closeModal={closeModal}
+              validated={validated}
+              setValidated={setValidated}
+              id={id}
+            />
+          </Modal>
+        </>
       )}
-      <Modal
-        size="lg"
-        show={modal}
-        onHide={closeModal}
-        className="messageModal"
-      >
-        <small>From: {viewMsg.name}</small>
-        <small>Email: {viewMsg.email}</small>
-        <Modal.Header closeButton>
-          <Modal.Title>Message</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{viewMsg.message}</Modal.Body>
-        <MessageRespondForm
-          closeModal={closeModal}
-          validated={validated}
-          setValidated={setValidated}
-          id={id}
-        />
-      </Modal>
     </>
   );
 }

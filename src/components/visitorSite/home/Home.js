@@ -15,19 +15,28 @@ import Row from "react-bootstrap/Row";
 import DropDown from "react-bootstrap/Dropdown";
 import Qualities from "./Qualities";
 import Footer from "../footer/Footer";
+import ErrorHandler from "../../errorHandler/ErrorHandler";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [searchEstablishments, setSearchEstablishments] = useState([]);
   const [establishments, setEstablishments] = useState([]);
+  const [errorHandle, setErrorHandle] = useState(false);
 
   const url = BASE_URL + "establishments";
   const options = { headers };
 
   useEffect(() => {
     fetch(url, options)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          setLoading(false);
+          setErrorHandle(true);
+        }
+      })
       .then((json) => {
         setLoading(false);
         setEstablishments(json);
@@ -123,30 +132,33 @@ function Home() {
 
   return (
     <Row className="home">
-      <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
+      {errorHandle ? (
+        <ErrorHandler />
+      ) : (
+        <>
+          <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
+          {/* Search */}
+          <Container>
+            <section className="searchContainer">
+              <h2 className="text-center searchContainer__title">
+                Find Accommodations
+              </h2>
+              <Search handleSearch={findEstablishment} />
+              {/* Search Results */}
+              {results()}
+            </section>
 
-      {/* Search */}
-      <Container>
-        <section className="searchContainer">
-          <h2 className="text-center searchContainer__title">
-            Find Accommodations
-          </h2>
-          <Search handleSearch={findEstablishment} />
-          {/* Search Results */}
-          {results()}
-        </section>
-
-        {/* Popular Places */}
-        {popular()}
-      </Container>
-
-      {/* Browse All Accommodation Section */}
-      <BrowseAll />
-
-      {/* Explore Bergen */}
-      <Container className="exploreBergen">{exploreBergen()}</Container>
-      <Qualities />
-      <Footer />
+            {/* Popular Places */}
+            {popular()}
+          </Container>
+          {/* Browse All Accommodation Section */}
+          <BrowseAll />
+          {/* Explore Bergen */}
+          <Container className="exploreBergen">{exploreBergen()}</Container>
+          <Qualities />
+          <Footer />
+        </>
+      )}
     </Row>
   );
 }

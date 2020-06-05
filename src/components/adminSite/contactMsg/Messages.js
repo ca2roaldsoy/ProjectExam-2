@@ -4,17 +4,26 @@ import MessagesLayout from "./MessagesLayout";
 import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
+import ErrorHandler from "../../errorHandler/ErrorHandler";
 
 function Messages() {
   const [contactMsg, setContactMsg] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [errorHandle, setErrorHandle] = useState(false);
 
   const url = BASE_URL + "contacts";
   const options = { headers };
 
   useEffect(() => {
     fetch(url, options)
-      .then((repsonse) => repsonse.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          setLoading(false);
+          setErrorHandle(true);
+        }
+      })
       .then((data) => {
         setContactMsg(data);
         setLoading(false);
@@ -53,17 +62,23 @@ function Messages() {
 
   return (
     <Container>
-      <h2>Messages</h2>
-      <Table striped bordered hover responsive variant="dark">
-        <thead>
-          <tr>
-            <th>From</th>
-            <th>E-mail</th>
-            <th>View Message</th>
-          </tr>
-        </thead>
-        <tbody>{noMsg()}</tbody>
-      </Table>
+      {errorHandle ? (
+        <ErrorHandler />
+      ) : (
+        <>
+          <h2>Messages</h2>
+          <Table striped bordered hover responsive variant="dark">
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>E-mail</th>
+                <th>View Message</th>
+              </tr>
+            </thead>
+            <tbody>{noMsg()}</tbody>
+          </Table>{" "}
+        </>
+      )}
     </Container>
   );
 }

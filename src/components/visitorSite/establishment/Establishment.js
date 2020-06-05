@@ -5,17 +5,26 @@ import Loading from "../../spinner/Loading";
 import Container from "react-bootstrap/Container";
 import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
+import ErrorHandler from "../../errorHandler/ErrorHandler";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [errorHandle, setErrorHandle] = useState(false);
 
   const url = BASE_URL + "establishments";
   const options = { headers };
 
   useEffect(() => {
     fetch(url, options)
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          setLoading(false);
+          setErrorHandle(true);
+        }
+      })
       .then((data) => {
         console.log(data);
         setEstablishment(data);
@@ -31,25 +40,38 @@ function Establishment() {
 
   return (
     <>
-      <BreadCrumbs crumb={3} />
-      <Container>
-        {establishment.map((hotels) => {
-          const { id, image, name, maxGuests, selfCatering, price } = hotels;
+      {errorHandle ? (
+        <ErrorHandler />
+      ) : (
+        <>
+          <BreadCrumbs crumb={3} />
+          <Container>
+            {establishment.map((hotels) => {
+              const {
+                id,
+                image,
+                name,
+                maxGuests,
+                selfCatering,
+                price,
+              } = hotels;
 
-          return (
-            <AllEstablishments
-              image={image}
-              name={name}
-              maxGuests={maxGuests}
-              selfCatering={selfCatering}
-              price={price}
-              key={id}
-              id={id}
-            />
-          );
-        })}
-      </Container>
-      <Footer />
+              return (
+                <AllEstablishments
+                  image={image}
+                  name={name}
+                  maxGuests={maxGuests}
+                  selfCatering={selfCatering}
+                  price={price}
+                  key={id}
+                  id={id}
+                />
+              );
+            })}
+          </Container>
+          <Footer />
+        </>
+      )}
     </>
   );
 }
