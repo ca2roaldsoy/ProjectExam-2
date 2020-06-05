@@ -10,7 +10,82 @@ function EnquiryModal({
   setConfirmAccept,
   setConfirmReject,
 }) {
-  if (accepted) {
+  function enquiryAnswer() {
+    if (accepted || rejected) {
+      return (
+        <Modal
+          size="md"
+          show={accepted || rejected}
+          onHide={closeAcceptModal}
+          backdrop="static"
+          keyboard={false}
+          className="enquiryModal"
+        >
+          {accepted ? (
+            <>
+              <Modal.Header className="enquiriesModal__header">
+                <Modal.Title>Accept Enquiry</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
+                  Are you sure you want to <b>ACCEPT</b> this enquiry?
+                </p>
+                <p>
+                  <span className="confirmWarning">Waning:</span> This action
+                  cannot be undone!
+                </p>
+                <Button
+                  onClick={() => setConfirmAccept(true)}
+                  role="button"
+                  className="enquiriesModal__body--btn"
+                >
+                  Yes
+                </Button>
+                <Button
+                  onClick={closeAcceptModal}
+                  role="button"
+                  className="enquiriesModal__body--btn"
+                >
+                  Cancel
+                </Button>
+              </Modal.Body>
+            </>
+          ) : (
+            <>
+              <Modal.Header className="enquiriesModal__header">
+                <Modal.Title>Reject Enquiry</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <p>
+                  Are you sure you want to <b>REJECT</b> this enquiry?
+                </p>
+                <p>
+                  <span className="confirmWarning">Waning:</span> This cannot be
+                  undone!
+                </p>
+                <Button
+                  onClick={() => setConfirmReject(true)}
+                  role="button"
+                  className="enquiriesModal__body--btn"
+                >
+                  Yes
+                </Button>
+                <Button
+                  onClick={closeRejectModal}
+                  role="button"
+                  className="enquiriesModal__body--btn"
+                >
+                  Cancel
+                </Button>
+              </Modal.Body>
+            </>
+          )}
+        </Modal>
+      );
+    }
+  }
+
+  /*if (accepted) {
     return (
       <Modal size="lg" show={accepted} onHide={closeAcceptModal}>
         <Modal.Header closeButton>
@@ -18,9 +93,12 @@ function EnquiryModal({
         </Modal.Header>
         <Modal.Body>
           <p>
-            Are you sure you want to <b>accept</b> this enquiry?
+            Are you sure you want to <b>ACCEPT</b> this enquiry?
           </p>
-          <p>Waning: This cannot be undone!</p>
+          <p>
+            <span className="confirmWarning">Waning:</span> This cannot be
+            undone!
+          </p>
           <Button onClick={() => setConfirmAccept(true)} role="button">
             Yes
           </Button>
@@ -33,26 +111,46 @@ function EnquiryModal({
   }
   if (rejected) {
     return (
-      <Modal size="lg" show={rejected} onHide={closeRejectModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Reject Enquiry</Modal.Title>
+      <Modal
+        size="md"
+        show={rejected}
+        onHide={closeRejectModal}
+        backdrop="static"
+        keyboard={false}
+        className="enquiryModal"
+      >
+        <Modal.Header closeButton className="enquiriesModal__header">
+          <Modal.Title className="enquiriesModal__title">
+            Reject Enquiry
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="enquiriesModal__body">
           <p>
-            Are you sure you want to <b>reject</b> this enquiry?
+            Are you sure you want to <b>REJECT</b> this enquiry?
           </p>
-          <p>Waning: This cannot be undone!</p>
-          <Button onClick={() => setConfirmReject(true)} role="button">
+          <p>
+            <span className="confirmWarning">Waning:</span> This action cannot
+            be undone!
+          </p>
+          <Button
+            onClick={() => setConfirmReject(true)}
+            role="button"
+            className="enquiriesModal__body--btn"
+          >
             Yes
           </Button>
-          <Button onClick={closeRejectModal} role="button">
+          <Button
+            onClick={closeRejectModal}
+            role="button"
+            className="enquiriesModal__body--btn"
+          >
             Cancel
           </Button>
         </Modal.Body>
       </Modal>
     );
-  }
-  return null;
+  }*/
+  return <section>{enquiryAnswer()}</section>;
 }
 
 export default EnquiryModal;

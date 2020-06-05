@@ -24,3 +24,30 @@
     }
   }
 }
+
+.enquiriesModal {
+  &__header {
+    background-color: $yellow;
+  }
+  &__body--btn {
+    background-color: $darkBlue;
+    width: 25%;
+    max-width: 100px;
+
+    &:last-of-type {
+      float: right;
+      background-color: $white;
+      border: 1px solid $black;
+      color: $black;
+
+      &:hover {
+        background-color: red;
+        color: $white;
+      }
+    }
+  }
+}
+
+.confirmWarning {
+  color: red;
+}
