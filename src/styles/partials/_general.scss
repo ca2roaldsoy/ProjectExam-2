@@ -137,3 +137,28 @@
     margin: 10px;
   }
 }
+
+// Error / Permission Denied
+.pageError {
+  border: none;
+  max-width: 400px;
+  margin: 20px auto;
+
+  &__img {
+    margin-bottom: 20px;
+  }
+
+  &__container {
+    margin-top: 40vw;
+    color: $white;
+    background-color: rgba($black, 0.9);
+    height: 80px;
+    padding: 0;
+
+    &--text,
+    &--title {
+      margin: 10px;
+      text-align: center;
+    }
+  }
+}
