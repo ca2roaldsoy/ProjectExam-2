@@ -197,3 +197,15 @@
     }
   }
 }
+
+.manageEstablishmentMenu {
+  display: block;
+  margin: 25vh auto;
+
+  & button {
+    margin: 25px auto;
+    width: 100%;
+    height: 120px;
+    font-size: 32px;
+  }
+}
