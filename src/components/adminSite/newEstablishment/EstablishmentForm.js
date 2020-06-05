@@ -76,33 +76,40 @@ function EstablishmentForm() {
               <Form.Control type="text" name="image" ref={register} />
             </Form.Group>
           </Col>
-          <Col lg={6}>
+          <Col md={6}>
             <Form.Group>
               <Form.Label htmlFor="price">Establishment Price</Form.Label>
               <InputGroup>
                 <InputGroup.Prepend>
-                  <InputGroup.Text>$</InputGroup.Text>
+                  <InputGroup.Text>NOK</InputGroup.Text>
                 </InputGroup.Prepend>
                 <Form.Control
                   type="number"
                   name="price"
                   step=".01"
+                  placeholder="Max two decimals"
                   ref={register}
                 />
-                {errors.price && <Form.Text>{errors.price.message}</Form.Text>}
+                {errors.price && (
+                  <Col md={12} className="p-0">
+                    <Form.Text>{errors.price.message}</Form.Text>
+                  </Col>
+                )}
               </InputGroup>
             </Form.Group>
           </Col>
-          <Col lg={6}>
+          <Col md={6}>
             <Form.Group>
               <Form.Label htmlFor="guests">MaxGuests</Form.Label>
               <Form.Control type="number" name="maxGuests" ref={register} />
               {errors.maxGuests && (
-                <Form.Text>{errors.maxGuests.message}</Form.Text>
+                <Col md={12} className="p-0">
+                  <Form.Text>{errors.maxGuests.message}</Form.Text>
+                </Col>
               )}
             </Form.Group>
           </Col>
-          <Col lg={6}>
+          <Col md={6}>
             <Form.Group>
               <Form.Label htmlFor="latitude">Latitude</Form.Label>
               <Form.Control
@@ -113,7 +120,7 @@ function EstablishmentForm() {
               />
             </Form.Group>
           </Col>
-          <Col lg={6}>
+          <Col md={6}>
             <Form.Group>
               <Form.Label htmlFor="longitude">Longitude</Form.Label>
               <Form.Control

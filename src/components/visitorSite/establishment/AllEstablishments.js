@@ -35,16 +35,18 @@ function AllEstablishments({
           <Card.Text className="establishment__price--discount">
             Save: {discount}&#37;
           </Card.Text>
-          <Card.Text className="establishment__price--old">$ {price}</Card.Text>
+          <Card.Text className="establishment__price--old">
+            NOK {price}
+          </Card.Text>
           <Card.Text className="establishment__price--new">
-            <strong>$ {newPrice}</strong>
+            <strong>NOK {newPrice}</strong>
           </Card.Text>
         </>
       );
     }
     return (
       <Card.Text className="establishment__price--org">
-        <strong>$ {price}</strong>
+        <strong>NOK {price}</strong>
       </Card.Text>
     );
   }

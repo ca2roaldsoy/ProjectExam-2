@@ -47,10 +47,10 @@ function Establishment() {
       return (
         <>
           <Card.Text className="establishmentDetail__price--old">
-            $ {establishment.price}
+            NOK {establishment.price}
           </Card.Text>
           <Card.Text className="establishmentDetail__price--new">
-            $ {newPrice}
+            NOK {newPrice}
           </Card.Text>
           <Card.Text className="establishmentDetail__price--discount">
             Save: {discount}&#37;
@@ -60,7 +60,7 @@ function Establishment() {
     }
     return (
       <Card.Text className="establishmentDetail__price--org text-center">
-        <strong>Total: $ {establishment.price}</strong>
+        <strong>Total: NOK {establishment.price}</strong>
       </Card.Text>
     );
   }
