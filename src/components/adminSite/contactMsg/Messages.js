@@ -52,7 +52,7 @@ function Messages() {
 
   return (
     <>
-      <h1>Messages</h1>
+      <h2>Messages</h2>
       <Table striped bordered hover responsive variant="dark">
         <thead>
           <tr>
