@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Validated from "../../formValidation/Validated";
 import { BASE_URL, headers } from "../../../constants/api";
 
 // validate input field

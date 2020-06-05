@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 function Validated({ validated, message }) {
   if (validated) {
     switch (message) {
+      // message after sending enquiry
       case 1:
         return (
           <Alert variant="success" role="alert">
@@ -16,7 +17,8 @@ function Validated({ validated, message }) {
               You can now return <Link to="/">home</Link>
             </p>
           </Alert>
-        ); // message after sending enquiry
+        );
+      // message after sending contact message
       case 2:
         return (
           <Alert variant="success" role="alert">
@@ -26,7 +28,8 @@ function Validated({ validated, message }) {
               You can now return <Link to="/">home</Link>
             </p>
           </Alert>
-        ); // message after sending contact message
+        );
+      // message after establishment is created
       case 3:
         return (
           <Alert variant="success" role="alert">
@@ -36,7 +39,7 @@ function Validated({ validated, message }) {
               Return back to admin <Link to="/admin">home</Link>
             </p>
           </Alert>
-        ); // message after sending enquiry // message after establishment is created
+        );
       default:
         return null;
     }
