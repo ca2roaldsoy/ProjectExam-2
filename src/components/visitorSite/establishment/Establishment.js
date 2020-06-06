@@ -12,7 +12,6 @@ function Establishment() {
   const [establishment, setEstablishment] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorHandle, setErrorHandle] = useState(false);
-  const [btnToTop, setBtnToTop] = useState(false);
 
   const url = BASE_URL + "establishments";
   const options = { headers };
@@ -52,6 +51,7 @@ function Establishment() {
         <>
           <BreadCrumbs crumb={3} />
           <Container>
+            <h2 className="mb-5">Establishments</h2>
             {establishment.map((hotels) => {
               const {
                 id,
