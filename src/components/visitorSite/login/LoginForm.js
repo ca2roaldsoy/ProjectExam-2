@@ -12,7 +12,7 @@ const schema = yup.object().shape({
   userName: yup.string().required("Please enter your username"),
   password: yup
     .string()
-    .min(8, "Please enter password")
+    .min(8, "Password must contain of least 8 characters")
     .required()
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
