@@ -36,7 +36,7 @@ function Validated({ validated, message }) {
             <Alert.Heading>Success</Alert.Heading>
             <p>The establishment was created</p>
             <p>
-              Return back to admin <Link to="/admin">home</Link>
+              Return back to <Link to="/admin">admin</Link>
             </p>
           </Alert>
         );
