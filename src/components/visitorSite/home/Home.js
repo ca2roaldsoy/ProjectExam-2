@@ -35,19 +35,26 @@ function Home() {
         if (response.ok) {
           return response.json();
         } else {
-          setLoading(false);
           setErrorHandle(true);
         }
       })
       .then((json) => {
-        setLoading(false);
         setEstablishments(json);
         setSearchEstablishments(json);
         console.log(json);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      })
+      .finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // use spinner
+  if (loading) {
+    return <Loading />;
+  }
 
   // filter establishment after search
   const findEstablishment = (e) => {
@@ -63,11 +70,6 @@ function Home() {
     });
     setSearchEstablishments(filterEstablishments);
   };
-
-  // use spinner
-  if (loading) {
-    return <Loading />;
-  }
 
   // if no search result, display message
   function results() {

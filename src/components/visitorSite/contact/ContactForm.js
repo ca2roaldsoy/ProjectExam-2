@@ -55,7 +55,10 @@ function ContactForm() {
         }
       })
       .then((j) => console.log(j))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      });
 
     event.target.reset();
     setValidated(true);

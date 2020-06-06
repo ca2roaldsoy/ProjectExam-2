@@ -22,16 +22,18 @@ function DeleteEstablishment() {
         if (response.ok) {
           return response.json();
         } else {
-          setLoading(false);
           setErrorHandle(true);
         }
       })
       .then((data) => {
         console.log(data);
         setEstablishment(data);
-        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -22,16 +22,19 @@ function Enquiries() {
         if (response.ok) {
           return response.json();
         } else {
-          setLoading(false);
           setErrorHandle(true);
         }
       })
       .then((data) => {
         setEnquiry(data);
-        setLoading(false);
+
         console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      })
+      .finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

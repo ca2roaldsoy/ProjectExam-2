@@ -22,16 +22,18 @@ function Messages() {
         if (response.ok) {
           return response.json();
         } else {
-          setLoading(false);
           setErrorHandle(true);
         }
       })
       .then((data) => {
         setContactMsg(data);
-        setLoading(false);
         console.log(data);
       })
-      .catch((err) => alert(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      })
+      .finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

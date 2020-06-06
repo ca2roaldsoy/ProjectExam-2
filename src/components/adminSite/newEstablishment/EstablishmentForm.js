@@ -55,7 +55,10 @@ function EstablishmentForm() {
         }
       })
       .then((json) => console.log(json))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      });
 
     event.target.reset();
     setValidated(true);

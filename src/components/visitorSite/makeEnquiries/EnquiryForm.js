@@ -58,7 +58,10 @@ function EnquiryForm({ id, name }) {
         }
       })
       .then((json) => console.log(json))
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setErrorHandle(true);
+      });
 
     // reset fields after submit
     event.target.reset();
