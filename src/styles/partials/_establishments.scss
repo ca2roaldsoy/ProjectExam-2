@@ -190,6 +190,21 @@
   }
 }
 
+// Back To Top
+
+.showToTopBtn {
+  display: block;
+  height: 40px;
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  border-radius: 50px 50px 0 0;
+}
+
+.hideToTopBtn {
+  display: none;
+}
+
 /************** Establishment Menu Page ***************/
 .manageEstablishmentMenu {
   display: block;

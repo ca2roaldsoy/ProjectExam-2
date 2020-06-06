@@ -6,11 +6,13 @@ import Container from "react-bootstrap/Container";
 import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
+import ScrollEvent from "./ScrollEvent";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errorHandle, setErrorHandle] = useState(false);
+  const [btnToTop, setBtnToTop] = useState(false);
 
   const url = BASE_URL + "establishments";
   const options = { headers };
@@ -77,6 +79,7 @@ function Establishment() {
               );
             })}
           </Container>
+          <ScrollEvent />
           <Footer />
         </>
       )}
