@@ -57,7 +57,7 @@
   margin: 20px auto;
   background-color: rgb(240, 240, 240);
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-  height: 85vh;
+  height: 100%;
   padding-top: 20px;
   margin-bottom: 50px;
 
@@ -109,6 +109,10 @@
   &__message {
     padding-bottom: 150px;
   }
+}
+
+.forgotPassword {
+  text-align: center;
 }
 
 // footer
