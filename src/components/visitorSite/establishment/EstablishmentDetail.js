@@ -14,6 +14,8 @@ import Image from "react-bootstrap/Image";
 import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -144,11 +146,25 @@ function Establishment() {
                     {establishment.description}
                   </Card.Text>
 
-                  <Card.Img
-                    src={Map}
-                    alt="map icon"
-                    className="establishmentDetail__bottom--mapIcon"
-                  />
+                  <OverlayTrigger
+                    placement="bottom"
+                    overlay={
+                      <Tooltip>
+                        <p>
+                          Latitude <br /> {establishment.lat}
+                        </p>
+                        <p>
+                          Longitude <br /> {establishment.lng}
+                        </p>
+                      </Tooltip>
+                    }
+                  >
+                    <Card.Img
+                      src={Map}
+                      alt="map icon"
+                      className="establishmentDetail__bottom--mapIcon"
+                    />
+                  </OverlayTrigger>
                 </Col>
 
                 <Col sm={12} className="establishmentDetail__checkout">

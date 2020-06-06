@@ -19,6 +19,8 @@ function AllEstablishments({
   maxGuests,
   selfCatering,
   price,
+  lat,
+  lng,
 }) {
   let newPrice = Math.ceil((price * 70) / 100 - 5); // calculate new price after discount
   let roomsLeft = Math.ceil(maxGuests / 3); // calculate avaiable rooms left
@@ -82,6 +84,7 @@ function AllEstablishments({
               <Badge className="establishment__badges--maxGuests">
                 Max Guests: {maxGuests}
               </Badge>
+
               <Badge
                 style={{
                   backgroundColor: selfCatering ? "#5EBB47" : "#FF333A",
@@ -113,11 +116,25 @@ function AllEstablishments({
 
             {deal()}
 
-            <Card.Img
-              src={Map}
-              alt="map icon"
-              className="establishment__mapIcon"
-            />
+            <OverlayTrigger
+              placement="bottom"
+              overlay={
+                <Tooltip>
+                  <p>
+                    Latitude <br /> {lat}
+                  </p>
+                  <p>
+                    Longitude <br /> {lng}
+                  </p>
+                </Tooltip>
+              }
+            >
+              <Card.Img
+                src={Map}
+                alt="map icon"
+                className="establishment__mapIcon"
+              />
+            </OverlayTrigger>
           </Card.Body>
         </Col>
 
@@ -141,6 +158,8 @@ AllEstablishments.propTypes = {
   maxGuests: PropTypes.number.isRequired,
   selfCatering: PropTypes.bool.isRequired,
   price: PropTypes.number.isRequired,
+  lat: PropTypes.number,
+  lng: PropTypes.number,
 };
 
 export default AllEstablishments;

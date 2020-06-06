@@ -56,6 +56,8 @@ function Establishment() {
                 maxGuests,
                 selfCatering,
                 price,
+                lat,
+                lng,
               } = hotels;
 
               return (
@@ -67,6 +69,8 @@ function Establishment() {
                   price={price}
                   key={id}
                   id={id}
+                  lat={lat}
+                  lng={lng}
                 />
               );
             })}
