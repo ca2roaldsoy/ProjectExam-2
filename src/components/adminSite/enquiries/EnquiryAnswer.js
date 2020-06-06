@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import { BASE_URL, headers } from "../../../constants/api";
 
 function EnquiryAnswer({ accept, reject, id }) {
+  // delete establishment after answer and refresh of the page
   function deleteEstablishment() {
     const url = BASE_URL + "enquiries/" + id;
     const options = { headers, method: "DELETE" };
@@ -30,6 +31,7 @@ function EnquiryAnswer({ accept, reject, id }) {
     );
   }
 
+  // if enquiry is rejected
   if (reject) {
     return (
       <section className="enquiries__resolve">

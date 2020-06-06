@@ -32,6 +32,7 @@ function EnquiriesDetails({
       <td>{checkOut.slice(0, 10)}</td>
       <td>{created.slice(0, 10)}</td>
       <td className="enquiries__resolveContainer">
+        {/*display clicked answer*/}
         {confirmAccept || confirmReject ? (
           <EnquiryAnswer
             accept={confirmAccept}

@@ -18,6 +18,7 @@ function Establishment() {
   useEffect(() => {
     fetch(url, options)
       .then((response) => {
+        // check if response returns ok
         if (response.ok) {
           return response.json();
         } else {
@@ -40,6 +41,7 @@ function Establishment() {
 
   return (
     <>
+      {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
       ) : (

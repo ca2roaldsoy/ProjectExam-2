@@ -14,9 +14,11 @@ function DeleteEstablishment() {
   const url = BASE_URL + "establishments";
   const options = { headers };
 
+  // fetch establishments
   useEffect(() => {
     fetch(url, options)
       .then((response) => {
+        // check if response returns ok
         if (response.ok) {
           return response.json();
         } else {
@@ -49,6 +51,7 @@ function DeleteEstablishment() {
 
   return (
     <Container>
+      {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
       ) : (

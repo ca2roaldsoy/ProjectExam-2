@@ -27,9 +27,11 @@ function Home() {
   const url = BASE_URL + "establishments";
   const options = { headers };
 
+  // fetch establishments
   useEffect(() => {
     fetch(url, options)
       .then((response) => {
+        // check if response returns ok
         if (response.ok) {
           return response.json();
         } else {
@@ -91,6 +93,7 @@ function Home() {
     }
   }
 
+  // popular places section
   function popular() {
     return (
       <>
@@ -117,6 +120,7 @@ function Home() {
     );
   }
 
+  // explore bergen section
   function exploreBergen() {
     return (
       <>
@@ -132,6 +136,7 @@ function Home() {
 
   return (
     <Row className="home">
+      {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
       ) : (

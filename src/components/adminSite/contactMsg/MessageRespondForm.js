@@ -22,6 +22,7 @@ function MessageRespondForm({ closeModal, setValidated, id }) {
     const url = BASE_URL + "contacts/" + id;
     const options = { headers, method: "DELETE" };
 
+    // Delete Message after respond
     fetch(url, options)
       .then(closeModal)
       .catch((err) => console.log(err));

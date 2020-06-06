@@ -14,6 +14,7 @@ function DeleteEstDetail({ name, id, created }) {
   const closeModal = () => setModal(true);
   const openModal = () => setModal(true);
 
+  // Delete establishment
   function deleteEstablishment() {
     const url = BASE_URL + "establishments/" + id;
     const options = { headers, method: "DELETE" };
@@ -36,6 +37,7 @@ function DeleteEstDetail({ name, id, created }) {
         </td>
       </tr>
 
+      {/* confirm deletion */}
       <Modal size="lg" show={modal} onHide={closeModal}>
         <Modal.Header>
           <Modal.Title>Delete Establishment</Modal.Title>
