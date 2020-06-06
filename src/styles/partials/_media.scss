@@ -1,8 +1,11 @@
+/************** Small Screens ***************/
 @media only screen and (min-width: 576px) {
+  // search
   .searchContainer__title {
     font-size: 28px;
   }
 
+  // establishment
   .establishment {
     text-align: left;
 
@@ -34,6 +37,7 @@
     }
   }
 
+  // home
   .homeImgTop {
     display: block;
     width: 100%;
@@ -64,6 +68,7 @@
     }
   }
 
+  // carousel
   .carousel {
     margin-top: 50px;
   }
@@ -72,16 +77,19 @@
     margin-top: 20px;
   }
 
+  // quality
   .quality {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  // footer
   .footer__title {
     padding-left: 25px;
   }
 
+  // establishment details
   .establishmentDetailContainer {
     padding: 50px 0;
   }
@@ -115,22 +123,27 @@
     }
   }
 
+  // admin
   .admin {
     &__section--title {
       font-size: 72px;
     }
   }
 
+  // page error
   .pageError__container {
     margin-top: 228px;
   }
 }
 
+/************** Medium Screens ***************/
 @media only screen and (min-width: 992px) {
+  // card
   .card-body {
     padding: 10px;
   }
 
+  // home browse all section
   .browseAll__overlay {
     &--title {
       font-size: 2rem;
@@ -147,6 +160,7 @@
     }
   }
 
+  // establishment
   .establishment {
     &__deal {
       margin-top: 25px;
@@ -161,6 +175,7 @@
     }
   }
 
+  // establishment details
   .establishmentDetail {
     align-items: center;
 
@@ -232,6 +247,7 @@
     }
   }
 
+  // admin
   .adminContent {
     background: none;
   }
@@ -266,6 +282,7 @@
     }
   }
 
+  // enquiries
   .enquiries {
     &__resolveContainer {
       display: flex;
@@ -286,7 +303,9 @@
   }
 }
 
+/************** Large Screens ***************/
 @media only screen and (min-width: 1200px) {
+  // place search on top of image
   .searchContainer {
     position: absolute;
     top: 70px;
@@ -321,6 +340,7 @@
     }
   }
 
+  // home browse all
   .browseAll__overlay {
     margin-top: 30px;
 
