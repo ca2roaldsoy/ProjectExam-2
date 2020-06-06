@@ -66,6 +66,7 @@ function ContactForm() {
     setValidated(true);
   }
 
+  // scroll back to top after submit
   const backToTop = () => {
     window.scrollTo({ behavior: "smooth", top: 0 });
   };

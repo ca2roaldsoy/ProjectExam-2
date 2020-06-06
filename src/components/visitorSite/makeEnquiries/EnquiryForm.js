@@ -69,6 +69,11 @@ function EnquiryForm({ id, name }) {
     setValidated(true);
   }
 
+  // scroll back to top after submit
+  const backToTop = () => {
+    window.scrollTo({ behavior: "smooth", top: 0 });
+  };
+
   // reset form
   const reset = () => setValidated(false);
 
@@ -128,7 +133,12 @@ function EnquiryForm({ id, name }) {
             </Form.Group>
 
             <Form.Group className="form__btn">
-              <Button type="submit" role="button" className="form__btn--submit">
+              <Button
+                type="submit"
+                role="button"
+                className="form__btn--submit"
+                onClick={backToTop}
+              >
                 Send Request
               </Button>
               <Button
