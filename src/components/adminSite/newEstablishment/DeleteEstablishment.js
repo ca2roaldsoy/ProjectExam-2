@@ -32,7 +32,8 @@ function DeleteEstablishment() {
       .catch((err) => {
         console.log(err);
         setErrorHandle(true);
-      });
+      })
+      .finally(() => setLoading(false));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
