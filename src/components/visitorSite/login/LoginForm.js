@@ -33,6 +33,7 @@ function LoginForm() {
     localStoreUser(data.userName);
     history.push("/admin");
 
+    // reset field after login
     event.target.reset();
   }
 
@@ -51,7 +52,7 @@ function LoginForm() {
           {errors.password && <Form.Text>{errors.password.message}</Form.Text>}
         </Form.Group>
 
-        <Form.Text>
+        <Form.Text className="forgotPassword">
           Forgot Password? <Link to="#">Click here</Link>
         </Form.Text>
 
