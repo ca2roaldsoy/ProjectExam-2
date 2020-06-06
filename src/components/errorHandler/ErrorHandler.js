@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ErrorImg from "../../images/error_img.png";
 import Container from "react-bootstrap/Container";
 
 // display if response from fetch returns error

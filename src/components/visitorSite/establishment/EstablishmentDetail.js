@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL, headers } from "../../../constants/api";
-import Card from "react-bootstrap/Card";
 import Loading from "../../spinner/Loading";
 import { Link } from "react-router-dom";
+import Map from "../../../images/icons/map_v1.png";
+import AcceptIcon from "../../../images/accept.png";
+import Footer from "../footer/Footer";
+import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
+import ErrorHandler from "../../errorHandler/ErrorHandler";
+
+// from react bootstrap
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
-import Map from "../../../images/icons/map_v1.png";
-import AcceptIcon from "../../../images/accept.png";
-import Image from "react-bootstrap/Image";
-import Footer from "../footer/Footer";
-import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+import Card from "react-bootstrap/Card";
 
 function Establishment() {
   const [establishment, setEstablishment] = useState([]);

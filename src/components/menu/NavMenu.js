@@ -8,6 +8,12 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
+import { AdminContext } from "../context/AdminContext";
+import Protect from "./Protect";
+import LogOut from "../adminSite/logout/LogOut";
+import Login from "../visitorSite/login/Login";
+
+// import pages
 import Home from "../visitorSite/home/Home.js";
 import Contact from "../visitorSite/contact/Contact.js";
 import MakeEnquiries from "../visitorSite/makeEnquiries/MakeEnquiries.js";
@@ -16,12 +22,8 @@ import EstablishmentDetails from "../visitorSite/establishment/EstablishmentDeta
 import Admin from "../adminSite/admin/Admin.js";
 import ManageEstablishment from "../adminSite/newEstablishment/ManageEstablishment";
 import CreateNewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
-import Login from "../visitorSite/login/Login";
 import Enquiries from "../adminSite/enquiries/Enquiries";
 import ContactMsg from "../adminSite/contactMsg/Messages";
-import LogOut from "../adminSite/logout/LogOut";
-import { AdminContext } from "../context/AdminContext";
-import Protect from "./Protect";
 import DeleteEstablishment from "../adminSite/newEstablishment/DeleteEstablishment.js";
 import ViewMessage from "../adminSite/contactMsg/ViewMessage.js";
 

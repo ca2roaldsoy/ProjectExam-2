@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import Map from "../../../images/icons/map_v1.png";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+
+// Image
+import InfoIcon from "../../../images/icons/information.png";
+
+// react bootstrap
+import Image from "react-bootstrap/Image";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import Card from "react-bootstrap/Card";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
-import Map from "../../../images/icons/map_v1.png";
 import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
-import PropTypes from "prop-types";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import InfoIcon from "../../../images/icons/information.png";
-import Image from "react-bootstrap/Image";
 
 function AllEstablishments({
   id,

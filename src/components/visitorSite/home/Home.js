@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
-import ExploreBergen from "./carousel/ExploreBergen";
-import ImgTop from "../../../images/bergen/bg-15.jpg";
-import Image from "react-bootstrap/Image";
 import { BASE_URL, headers } from "../../../constants/api";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
-import PopularPlaces from "./carousel/PopularPlaces";
-import Carousel from "react-multi-carousel";
 import BrowseAll from "./BrowseAll";
-import Loading from "../../spinner/Loading";
-import { Responsive } from "../../../constants/responsiveCarousel";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import DropDown from "react-bootstrap/Dropdown";
 import Qualities from "./Qualities";
 import Footer from "../footer/Footer";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
+import Loading from "../../spinner/Loading";
+
+// carousel
+import { Responsive } from "../../../constants/responsiveCarousel";
+import PopularPlaces from "./carousel/PopularPlaces";
+import Carousel from "react-multi-carousel";
+import ExploreBergen from "./carousel/ExploreBergen";
+
+// react bootstrap
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import DropDown from "react-bootstrap/Dropdown";
+import Image from "react-bootstrap/Image";
+
+// import images
+import ImgTop from "../../../images/bergen/bg-15.jpg";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
