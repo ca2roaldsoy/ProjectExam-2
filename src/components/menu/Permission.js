@@ -2,8 +2,6 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import StopSign from "../../images/stop.png";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import Login from "../visitorSite/login/Login";
 
 // if user has no permission to site, display message
 function Permission() {
