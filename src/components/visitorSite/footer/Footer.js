@@ -5,6 +5,7 @@ import FacebookIcon from "../../../images/icons/face_v1.png";
 import TwitterIcon from "../../../images/icons/twitter_v1.png";
 import Image from "react-bootstrap/Image";
 import FooterContact from "./FooterContact";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -16,8 +17,12 @@ function Footer() {
         <FooterContact />
       </Col>
       <Col sm={12} md={3} lg={3} as="section" className="footer__social">
-        <Image src={FacebookIcon} alt="facebook" fluid role="link" />
-        <Image src={TwitterIcon} alt="twitter" fluid role="link" />
+        <Link to="https://www.facebook.com/">
+          <Image src={FacebookIcon} alt="facebook" fluid role="link" />
+        </Link>
+        <Link to="https://twitter.com/explore">
+          <Image src={TwitterIcon} alt="twitter" fluid role="link" />
+        </Link>
       </Col>
       <Col sm={12} md={3} lg={3} as="section" className="footer__copy">
         <p>Copyright &copy;</p>
