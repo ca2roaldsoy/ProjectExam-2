@@ -64,6 +64,13 @@ function EstablishmentForm() {
     setValidated(true);
   }
 
+  // scroll back to top after submit
+  const backToTop = () => {
+    window.scrollTo({ behavior: "smooth", top: 0 });
+  };
+
+  const reset = () => setValidated(false);
+
   return (
     <>
       {errorHandle ? (
@@ -189,10 +196,26 @@ function EstablishmentForm() {
                   )}
                 </Form.Group>
               </Col>
+
               <Col lg={12}>
-                <Button type="submit" role="button">
-                  SUBMIT
-                </Button>
+                <Form.Group className="form__btn">
+                  <Button
+                    type="submit"
+                    role="button"
+                    onClick={backToTop}
+                    className="form__btn--submit"
+                  >
+                    SUBMIT
+                  </Button>
+                  <Button
+                    type="reset"
+                    onClick={reset}
+                    role="button"
+                    className="form__btn--reset"
+                  >
+                    Reset
+                  </Button>
+                </Form.Group>
               </Col>
             </Row>
           </Form>
