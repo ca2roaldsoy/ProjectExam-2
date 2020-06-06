@@ -24,8 +24,6 @@ function ContactForm() {
   const [validated, setValidated] = useState(false);
   const [errorHandle, setErrorHandle] = useState(false);
 
-  const refApp = useRef(null);
-
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -81,7 +79,7 @@ function ContactForm() {
       ) : (
         <>
           <Validated validated={validated} message={2} />
-          <Form onSubmit={handleSubmit(onSubmit)} ref={refApp}>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group>
               <Form.Label htmlFor="name">Name</Form.Label>
               <Form.Control type="text" name="name" ref={register} />
