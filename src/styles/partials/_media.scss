@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins";
+
 /************** Small Screens ***************/
 @media only screen and (min-width: 576px) {
   // search
@@ -79,9 +82,8 @@
 
   // quality
   .quality {
-    display: flex;
+    @include flexing(center);
     align-items: center;
-    justify-content: center;
   }
 
   // footer
@@ -104,15 +106,13 @@
     }
 
     &__badges {
-      display: flex;
-      justify-content: space-around;
+      @include flexing();
       word-wrap: normal;
       align-items: center;
     }
 
     &__price {
-      display: flex;
-      justify-content: space-around;
+      @include flexing();
       align-items: center;
 
       &--new,
@@ -193,8 +193,7 @@
     }
 
     &__body {
-      background-color: $white;
-      padding: 0px;
+      @include colours($white, $black);
       width: 100%;
     }
 
@@ -285,8 +284,7 @@
   // enquiries
   .enquiries {
     &__resolveContainer {
-      display: flex;
-      justify-content: flex-start;
+      @include flexing(flex-start);
 
       & button {
         width: auto;

@@ -10,3 +10,30 @@
     font-family: $font;
   }
 }
+
+// mixin old price
+@mixin priceOld() {
+  text-decoration: line-through;
+  text-decoration-color: #ff333a;
+}
+
+// mixin fletch
+@mixin flexing($justify: space-around, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+// mixin colours and padding
+@mixin colours($back: $darkBlue, $front: $white, $pad: 0) {
+  background-color: $back;
+  color: $front;
+  padding: $pad;
+}
+
+// mixin box-shadow and center alignment
+@mixin centerShadow($centerText: center) {
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  text-align: $centerText;
+  margin: 20px auto;
+}

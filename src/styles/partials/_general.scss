@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 
 // spinner
 .spinner {
@@ -17,8 +18,7 @@
 }
 
 .modal-content > small {
-  padding: 0px 5px;
-  background-color: lightgrey;
+  @include colours(#d3d3d3, $white, 0px 5px);
 
   &:first-of-type {
     padding-top: 3px;
@@ -41,7 +41,7 @@
     color: $black;
 
     &:hover {
-      background-color: red;
+      background-color: #ff333a;
       color: $white;
     }
   }
@@ -54,9 +54,8 @@
 
 // form
 .containerForm {
-  margin: 20px auto;
+  @include centerShadow(left);
   background-color: rgb(240, 240, 240);
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
   height: 100%;
   padding-top: 20px;
   margin-bottom: 50px;
@@ -77,8 +76,7 @@
   }
 
   &__btn {
-    display: flex;
-    justify-content: space-between;
+    @include flexing(space-between);
     margin-top: 50px;
 
     &--submit {
@@ -154,11 +152,9 @@
   }
 
   &__container {
+    @include colours(rgba($black, 0.9), $white);
     margin-top: 40vw;
-    color: $white;
-    background-color: rgba($black, 0.9);
     height: 80px;
-    padding: 0;
 
     &--text,
     &--title {

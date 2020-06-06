@@ -1,9 +1,8 @@
 @import "variables";
 
 .navbarTop {
-  background-color: $darkYellow;
+  @include colours($darkYellow, $black, 0px 20px);
   line-height: 1.1;
-  padding: 0 20px;
   width: 100%;
 
   &__title {

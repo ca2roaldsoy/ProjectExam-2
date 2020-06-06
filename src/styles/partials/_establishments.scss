@@ -1,23 +1,21 @@
+@import "variables";
+@import "mixins";
+
 /************** Establishment ***************/
 .establishment {
-  margin: 20px auto;
+  @include centerShadow();
   background-color: rgb(240, 240, 240);
   line-height: 1.2;
-  text-align: center;
-  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 
   &__img {
     padding: 0;
   }
 
   &__badges {
-    display: flex;
-    justify-content: center;
+    @include flexing(center);
 
     &--maxGuests {
-      padding: 10px;
-      background-color: $blue;
-      color: $white;
+      @include colours($blue, $white, 10px);
     }
 
     &--selfCatering {
@@ -48,8 +46,7 @@
     }
 
     &--old {
-      text-decoration: line-through;
-      text-decoration-color: #ff333a;
+      @include priceOld();
     }
 
     &--org {
@@ -103,8 +100,7 @@
   }
 
   &__info {
-    background-color: $darkYellow;
-    padding: 20px 20px;
+    @include colours($darkYellow, $black, 20px 20px);
   }
 
   &__title {
@@ -123,13 +119,10 @@
   }
 
   &__badges {
-    padding: 5px 0;
-    background-color: #d3d3d3;
+    @include colours(#d3d3d3, $black, 5px 0);
 
     &--maxGuests {
-      background-color: $blue;
-      color: $white;
-      padding: 5px;
+      @include colours($blue, $white, 5px);
     }
 
     &--selfCatering {
@@ -153,13 +146,11 @@
 
   &__price {
     margin-bottom: 0;
-    background-color: #d3d3d3;
-    padding: 20px;
+    @include colours(#d3d3d3, $black, 20px);
     text-align: center;
 
     &--old {
-      text-decoration: line-through;
-      text-decoration-color: #ff333a;
+      @include priceOld();
       margin-bottom: 0px;
       font-size: 22px;
     }
@@ -178,8 +169,7 @@
   }
 
   &__bottom {
-    background-color: $white;
-    padding: 0;
+    @include colours($white, $black);
     margin-bottom: 20px;
 
     &--btn {
