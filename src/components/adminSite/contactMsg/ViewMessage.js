@@ -25,15 +25,14 @@ function ViewMessage({ id }) {
         if (response.ok) {
           return response.json();
         } else {
-          setLoading(false);
           setErrorHandle(true);
         }
       })
       .then((msg) => {
         setViewMsg(msg);
-        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
