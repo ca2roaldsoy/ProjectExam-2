@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
@@ -23,6 +23,8 @@ const schema = yup.object().shape({
 function ContactForm() {
   const [validated, setValidated] = useState(false);
   const [errorHandle, setErrorHandle] = useState(false);
+
+  const refApp = useRef(null);
 
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
@@ -64,6 +66,10 @@ function ContactForm() {
     setValidated(true);
   }
 
+  const backToTop = () => {
+    window.scrollTo({ behavior: "smooth", top: 0 });
+  };
+
   // reset from fields
   const reset = () => setValidated(false);
 
@@ -74,7 +80,7 @@ function ContactForm() {
       ) : (
         <>
           <Validated validated={validated} message={2} />
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmit)} ref={refApp}>
             <Form.Group>
               <Form.Label htmlFor="name">Name</Form.Label>
               <Form.Control type="text" name="name" ref={register} />
@@ -102,7 +108,12 @@ function ContactForm() {
             </Form.Group>
 
             <Form.Group className="form__btn">
-              <Button type="submit" role="button" className="form__btn--submit">
+              <Button
+                type="submit"
+                role="button"
+                className="form__btn--submit"
+                onClick={backToTop}
+              >
                 Send
               </Button>
               <Button
