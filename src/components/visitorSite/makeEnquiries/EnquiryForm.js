@@ -83,7 +83,11 @@ function EnquiryForm({ id, name }) {
         <ErrorHandler />
       ) : (
         <>
-          <CheckDate checkIn={checkIn} checkOut={checkOut} />
+          <CheckDate
+            checkIn={checkIn}
+            checkOut={checkOut}
+            backToTop={backToTop}
+          />
           <Validated validated={validated} message={1} />
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group>
