@@ -52,7 +52,7 @@ function LoginForm() {
           {errors.password && <Form.Text>{errors.password.message}</Form.Text>}
         </Form.Group>
 
-        <Form.Text className="forgotPassword">
+        <Form.Text className="forgotPassgiword">
           Forgot Password? <Link to="#">Click here</Link>
         </Form.Text>
 
