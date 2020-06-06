@@ -4,9 +4,11 @@ import Container from "react-bootstrap/Container";
 
 function NewEstablishment() {
   return (
-    <Container>
-      <h2>Create New Establishment</h2>
-      <EstablishmentForm />
+    <Container className="containerForm">
+      <div className="containerForm__form">
+        <h2 className="text-center">Create New Establishment</h2>
+        <EstablishmentForm />
+      </div>
     </Container>
   );
 }
