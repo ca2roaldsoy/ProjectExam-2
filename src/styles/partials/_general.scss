@@ -18,7 +18,7 @@
 }
 
 .modal-content > small {
-  @include colours(#d3d3d3, $white, 0px 5px);
+  @include colours(#d3d3d3, $black, 0px 5px);
 
   &:first-of-type {
     padding-top: 3px;
