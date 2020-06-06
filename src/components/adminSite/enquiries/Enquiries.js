@@ -12,12 +12,14 @@ function Enquiries() {
   const [loading, setLoading] = useState(true);
   const [errorHandle, setErrorHandle] = useState(false);
 
-  const url = BASE_URL + "enquirie";
+  const url = BASE_URL + "enquiries";
   const options = { headers };
 
+  // fetch enquiries
   useEffect(() => {
     fetch(url, options)
       .then((response) => {
+        // check if response returns ok
         if (response.ok) {
           return response.json();
         } else {
@@ -30,7 +32,6 @@ function Enquiries() {
         setLoading(false);
         console.log(data);
       })
-      .then()
       .catch((err) => console.log(err));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -77,17 +78,12 @@ function Enquiries() {
 
   return (
     <Container className="enquiries">
+      {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
       ) : (
         <>
           <h2>Enquiries</h2>
-          <Button
-            onClick={() => (window.location.href = "./enquiries")}
-            className="enquiries__update"
-          >
-            Remove resolved enquiries
-          </Button>
           <Table
             striped
             bordered

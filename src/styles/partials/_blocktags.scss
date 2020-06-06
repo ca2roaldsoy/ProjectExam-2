@@ -1,6 +1,11 @@
 @import "variables";
 @import "mixins";
 
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
 h1 {
   @include typeface("h1", $Gloria);
 }
@@ -10,6 +15,10 @@ h3,
 h4,
 h5 {
   @include typeface("h2", $Baskerville);
+}
+
+html {
+  height: 100%;
 }
 
 body {

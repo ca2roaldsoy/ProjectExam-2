@@ -14,16 +14,10 @@ function Messages() {
   const url = BASE_URL + "contacts";
   const options = { headers };
 
+  // Fetch contact messages
   useEffect(() => {
     fetch(url, options)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          setLoading(false);
-          setErrorHandle(true);
-        }
-      })
+      .then((response) => response.json())
       .then((data) => {
         setContactMsg(data);
         setLoading(false);
@@ -38,6 +32,7 @@ function Messages() {
     return <Loading />;
   }
 
+  // if there are no messages, display message
   function noMsg() {
     if (contactMsg.length === 0) {
       return (
@@ -62,6 +57,7 @@ function Messages() {
 
   return (
     <Container>
+      {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
       ) : (

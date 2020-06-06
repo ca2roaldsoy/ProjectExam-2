@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
 import { BASE_URL, headers } from "../../../constants/api";
+import ErrorHandler from "../../errorHandler/ErrorHandler";
 
 // validate form
 const schema = yup.object().shape({
@@ -21,6 +22,8 @@ const schema = yup.object().shape({
 
 function ContactForm() {
   const [validated, setValidated] = useState(false);
+  const [errorHandle, setErrorHandle] = useState(false);
+
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
@@ -41,8 +44,16 @@ function ContactForm() {
       body: JSON.stringify(contactData),
     };
 
+    // post contact message to admin
     fetch(url, options)
-      .then((response) => response.json())
+      .then((response) => {
+        // check if response returns ok
+        if (response.ok) {
+          return response.json();
+        } else {
+          setErrorHandle(true);
+        }
+      })
       .then((j) => console.log(j))
       .catch((err) => console.log(err));
 
@@ -55,46 +66,54 @@ function ContactForm() {
 
   return (
     <>
-      <Validated validated={validated} message={2} />
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <Form.Group>
-          <Form.Label htmlFor="name">Name</Form.Label>
-          <Form.Control type="text" name="name" ref={register} />
-          {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
-        </Form.Group>
+      {errorHandle ? (
+        <ErrorHandler />
+      ) : (
+        <>
+          <Validated validated={validated} message={2} />
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Group>
+              <Form.Label htmlFor="name">Name</Form.Label>
+              <Form.Control type="text" name="name" ref={register} />
+              {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="email">Email</Form.Label>
-          <Form.Control type="email" name="email" ref={register} />
-          {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
-        </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="email">Email</Form.Label>
+              <Form.Control type="email" name="email" ref={register} />
+              {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
+            </Form.Group>
 
-        <Form.Group>
-          <Form.Label htmlFor="message">Message</Form.Label>
-          <Form.Control
-            type="message"
-            name="message"
-            as="textarea"
-            ref={register}
-            className="form__message"
-          />
-          {errors.message && <Form.Text>{errors.message.message}</Form.Text>}
-        </Form.Group>
+            <Form.Group>
+              <Form.Label htmlFor="message">Message</Form.Label>
+              <Form.Control
+                type="message"
+                name="message"
+                as="textarea"
+                ref={register}
+                className="form__message"
+              />
+              {errors.message && (
+                <Form.Text>{errors.message.message}</Form.Text>
+              )}
+            </Form.Group>
 
-        <Form.Group className="form__btn">
-          <Button type="submit" role="button" className="form__btn--submit">
-            Send
-          </Button>
-          <Button
-            type="reset"
-            onClick={reset}
-            role="button"
-            className="form__btn--reset"
-          >
-            Reset
-          </Button>
-        </Form.Group>
-      </Form>
+            <Form.Group className="form__btn">
+              <Button type="submit" role="button" className="form__btn--submit">
+                Send
+              </Button>
+              <Button
+                type="reset"
+                onClick={reset}
+                role="button"
+                className="form__btn--reset"
+              >
+                Reset
+              </Button>
+            </Form.Group>
+          </Form>
+        </>
+      )}
     </>
   );
 }

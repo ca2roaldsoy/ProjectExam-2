@@ -27,6 +27,7 @@ function Establishment() {
   useEffect(() => {
     fetch(url, options)
       .then((response) => {
+        // check if response returns ok
         if (response.ok) {
           return response.json();
         } else {
@@ -42,6 +43,7 @@ function Establishment() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // loading
   if (loading) {
     return <Loading />;
   }
@@ -76,20 +78,22 @@ function Establishment() {
 
   return (
     <>
+      {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
       ) : (
-        <>
+        <article>
           <BreadCrumbs crumb={4} estname={establishment.name} />
           <Container className="establishmentDetailContainer">
-            <div className="establishmentDetail__accept">
+            <section className="establishmentDetail__accept">
               <Image src={AcceptIcon} alt="v" fluid />
               No booking fees
               <Image src={AcceptIcon} alt="v" fluid />
               100% Customer Satisfaction
               <Image src={AcceptIcon} alt="v" fluid />
               Voucher Acceptence
-            </div>
+            </section>
+
             <Card as="main" role="main" className="establishmentDetail">
               <Col sm={12} className="establishmentDetail__img">
                 <Card.Img
@@ -169,7 +173,7 @@ function Establishment() {
             </Card>
           </Container>
           <Footer />
-        </>
+        </article>
       )}
     </>
   );

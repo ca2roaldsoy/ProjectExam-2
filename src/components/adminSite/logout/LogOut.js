@@ -7,13 +7,14 @@ function LogOut() {
   const { logout } = useContext(AdminContext);
   const history = useHistory();
 
-  function doLogOut() {
+  // log out user, and redirect home page
+  function logOutUser() {
     logout();
     history.push("/");
   }
 
   return (
-    <Button onClick={doLogOut} role="button" className="logOut__btn">
+    <Button onClick={logOutUser} role="button" className="logOut__btn">
       Log Out
     </Button>
   );

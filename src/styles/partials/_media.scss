@@ -232,14 +232,18 @@
     }
   }
 
+  .adminContent {
+    background: none;
+  }
+
   .admin {
     margin-top: 50px;
+    height: 100%;
 
     &__section {
-      background: none;
       background-color: #343a40;
       border: 1px solid;
-      height: 80vh;
+      max-height: 650px;
 
       &--title {
         color: $darkYellow;
@@ -258,7 +262,7 @@
     &__img {
       display: flex;
       padding: 0;
-      max-height: 80vh;
+      max-height: 650px;
     }
   }
 

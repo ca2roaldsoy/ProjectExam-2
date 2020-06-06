@@ -17,9 +17,11 @@ function ViewMessage({ id }) {
   const url = BASE_URL + "contacts/" + id;
   const options = { headers };
 
+  // fetch ONE contact message
   useEffect(() => {
     fetch(url, options)
       .then((response) => {
+        // check if response is ok
         if (response.ok) {
           return response.json();
         } else {
@@ -45,6 +47,7 @@ function ViewMessage({ id }) {
 
   return (
     <>
+      {/*display error if promise from fetch not ok*/}
       {errorHandle ? (
         <ErrorHandler />
       ) : (
@@ -56,6 +59,8 @@ function ViewMessage({ id }) {
           ) : (
             "Message Sent"
           )}
+
+          {/* Open respond modal */}
           <Modal
             size="lg"
             show={modal}

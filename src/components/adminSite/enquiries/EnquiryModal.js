@@ -11,6 +11,7 @@ function EnquiryModal({
   setConfirmAccept,
   setConfirmReject,
 }) {
+  // verify answer clicked
   function enquiryAnswer() {
     if (accepted || rejected) {
       return (
