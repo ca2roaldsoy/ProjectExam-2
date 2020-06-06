@@ -1,10 +1,18 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import StopSign from "../../images/stop.png";
 import Container from "react-bootstrap/Container";
 
-// if user has no permission to site, display message
+// if user has no permission to site,
+// display message and redirect user to home page
 function Permission() {
+  const history = useHistory();
+
+  setTimeout(() => {
+    history.push("/");
+  }, 5000);
+
   return (
     <Container>
       <Card className="pageError">
@@ -24,6 +32,9 @@ function Permission() {
         </Card.Title>
         <Card.Text className="pageError__container--text">
           <b>Please log in to gain access to this page</b>
+        </Card.Text>
+        <Card.Text className="pageError__container--text">
+          You will now be redirected to home page
         </Card.Text>
       </Card>
     </Container>
