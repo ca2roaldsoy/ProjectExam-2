@@ -17,13 +17,21 @@ function Messages() {
   // Fetch contact messages
   useEffect(() => {
     fetch(url, options)
-      .then((response) => response.json())
+      .then((response) => {
+        // check if response returns ok
+        if (response.ok) {
+          return response.json();
+        } else {
+          setLoading(false);
+          setErrorHandle(true);
+        }
+      })
       .then((data) => {
         setContactMsg(data);
         setLoading(false);
         console.log(data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => alert(err));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
