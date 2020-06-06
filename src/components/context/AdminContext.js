@@ -5,7 +5,8 @@ import React, { useState, createContext } from "react";
 const AdminContext = createContext();
 
 const AdminContextProvider = ({ children }) => {
-  const [user, setUser] = useState("null");
+  const getUser = localStorage.getItem("user") || null;
+  const [user, setUser] = useState(getUser);
 
   function localStoreUser(user) {
     localStorage.setItem("user", user);
@@ -15,8 +16,8 @@ const AdminContextProvider = ({ children }) => {
 
   // log out user
   function logout() {
-    setUser("null");
-    //localStorage.removeItem("user");
+    setUser(null);
+    localStorage.removeItem("user");
   }
 
   return (
