@@ -3,7 +3,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 import EnquiryDetails from "./EnquiriesDetails";
 import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
 
