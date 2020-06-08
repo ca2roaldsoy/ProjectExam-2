@@ -53,12 +53,13 @@ function Establishment() {
     return <Loading />;
   }
 
+  let discountPrice = Math.ceil((establishment.price * 70) / 100);
+  let decrease = establishment.price - discountPrice;
+  let discount = Math.ceil((decrease / establishment.price) * 100);
+  let roomsLeft = Math.ceil(establishment.maxGuests / 3); // calculate avaiable rooms left
+
   // Discounts
   function newPrice() {
-    let newPrice = Math.ceil((establishment.price * 70) / 100);
-    let decrease = establishment.price - newPrice;
-    let discount = Math.ceil((decrease / establishment.price) * 100);
-
     if (establishment.price < 100) {
       return (
         <>
@@ -66,7 +67,7 @@ function Establishment() {
             NOK {establishment.price}
           </Card.Text>
           <Card.Text className="establishmentDetail__price--new">
-            NOK {newPrice}
+            NOK {discountPrice}
           </Card.Text>
           <Card.Text className="establishmentDetail__price--discount">
             Save: {discount}&#37;
@@ -74,11 +75,25 @@ function Establishment() {
         </>
       );
     }
+
     return (
       <Card.Text className="establishmentDetail__price--org text-center">
         <strong>Total: NOK {establishment.price}</strong>
       </Card.Text>
     );
+  }
+
+  function rooms() {
+    if (discountPrice < 50) {
+      return (
+        <Col sm={12} className="establishmentDetail__rooms">
+          <Card.Text>Hurry!</Card.Text>
+          <Card.Text>
+            There are only: <strong>{roomsLeft}</strong> room(s) left
+          </Card.Text>
+        </Col>
+      );
+    }
   }
 
   return (
@@ -105,6 +120,9 @@ function Establishment() {
                   <Col sm={12} className="establishmentDetail__price">
                     {newPrice()}
                   </Col>
+
+                  {rooms()}
+
                   <Col sm={12} className="establishmentDetail__btn">
                     <Link
                       to={"../make-enquiries/" + establishment.name + "/" + id}

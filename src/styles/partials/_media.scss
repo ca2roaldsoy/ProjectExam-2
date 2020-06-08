@@ -181,7 +181,6 @@
   }
 
   // establishment details
-
   .establishmentDetail {
     &__top {
       display: flex;
@@ -189,7 +188,7 @@
     }
 
     &__img {
-      max-height: 450px;
+      max-height: 520px;
       overflow: hidden;
 
       &--img {
@@ -260,7 +259,7 @@
         width: 80%;
         height: auto;
         text-align: center;
-        margin: 50px auto;
+        margin: 40px auto;
         display: block;
       }
     }
