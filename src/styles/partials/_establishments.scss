@@ -88,15 +88,8 @@
 .establishmentDetail {
   border: none;
 
-  &__accept {
-    display: flex;
-    padding: 5px 5px 5px 0;
-
-    & img {
-      width: 20px;
-      height: 20px;
-      margin-left: 10px;
-    }
+  &__top {
+    padding: 0;
   }
 
   &__info {
@@ -112,7 +105,7 @@
     width: 100%;
     padding: 0;
 
-    & img {
+    &--img {
       max-height: 1000px;
       overflow: hidden;
     }
@@ -168,11 +161,11 @@
     }
   }
 
-  &__bottom {
+  &__btn {
     @include colours($white, $black);
     margin-bottom: 20px;
 
-    &--btn {
+    &--text {
       background-color: $blue;
       color: $white;
       font-weight: bold;
@@ -181,12 +174,11 @@
       font-size: 24px;
       border: 2px solid $black;
     }
-
-    &--mapIcon {
-      margin: 0;
-      width: 35px;
-      height: auto;
-    }
+  }
+  &__mapIcon {
+    margin: 0;
+    width: 35px;
+    height: auto;
   }
 }
 

@@ -4,7 +4,6 @@ import { BASE_URL, headers } from "../../../constants/api";
 import Loading from "../../spinner/Loading";
 import { Link } from "react-router-dom";
 import Map from "../../../images/icons/map_v1.png";
-import AcceptIcon from "../../../images/accept.png";
 import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
@@ -12,7 +11,6 @@ import ErrorHandler from "../../errorHandler/ErrorHandler";
 // from react bootstrap
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
@@ -92,25 +90,35 @@ function Establishment() {
         <article>
           <BreadCrumbs crumb={4} estname={establishment.name} />
           <Container className="establishmentDetailContainer">
-            <section className="establishmentDetail__accept">
-              <Image src={AcceptIcon} alt="v" fluid />
-              No booking fees
-              <Image src={AcceptIcon} alt="v" fluid />
-              100% Customer Satisfaction
-              <Image src={AcceptIcon} alt="v" fluid />
-              Voucher Acceptence
-            </section>
-
             <Card as="main" role="main" className="establishmentDetail">
-              <Col sm={12} className="establishmentDetail__img">
-                <Card.Img
-                  src={establishment.image}
-                  alt={establishment.name}
-                  role="img"
-                  className="establishmentDetail__img--img"
-                />
-              </Col>
+              <Col sm={12} className="establishmentDetail__top">
+                <Col sm={12} lg={8} className="establishmentDetail__img">
+                  <Card.Img
+                    src={establishment.image}
+                    alt={establishment.name}
+                    role="img"
+                    className="establishmentDetail__img--img"
+                  />
+                </Col>
 
+                <Col sm={12} lg={4} className="establishmentDetail__checkout">
+                  <Col sm={12} className="establishmentDetail__price">
+                    {newPrice()}
+                  </Col>
+                  <Col sm={12} className="establishmentDetail__btn">
+                    <Link
+                      to={"../make-enquiries/" + establishment.name + "/" + id}
+                    >
+                      <Button
+                        role="button"
+                        className="establishmentDetail__btn--text"
+                      >
+                        Book
+                      </Button>
+                    </Link>
+                  </Col>
+                </Col>
+              </Col>
               <Card.Body className="establishmentDetail__body">
                 <Col sm={12} className="establishmentDetail__badges">
                   <Col sm={3}>
@@ -167,28 +175,9 @@ function Establishment() {
                     <Card.Img
                       src={Map}
                       alt="map icon"
-                      className="establishmentDetail__bottom--mapIcon"
+                      className="establishmentDetail__mapIcon"
                     />
                   </OverlayTrigger>
-                </Col>
-
-                <Col sm={12} className="establishmentDetail__checkout">
-                  <Col sm={12} lg={6} className="establishmentDetail__price">
-                    {newPrice()}
-                  </Col>
-
-                  <Col sm={12} lg={6} className="establishmentDetail__bottom">
-                    <Link
-                      to={"../make-enquiries/" + establishment.name + "/" + id}
-                    >
-                      <Button
-                        role="button"
-                        className="establishmentDetail__bottom--btn"
-                      >
-                        Book
-                      </Button>
-                    </Link>
-                  </Col>
                 </Col>
               </Card.Body>
             </Card>

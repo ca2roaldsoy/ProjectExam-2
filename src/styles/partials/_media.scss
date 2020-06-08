@@ -3,9 +3,60 @@
 
 /************** Small Screens ***************/
 @media only screen and (min-width: 576px) {
+  // home
+  .homeImgTop {
+    display: block;
+    width: 100%;
+  }
+
+  .browseAll {
+    margin-top: 50px;
+
+    &__img {
+      display: block;
+    }
+
+    &__overlay {
+      padding: 30px;
+      background: none;
+
+      &--title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: $white;
+        text-shadow: 1px 1px $black;
+      }
+
+      &--btn {
+        max-width: 100%;
+      }
+    }
+  }
+
   // search
   .searchContainer__title {
     font-size: 28px;
+  }
+
+  // carousel
+  .carousel {
+    margin-top: 50px;
+  }
+
+  .exploreBergen {
+    margin-top: 20px;
+  }
+
+  // quality
+  .quality {
+    @include flexing(center);
+    align-items: center;
+  }
+
+  // footer
+  .footer__title {
+    padding-left: 25px;
   }
 
   // establishment
@@ -40,66 +91,20 @@
     }
   }
 
-  // home
-  .homeImgTop {
-    display: block;
-    width: 100%;
-  }
-
-  .browseAll {
-    margin-top: 50px;
-
-    &__img {
-      display: block;
-    }
-
-    &__overlay {
-      padding: 30px;
-      background: none;
-
-      &--title {
-        font-size: 24px;
-        margin-bottom: 10px;
-        font-weight: 600;
-        color: $white;
-        text-shadow: 1px 1px $black;
-      }
-
-      &--btn {
-        max-width: 100%;
-      }
-    }
-  }
-
-  // carousel
-  .carousel {
-    margin-top: 50px;
-  }
-
-  .exploreBergen {
-    margin-top: 20px;
-  }
-
-  // quality
-  .quality {
-    @include flexing(center);
-    align-items: center;
-  }
-
-  // footer
-  .footer__title {
-    padding-left: 25px;
-  }
-
   // establishment details
   .establishmentDetailContainer {
     padding: 50px 0;
   }
 
   .establishmentDetail {
+    display: flex;
     box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.2);
 
-    &__bottom {
+    &__top {
+      margin-bottom: 20px;
+    }
+
+    &__btn {
       justify-content: space-evenly;
       padding: 0;
       margin: 0;
@@ -176,8 +181,22 @@
   }
 
   // establishment details
+
   .establishmentDetail {
-    align-items: center;
+    &__top {
+      display: flex;
+      margin: 0;
+    }
+
+    &__img {
+      max-height: 450px;
+      overflow: hidden;
+
+      &--img {
+        object-fit: cover;
+        object-position: bottom;
+      }
+    }
 
     &__badges {
       text-align: center;
@@ -207,7 +226,6 @@
     }
 
     &__checkout {
-      display: flex;
       align-items: center;
       padding: 0;
     }
@@ -215,6 +233,8 @@
     &__price {
       text-align: center;
       margin: 0;
+      display: block;
+      height: auto;
 
       &--discount {
         font-size: 36px;
@@ -231,18 +251,22 @@
       }
     }
 
-    &__bottom {
+    &__btn {
       align-items: center;
+      width: 100%;
 
-      &--btn {
-        font-size: 40px;
-        height: 100%;
-        padding: 18px;
+      &--text {
+        font-size: 32px;
+        width: 80%;
+        height: auto;
+        text-align: center;
+        margin: 50px auto;
+        display: block;
       }
+    }
 
-      &--mapIcon {
-        margin: 0;
-      }
+    &--mapIcon {
+      margin: 0;
     }
   }
 
@@ -352,6 +376,13 @@
       font-size: 1.8rem;
       height: 2em;
       width: 30%;
+    }
+  }
+
+  .establishmentDetail {
+    &__price {
+      padding-top: 50px;
+      height: 250px;
     }
   }
 }
