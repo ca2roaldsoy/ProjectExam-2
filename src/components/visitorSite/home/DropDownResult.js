@@ -1,15 +1,17 @@
 import React from "react";
 import DropDown from "react-bootstrap/Dropdown";
 import PropTypes from "prop-types";
+import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 function DropDownResult({ name, idx }) {
   // create a path that links to detail page of establishment
   const path = "establishment/" + idx;
 
   return (
-    <DropDown.Item href={path} className="search__results--item">
+    <Link to={path} className="search__results--item">
       {name}
-    </DropDown.Item>
+    </Link>
   );
 }
 

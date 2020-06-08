@@ -11,7 +11,7 @@ export default function Search({ handleSearch }) {
     <>
       <InputGroup className="search" role="searchbox">
         <FormControl
-          placeholder="Search for hotels, b&amp;b's and guesthouses across Bergen"
+          placeholder="Search by name..."
           onChange={(event) => handleSearch(event)}
           role="search"
         />

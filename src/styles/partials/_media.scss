@@ -39,6 +39,10 @@
     font-size: 28px;
   }
 
+  .search__btn {
+    font-size: 20px;
+  }
+
   // carousel
   .carousel {
     margin-top: 50px;
@@ -341,23 +345,6 @@
       color: $white;
       font-size: 40px;
       font-weight: 700;
-    }
-  }
-
-  .search {
-    max-width: 550px;
-    padding: 0px 30px;
-    margin: 20px auto 0px auto;
-  }
-
-  .search__results {
-    background-color: rgba(0, 0, 0, 0.9);
-    max-width: 490px;
-    margin: 0 auto;
-    z-index: 1;
-
-    &--item {
-      color: $white;
     }
   }
 

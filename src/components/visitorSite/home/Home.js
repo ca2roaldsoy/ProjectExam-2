@@ -19,9 +19,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import DropDown from "react-bootstrap/Dropdown";
 import Image from "react-bootstrap/Image";
+import Modal from "react-bootstrap/Modal";
 
 // import images
 import ImgTop from "../../../images/bergen/bg-15.jpg";
+import Button from "react-bootstrap/Button";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +31,9 @@ function Home() {
   const [searchEstablishments, setSearchEstablishments] = useState([]);
   const [establishments, setEstablishments] = useState([]);
   const [errorHandle, setErrorHandle] = useState(false);
+
+  const handleClose = () => setIsOpen(false);
+  const handleShow = () => setIsOpen(true);
 
   const url = BASE_URL + "establishments";
   const options = { headers };
@@ -69,7 +74,6 @@ function Home() {
       const lowerCaseEst = establish.name.toLowerCase();
 
       if (lowerCaseEst.includes(lowerCaseValue)) {
-        setIsOpen(true);
         return true;
       }
       return false;
@@ -82,21 +86,38 @@ function Home() {
     if (searchEstablishments.length === 0) {
       return <p>sorry, no results found</p>;
     }
+  }
 
+  function searchModal() {
     // open dropdown search result
     if (isOpen) {
       return (
-        <DropDown className="search__results">
-          {searchEstablishments.map((establishment) => {
-            return (
-              <DropDownResult
-                key={establishment.id}
-                name={establishment.name}
-                idx={establishment.id}
-              />
-            );
-          })}
-        </DropDown>
+        <Modal.Header className="search__results">
+          <Button onClick={handleClose} className="search__results--close">
+            x
+          </Button>
+          <Modal.Title
+            as="h3"
+            className="text-center searchContainer__title"
+            style={{ color: "#000" }}
+          >
+            Find Accommodations
+          </Modal.Title>
+          <Search handleSearch={findEstablishment} />
+          {results()}
+
+          <Modal.Body>
+            {searchEstablishments.map((establishment) => {
+              return (
+                <DropDownResult
+                  key={establishment.id}
+                  name={establishment.name}
+                  idx={establishment.id}
+                />
+              );
+            })}
+          </Modal.Body>
+        </Modal.Header>
       );
     }
   }
@@ -150,16 +171,19 @@ function Home() {
       ) : (
         <>
           <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
-          {/* Search */}
           <Container>
             <section className="searchContainer">
               <h2 className="text-center searchContainer__title">
                 Find Accommodations
               </h2>
-              <Search handleSearch={findEstablishment} />
-              {/* Search Results */}
-              {results()}
+              <Button onClick={handleShow} className="search__btn">
+                Start searching here
+              </Button>
             </section>
+
+            <Modal show={isOpen} onHide={handleClose}>
+              {searchModal()}
+            </Modal>
 
             {/* Popular Places */}
             {popular()}
