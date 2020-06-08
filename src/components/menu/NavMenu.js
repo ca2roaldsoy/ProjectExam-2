@@ -8,7 +8,7 @@ import {
   Route,
   NavLink,
 } from "react-router-dom";
-import { AdminContext } from "../context/AdminContext";
+import { AdminContext } from "../../context/AdminContext";
 import Protect from "./Protect";
 import LogOut from "../adminSite/logout/LogOut";
 import Login from "../visitorSite/login/Login";

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route } from "react-router-dom";
-import { AdminContext } from "../context/AdminContext";
+import { AdminContext } from "../../context/AdminContext";
 import Permission from "./Permission";
 
 // create a protected route
