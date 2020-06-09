@@ -132,6 +132,13 @@
     }
   }
 
+  // establishment admin
+  .manageEstablishments__top {
+    &--btn {
+      float: right;
+    }
+  }
+
   // admin
   .admin {
     &__section--title {

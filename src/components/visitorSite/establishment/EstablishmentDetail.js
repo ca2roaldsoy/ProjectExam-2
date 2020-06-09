@@ -53,9 +53,9 @@ function Establishment() {
     return <Loading />;
   }
 
-  let discountPrice = Math.ceil((establishment.price * 70) / 100);
+  let discountPrice = Math.ceil((establishment.price * 70) / 100); // calculate discount price
   let decrease = establishment.price - discountPrice;
-  let discount = Math.ceil((decrease / establishment.price) * 100);
+  let discount = Math.ceil((decrease / establishment.price) * 100); // calculate discount
   let roomsLeft = Math.ceil(establishment.maxGuests / 3); // calculate avaiable rooms left
 
   // Discounts

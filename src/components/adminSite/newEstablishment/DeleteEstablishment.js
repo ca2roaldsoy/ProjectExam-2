@@ -5,6 +5,8 @@ import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function DeleteEstablishment() {
   const [establishment, setEstablishment] = useState([]);
@@ -58,8 +60,15 @@ function DeleteEstablishment() {
       {errorHandle ? (
         <ErrorHandler />
       ) : (
-        <>
-          <h2>Delete Establishment</h2>
+        <article className="manageEstablishments">
+          <div className="manageEstablishments__top">
+            <h2 className="manageEstablishments__top--title">Establishments</h2>
+            <Link to="../create-establishments">
+              <Button className="manageEstablishments__top--btn">
+                + Create New Establishment
+              </Button>
+            </Link>
+          </div>
           <Table striped bordered hover responsive variant="dark">
             <thead>
               <tr>
@@ -71,7 +80,7 @@ function DeleteEstablishment() {
             </thead>
             <tbody>{deleteEstablishmentDetail()}</tbody>
           </Table>
-        </>
+        </article>
       )}
     </Container>
   );

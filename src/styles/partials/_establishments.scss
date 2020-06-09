@@ -204,15 +204,10 @@
   display: none;
 }
 
-/************** Establishment Menu Page ***************/
-.manageEstablishmentMenu {
-  display: block;
-  margin: 25vh auto;
-
-  & button {
-    margin: 25px auto;
-    width: 100%;
-    height: 120px;
-    font-size: 32px;
+/************** Establishment Admin Page ***************/
+.manageEstablishments__top {
+  &--btn {
+    margin: 10px auto;
+    display: block;
   }
 }
