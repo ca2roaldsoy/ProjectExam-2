@@ -1,7 +1,5 @@
 import React from "react";
-import DropDown from "react-bootstrap/Dropdown";
 import PropTypes from "prop-types";
-import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 
 function DropDownResult({ name, idx }) {

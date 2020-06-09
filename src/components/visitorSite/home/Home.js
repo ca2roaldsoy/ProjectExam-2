@@ -17,7 +17,6 @@ import ExploreBergen from "./carousel/ExploreBergen";
 // react bootstrap
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import DropDown from "react-bootstrap/Dropdown";
 import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
 
@@ -174,7 +173,7 @@ function Home() {
           <Container>
             <section className="searchContainer">
               <h2 className="text-center searchContainer__title">
-                Find Accommodations
+                Accommodations in Bergen
               </h2>
               <Button onClick={handleShow} className="search__btn">
                 Start searching here
