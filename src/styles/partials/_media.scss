@@ -201,10 +201,12 @@
     &__img {
       max-height: 520px;
       overflow: hidden;
+      width: 100%;
 
       &--img {
         object-fit: cover;
-        object-position: bottom;
+        object-position: left;
+        height: 520px;
       }
     }
 
