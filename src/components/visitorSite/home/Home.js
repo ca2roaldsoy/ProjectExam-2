@@ -19,10 +19,10 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 // import images
 import ImgTop from "../../../images/bergen/bg-15.jpg";
-import Button from "react-bootstrap/Button";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -140,6 +140,7 @@ function Home() {
                 place={name}
                 image={image}
                 price={price}
+                id={id}
               />
             );
           })}
