@@ -53,7 +53,7 @@ function Establishment() {
     return <Loading />;
   }
 
-  let discountPrice = Math.ceil((establishment.price * 70) / 100); // calculate discount price
+  let discountPrice = Math.ceil((establishment.price * 70) / 100 - 5); // calculate discount price
   let decrease = establishment.price - discountPrice;
   let discount = Math.ceil((decrease / establishment.price) * 100); // calculate discount
   let roomsLeft = Math.ceil(establishment.maxGuests / 3); // calculate avaiable rooms left
@@ -149,14 +149,7 @@ function Establishment() {
                   </Col>
 
                   <Col sm={3}>
-                    <Badge
-                      style={{
-                        backgroundColor: establishment.selfCatering
-                          ? "#5EBB47"
-                          : "#FF333A",
-                      }}
-                      className="establishmentDetail__badges--selfCatering"
-                    >
+                    <Badge className="establishmentDetail__badges--selfCatering">
                       Self Catering: {establishment.selfCatering ? "Yes" : "No"}
                     </Badge>
                   </Col>

@@ -26,11 +26,11 @@ function AllEstablishments({
   lat,
   lng,
 }) {
-  let newPrice = Math.ceil((price * 70) / 100 - 5); // calculate new price after discount
+  let discountPrice = Math.ceil((price * 70) / 100 - 5); // calculate new price after discount
   let roomsLeft = Math.ceil(maxGuests / 3); // calculate avaiable rooms left
 
   // calculate discount in percent
-  let decrease = price - newPrice; // decrease amount
+  let decrease = price - discountPrice; // decrease amount
   let discount = Math.ceil((decrease / price) * 100); // find percentage
 
   // Discounts
@@ -45,7 +45,7 @@ function AllEstablishments({
             NOK {price}
           </Card.Text>
           <Card.Text className="establishment__price--new">
-            <strong>NOK {newPrice}</strong>
+            <strong>NOK {discountPrice}</strong>
           </Card.Text>
         </>
       );
@@ -59,7 +59,7 @@ function AllEstablishments({
 
   // Display few rooms left
   function deal() {
-    if (newPrice < 50) {
+    if (discountPrice < 50) {
       return (
         <div className="establishment__deal">
           <Card.Text>Hurry!</Card.Text>
@@ -89,12 +89,7 @@ function AllEstablishments({
                 Max Guests: {maxGuests}
               </Badge>
 
-              <Badge
-                style={{
-                  backgroundColor: selfCatering ? "#5EBB47" : "#FF333A",
-                }}
-                className="establishment__badges--selfCatering"
-              >
+              <Badge className="establishment__badges--selfCatering">
                 Self Catering: {selfCatering ? "Yes" : "No"}
               </Badge>
               <OverlayTrigger
