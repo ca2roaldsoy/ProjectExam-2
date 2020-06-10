@@ -1,6 +1,11 @@
 @import "variables";
 @import "mixins";
 
+// btn
+.btn {
+  border: none;
+}
+
 // spinner
 .spinner {
   margin: 250px auto;
