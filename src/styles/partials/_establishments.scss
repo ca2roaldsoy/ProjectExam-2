@@ -172,14 +172,20 @@
     @include colours($white, $black);
     margin-bottom: 20px;
 
+    & > a {
+      &:hover {
+        text-decoration: none;
+        background-color: $blue;
+      }
+    }
+
     &--text {
-      background-color: $blue;
+      background-color: $darkBlue;
       color: $white;
       font-weight: bold;
       height: 50px;
       width: 100%;
       font-size: 24px;
-      border: 2px solid $black;
     }
   }
   &__mapIcon {
