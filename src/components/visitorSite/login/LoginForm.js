@@ -48,7 +48,7 @@ function LoginForm() {
 
         <Form.Group>
           <Form.Label htmlFor="password">Password</Form.Label>
-          <Form.Control type="text" name="password" ref={register()} />
+          <Form.Control type="password" name="password" ref={register()} />
           {errors.password && <Form.Text>{errors.password.message}</Form.Text>}
         </Form.Group>
 
