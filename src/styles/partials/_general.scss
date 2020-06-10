@@ -102,10 +102,15 @@
     }
   }
   &__date {
-    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
 
-    &:hover {
-      cursor: pointer;
+    &--picker {
+      padding-left: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 

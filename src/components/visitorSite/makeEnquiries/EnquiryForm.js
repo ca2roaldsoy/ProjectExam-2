@@ -58,6 +58,7 @@ function EnquiryForm({ id, name }) {
         }
       })
       .then((json) => console.log(json))
+      .then(setValidated(true))
       .catch((err) => {
         console.log(err);
         setErrorHandle(true);
@@ -65,8 +66,6 @@ function EnquiryForm({ id, name }) {
 
     // reset fields after submit
     event.target.reset();
-
-    setValidated(true);
   }
 
   // scroll back to top after submit
@@ -102,8 +101,14 @@ function EnquiryForm({ id, name }) {
               {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
             </Form.Group>
 
-            <Form.Group>
+            <Form.Group className="form__date">
               <Form.Label htmlFor="checkIn">Check In</Form.Label>
+              <DatePicker
+                selected={checkIn}
+                onChange={(date) => setCheckIn(date)}
+                dateFormat="yyyy/MM/dd"
+                className="form__date--picker"
+              />
               <Form.Control
                 type="text"
                 name="checkIn"
@@ -111,28 +116,22 @@ function EnquiryForm({ id, name }) {
                 value={checkIn.toISOString().slice(0, 10)}
                 readOnly
               />
-              <DatePicker
-                selected={checkIn}
-                onChange={(date) => setCheckIn(date)}
-                dateFormat="yyyy/MM/dd"
-                className="form__date"
-              />
             </Form.Group>
 
-            <Form.Group>
+            <Form.Group className="form__date">
               <Form.Label htmlFor="checkOut">Check Out</Form.Label>
+              <DatePicker
+                selected={checkOut}
+                onChange={(date) => setCheckOut(date)}
+                dateFormat="yyyy/MM/dd"
+                className="form__date--picker"
+              />
               <Form.Control
                 type="text"
                 name="checkOut"
                 ref={register}
                 value={checkOut.toISOString().slice(0, 10)}
                 readOnly
-              />
-              <DatePicker
-                selected={checkOut}
-                onChange={(date) => setCheckOut(date)}
-                dateFormat="yyyy/MM/dd"
-                className="form__date"
               />
             </Form.Group>
 
