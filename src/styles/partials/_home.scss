@@ -36,6 +36,7 @@
     display: block;
     background-color: $darkBlue;
     width: 250px;
+    border-radius: 10px;
   }
 }
 
@@ -60,6 +61,7 @@
 
   &--close {
     z-index: 99;
+    background-color: $darkBlue;
   }
 }
 
