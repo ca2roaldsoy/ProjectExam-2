@@ -82,7 +82,7 @@ function Messages() {
               </tr>
             </thead>
             <tbody>{noMsg()}</tbody>
-          </Table>{" "}
+          </Table>
         </>
       )}
     </Container>
