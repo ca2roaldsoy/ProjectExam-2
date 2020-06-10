@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "react-bootstrap/Image";
-import AcceptImg from "../../../images/accept.png";
-import RejectImg from "../../../images/reject.png";
+import AcceptImg from "../../../images/accept_white.png";
+import RejectImg from "../../../images/reject_white.png";
 import PropTypes from "prop-types";
 import { BASE_URL, headers } from "../../../constants/api";
 
