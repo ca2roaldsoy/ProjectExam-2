@@ -43,6 +43,8 @@
 .search__results {
   border: 1px solid #cacaca;
   display: block;
+  max-height: 900px;
+  overflow-y: scroll;
 
   &--item {
     padding: 10px;
