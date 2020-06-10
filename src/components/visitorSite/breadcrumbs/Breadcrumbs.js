@@ -37,7 +37,7 @@ function Breadcrumbs({ crumb, estname }) {
         <Breadcrumb>
           <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
           <Breadcrumb.Item href="/establishment">
-            All-Establishment
+            All Establishment
           </Breadcrumb.Item>
           <Breadcrumb.Item active>{estname}</Breadcrumb.Item>
         </Breadcrumb>
