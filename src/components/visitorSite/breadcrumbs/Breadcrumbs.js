@@ -20,7 +20,7 @@ function Breadcrumbs({ crumb, estname }) {
           <Breadcrumb.Item href={"/establishment/" + id}>
             {name}
           </Breadcrumb.Item>
-          <Breadcrumb.Item active>Make-Enquiry</Breadcrumb.Item>
+          <Breadcrumb.Item active>Make Enquiry</Breadcrumb.Item>
         </Breadcrumb>
       );
     case 3:
@@ -28,7 +28,7 @@ function Breadcrumbs({ crumb, estname }) {
         <>
           <Breadcrumb>
             <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-            <Breadcrumb.Item active>All-Establishment</Breadcrumb.Item>
+            <Breadcrumb.Item active>All Establishment</Breadcrumb.Item>
           </Breadcrumb>
         </>
       );
