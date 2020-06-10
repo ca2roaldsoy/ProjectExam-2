@@ -23,7 +23,7 @@ function Qualities() {
           role="img"
           alt="letter v inside green circle"
         />
-        <p className="quality__text">100&amp; Satisfaction</p>
+        <p className="quality__text">100&#37; Satisfaction</p>
       </Col>
 
       <Col sm={4} className="quality">
