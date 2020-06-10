@@ -14,7 +14,8 @@
 // mixin old price
 @mixin priceOld() {
   text-decoration: line-through;
-  text-decoration-color: #ff333a;
+  text-decoration-color: $black;
+  color: red;
 }
 
 // mixin fletch
