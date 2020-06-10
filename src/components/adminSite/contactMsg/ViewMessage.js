@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MessageRespondForm from "./MessageRespondForm";
-import { BASE_URL, headers } from "../../../constants/api";
+import { BASE_URL, headers, abortController } from "../../../constants/api";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
 import Loading from "../../spinner/Loading";
 
@@ -33,6 +33,9 @@ function ViewMessage({ id }) {
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
+
+    setTimeout(() => abortController.abort(), 1000);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
