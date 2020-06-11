@@ -60,18 +60,20 @@ function EnquiryForm({ id, name }) {
           if (response.ok) {
             return response.json();
           } else {
-            setErrorHandle(true);
+            return setErrorHandle(true);
           }
         })
         .then((json) => console.log(json))
         .then(setValidated(true))
         .catch((err) => {
           console.log(err);
-          setErrorHandle(true);
+          return setErrorHandle(true);
         });
 
       // reset fields after submit
       event.target.reset();
+      setCheckIn(new Date());
+      setCheckOut(new Date());
     }
   }
 
@@ -81,7 +83,11 @@ function EnquiryForm({ id, name }) {
   };
 
   // reset form
-  const reset = () => setValidated(false);
+  const reset = () => {
+    setValidated(false);
+    setCheckIn(new Date());
+    setCheckOut(new Date());
+  };
 
   return (
     <>
