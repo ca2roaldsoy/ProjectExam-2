@@ -22,6 +22,7 @@ function CheckDate({ checkIn, checkOut, backToTop }) {
 CheckDate.propTypes = {
   checkIn: PropTypes.instanceOf(Date).isRequired,
   checkOut: PropTypes.instanceOf(Date).isRequired,
+  backToTop: PropTypes.func.isRequired,
 };
 
 export default CheckDate;

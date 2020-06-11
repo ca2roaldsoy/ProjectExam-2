@@ -23,6 +23,7 @@ function EnquiryForm({ id, name }) {
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
   const [errorHandle, setErrorHandle] = useState(false);
+  const [dateErr, setDateErr] = useState(false);
 
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
@@ -31,41 +32,47 @@ function EnquiryForm({ id, name }) {
   function onSubmit(data, event) {
     console.log("data", data);
 
-    const url = BASE_URL + "enquiries";
+    if (checkOut < checkIn) {
+      setDateErr(true);
+      setValidated(false);
+      return;
+    } else {
+      const url = BASE_URL + "enquiries";
 
-    const enquiryData = {
-      name: data.name,
-      email: data.email,
-      establishmentId: name,
-      checkIn: data.checkIn,
-      checkOut: data.checkOut,
-    };
+      const enquiryData = {
+        name: data.name,
+        email: data.email,
+        establishmentId: name,
+        checkIn: data.checkIn,
+        checkOut: data.checkOut,
+      };
 
-    const options = {
-      headers,
-      method: "POST",
-      body: JSON.stringify(enquiryData),
-    };
+      const options = {
+        headers,
+        method: "POST",
+        body: JSON.stringify(enquiryData),
+      };
 
-    // post enquiry to admin
-    fetch(url, options)
-      .then((response) => {
-        // check if response returns ok
-        if (response.ok) {
-          return response.json();
-        } else {
+      // post enquiry to admin
+      fetch(url, options)
+        .then((response) => {
+          // check if response returns ok
+          if (response.ok) {
+            return response.json();
+          } else {
+            setErrorHandle(true);
+          }
+        })
+        .then((json) => console.log(json))
+        .then(setValidated(true))
+        .catch((err) => {
+          console.log(err);
           setErrorHandle(true);
-        }
-      })
-      .then((json) => console.log(json))
-      .then(setValidated(true))
-      .catch((err) => {
-        console.log(err);
-        setErrorHandle(true);
-      });
+        });
 
-    // reset fields after submit
-    event.target.reset();
+      // reset fields after submit
+      event.target.reset();
+    }
   }
 
   // scroll back to top after submit
@@ -78,15 +85,17 @@ function EnquiryForm({ id, name }) {
 
   return (
     <>
+      {dateErr ? (
+        <CheckDate
+          checkIn={checkIn}
+          checkOut={checkOut}
+          backToTop={backToTop}
+        />
+      ) : null}
       {errorHandle ? (
         <ErrorHandler />
       ) : (
         <>
-          <CheckDate
-            checkIn={checkIn}
-            checkOut={checkOut}
-            backToTop={backToTop}
-          />
           <Validated validated={validated} message={1} />
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group>
