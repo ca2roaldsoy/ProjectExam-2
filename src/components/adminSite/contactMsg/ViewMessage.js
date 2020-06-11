@@ -34,7 +34,7 @@ function ViewMessage({ id }) {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
 
-    setTimeout(() => abortController.abort(), 1000);
+    return () => abortController.abort();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

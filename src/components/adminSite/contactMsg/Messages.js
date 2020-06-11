@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BASE_URL, headers, abortController } from "../../../constants/api";
+import { BASE_URL, headers } from "../../../constants/api";
 import MessagesLayout from "./MessagesLayout";
 import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
@@ -34,8 +34,6 @@ function Messages() {
         //setErrorHandle(true);
       })
       .finally(() => setLoading(false));
-
-    setTimeout(() => abortController.abort(), 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
