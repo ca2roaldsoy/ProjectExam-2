@@ -15,14 +15,12 @@
     @include flexing(center);
 
     &--maxGuests {
-      @include colours($blue, $white, 10px);
+      @include colours($darkYellow, $black, 10px);
     }
 
     &--selfCatering {
       margin: 0 2px 0 10px;
-      padding: 10px;
-      background-color: $blue;
-      color: $white;
+      @include colours($darkYellow, $black, 10px);
     }
 
     &--infoIcon {
@@ -124,14 +122,12 @@
     @include colours(#d3d3d3, $black, 5px 0);
 
     &--maxGuests {
-      @include colours($blue, $white, 5px);
+      @include colours($darkYellow, $black, 5px);
     }
 
     &--selfCatering {
-      padding: 5px;
       margin: 5px auto;
-      background-color: $blue;
-      color: $white;
+      @include colours($darkYellow, $black, 5px);
     }
   }
 
