@@ -4,6 +4,10 @@
 // btn
 .btn {
   border: none;
+  background-color: $darkBlue;
+  &:hover {
+    background-color: $blue;
+  }
 }
 
 // spinner
@@ -35,7 +39,6 @@
 }
 
 .modal__body--btn {
-  background-color: $darkBlue;
   width: 25%;
   max-width: 100px;
 
