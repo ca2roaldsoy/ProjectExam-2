@@ -79,6 +79,16 @@
 }
 
 .form {
+  &-label::after {
+    content: "*";
+    color: #bb0006;
+    padding-left: 3px;
+  }
+
+  &-nonRequired::after {
+    content: "";
+  }
+
   &-text {
     color: #bb0006;
   }

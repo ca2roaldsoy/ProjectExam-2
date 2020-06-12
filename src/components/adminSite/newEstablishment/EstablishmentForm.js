@@ -82,15 +82,15 @@ function EstablishmentForm() {
         <>
           <Validated validated={validated} message={3} />
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <Row>
+            <Row as="form">
               <Col lg={12}>
-                <Form.Group>
+                <Form.Group as="section">
                   <Form.Label htmlFor="name">Establishment Name</Form.Label>
                   <Form.Control type="text" name="name" ref={register} />
                   {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
                 </Form.Group>
 
-                <Form.Group>
+                <Form.Group as="section">
                   <Form.Label htmlFor="email">Establishment Email</Form.Label>
                   <Form.Control type="email" name="email" ref={register} />
                   {errors.email && (
@@ -98,15 +98,15 @@ function EstablishmentForm() {
                   )}
                 </Form.Group>
 
-                <Form.Group>
-                  <Form.Label htmlFor="image">
+                <Form.Group as="section">
+                  <Form.Label htmlFor="image" className="form-nonRequired">
                     Establishment Image URL
                   </Form.Label>
                   <Form.Control type="text" name="image" ref={register} />
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group>
+                <Form.Group as="section">
                   <Form.Label htmlFor="price">Establishment Price</Form.Label>
                   <InputGroup>
                     <InputGroup.Prepend>
@@ -128,7 +128,7 @@ function EstablishmentForm() {
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group>
+                <Form.Group as="section">
                   <Form.Label htmlFor="guests">MaxGuests</Form.Label>
                   <Form.Control type="number" name="maxGuests" ref={register} />
                   {errors.maxGuests && (
@@ -139,8 +139,10 @@ function EstablishmentForm() {
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group>
-                  <Form.Label htmlFor="latitude">Latitude</Form.Label>
+                <Form.Group as="section">
+                  <Form.Label htmlFor="latitude" className="form-nonRequired">
+                    Latitude
+                  </Form.Label>
                   <Form.Control
                     type="number"
                     name="lat"
@@ -150,8 +152,10 @@ function EstablishmentForm() {
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form.Group>
-                  <Form.Label htmlFor="longitude">Longitude</Form.Label>
+                <Form.Group as="section">
+                  <Form.Label htmlFor="longitude" className="form-nonRequired">
+                    Longitude
+                  </Form.Label>
                   <Form.Control
                     type="number"
                     name="lng"
@@ -161,7 +165,7 @@ function EstablishmentForm() {
                 </Form.Group>
               </Col>
               <Col lg={12}>
-                <Form.Group>
+                <Form.Group as="section">
                   <Form.Label htmlFor="description">Description</Form.Label>
                   <Form.Control
                     type="text"
@@ -175,8 +179,13 @@ function EstablishmentForm() {
                 </Form.Group>
               </Col>
               <Col lg={6}>
-                <Form.Group>
-                  <Form.Label htmlFor="self catering">Self Catering</Form.Label>
+                <Form.Group as="section">
+                  <Form.Label
+                    htmlFor="self catering"
+                    className="form-nonRequired"
+                  >
+                    Self Catering
+                  </Form.Label>
 
                   <Form.Check
                     type="radio"
@@ -200,7 +209,7 @@ function EstablishmentForm() {
               </Col>
 
               <Col lg={12}>
-                <Form.Group className="form__btn">
+                <Form.Group className="form__btn" as="section">
                   <Button
                     type="submit"
                     role="button"
