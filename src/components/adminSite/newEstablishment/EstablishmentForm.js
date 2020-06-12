@@ -112,12 +112,15 @@ function EstablishmentForm() {
                     <InputGroup.Prepend>
                       <InputGroup.Text>NOK</InputGroup.Text>
                     </InputGroup.Prepend>
+                    <Form.Control type="number" name="price" ref={register} />
+                    <InputGroup.Prepend>
+                      <InputGroup.Text>.</InputGroup.Text>
+                    </InputGroup.Prepend>
                     <Form.Control
                       type="number"
-                      name="price"
-                      step=".01"
-                      placeholder="Max two decimals"
+                      name="decimalPrice"
                       ref={register}
+                      placeholder="00"
                     />
                     {errors.price && (
                       <Col md={12} className="p-0">
