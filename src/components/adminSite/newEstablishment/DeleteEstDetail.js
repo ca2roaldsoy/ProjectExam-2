@@ -43,7 +43,11 @@ function DeleteEstDetail({ name, id, created }) {
           <Modal.Title>Delete Establishment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Are you sure you want to delete this establishment?
+          <p>Are you sure you want to delete this establishment?</p>
+          <p>
+            <span className="confirmWarning">Waning:</span> This action cannot
+            be undone!
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={deleteEstablishment}>
