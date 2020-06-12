@@ -9,7 +9,7 @@ function Contact() {
     <>
       <Breadcrumbs crumb={1} />
       <Container className="containerForm">
-        <div className="containerForm__form">
+        <div className="containerForm__form" as="article">
           <h2 className="text-center">Contact Us</h2>
           <ContactForm />
         </div>

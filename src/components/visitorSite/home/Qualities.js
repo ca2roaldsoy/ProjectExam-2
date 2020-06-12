@@ -5,7 +5,7 @@ import acceptIcon from "../../../images/accept.png";
 
 function Qualities() {
   return (
-    <Col sm={12} className="qualityContainer">
+    <Col sm={12} className="qualityContainer" as="section">
       <Col sm={4} className="quality">
         <Image
           src={acceptIcon}

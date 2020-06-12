@@ -137,7 +137,7 @@ function AllEstablishments({
           </Card.Body>
         </Col>
 
-        <Col sm={4} md={6} lg={2} as="section" className="establishment__price">
+        <Col sm={4} md={6} lg={2} className="establishment__price">
           {updatePrice()}
           <Link to={"establishment/" + id} className="establishment__btn--text">
             <Button role="button" className="establishment__btn">

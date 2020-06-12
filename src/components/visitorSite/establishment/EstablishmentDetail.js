@@ -104,8 +104,8 @@ function Establishment() {
       ) : (
         <article>
           <BreadCrumbs crumb={4} estname={establishment.name} />
-          <Container className="establishmentDetailContainer">
-            <Card as="main" role="main" className="establishmentDetail">
+          <Container className="establishmentDetailContainer" as="section">
+            <Card className="establishmentDetail">
               <Col sm={12} className="establishmentDetail__top">
                 <Col sm={12} lg={8} className="establishmentDetail__img">
                   <Card.Img

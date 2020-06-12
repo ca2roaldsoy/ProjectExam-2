@@ -104,19 +104,19 @@ function EnquiryForm({ id, name }) {
         <>
           <Validated validated={validated} message={1} />
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <Form.Group>
+            <Form.Group as="section">
               <Form.Label htmlFor="name">Name</Form.Label>
               <Form.Control type="text" name="name" ref={register} />
               {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
             </Form.Group>
 
-            <Form.Group>
+            <Form.Group as="section">
               <Form.Label htmlFor="email">Email</Form.Label>
               <Form.Control type="email" name="email" ref={register} />
               {errors.email && <Form.Text>{errors.email.message}</Form.Text>}
             </Form.Group>
 
-            <Form.Group className="form__date">
+            <Form.Group className="form__date" as="section">
               <Form.Label htmlFor="checkIn">Check In</Form.Label>
               <DatePicker
                 selected={checkIn}
@@ -133,7 +133,7 @@ function EnquiryForm({ id, name }) {
               />
             </Form.Group>
 
-            <Form.Group className="form__date">
+            <Form.Group className="form__date" as="section">
               <Form.Label htmlFor="checkOut">Check Out</Form.Label>
               <DatePicker
                 selected={checkOut}
@@ -150,7 +150,7 @@ function EnquiryForm({ id, name }) {
               />
             </Form.Group>
 
-            <Form.Group className="form__btn">
+            <Form.Group className="form__btn" as="section">
               <Button
                 type="submit"
                 role="button"

@@ -9,7 +9,7 @@ import Container from "react-bootstrap/Container";
 
 function Admin() {
   return (
-    <section className="adminContent">
+    <main role="main" className="adminContent">
       <Container className="adminContainer">
         <Row className="admin">
           <Col lg={6} className="admin__section">
@@ -31,7 +31,7 @@ function Admin() {
           </Col>
         </Row>
       </Container>
-    </section>
+    </main>
   );
 }
 

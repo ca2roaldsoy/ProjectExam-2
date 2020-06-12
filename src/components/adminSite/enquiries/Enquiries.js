@@ -79,7 +79,7 @@ function Enquiries() {
   }
 
   return (
-    <Container className="enquiries">
+    <Container className="enquiries" as="article" role="article">
       {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
@@ -93,6 +93,7 @@ function Enquiries() {
             responsive
             variant="dark"
             className="enquiries__table"
+            role="table"
           >
             <thead>
               <tr>

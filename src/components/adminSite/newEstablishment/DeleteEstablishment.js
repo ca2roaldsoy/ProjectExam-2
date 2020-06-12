@@ -69,7 +69,7 @@ function DeleteEstablishment() {
               </Button>
             </Link>
           </div>
-          <Table striped bordered hover responsive variant="dark">
+          <Table striped bordered hover responsive variant="dark" role="table">
             <thead>
               <tr>
                 <th>ID</th>

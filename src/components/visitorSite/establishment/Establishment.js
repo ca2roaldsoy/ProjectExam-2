@@ -50,7 +50,7 @@ function Establishment() {
       ) : (
         <>
           <BreadCrumbs crumb={3} />
-          <Container>
+          <Container as="main" role="main">
             <h2 className="mb-5">Establishments</h2>
             {establishment.map((hotels) => {
               const {

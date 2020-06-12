@@ -91,9 +91,10 @@ function Home() {
     // open dropdown search result
     if (isOpen) {
       return (
-        <Modal.Header className="search__results">
+        <Modal.Header className="search__results" closeButton>
           <Button onClick={handleClose} className="search__results--close">
-            x
+            <span aria-hidden="true">x</span>
+            <span className="sr-only">Close</span> {/* for screen readers */}
           </Button>
           <Modal.Title
             as="h3"
@@ -164,7 +165,7 @@ function Home() {
   }
 
   return (
-    <Row className="home">
+    <Row className="home" as="article" role="article">
       {/* display error message if response returns error */}
       {errorHandle ? (
         <ErrorHandler />
@@ -191,7 +192,9 @@ function Home() {
           {/* Browse All Accommodation Section */}
           <BrowseAll />
           {/* Explore Bergen */}
-          <Container className="exploreBergen">{exploreBergen()}</Container>
+          <Container className="exploreBergen" as="section">
+            {exploreBergen()}
+          </Container>
           <Qualities />
           <Footer />
         </>

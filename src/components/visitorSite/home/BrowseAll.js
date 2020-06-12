@@ -7,7 +7,7 @@ import Card from "react-bootstrap/Card";
 // browse all establishments
 function BrowseAll() {
   return (
-    <Card className="browseAll">
+    <Card className="browseAll" as="section">
       <Card.Img src={ImgBlur} className="browseAll__img" />
       <Card.ImgOverlay className="browseAll__overlay">
         <Card.Title as="h2" className="browseAll__overlay--title">
