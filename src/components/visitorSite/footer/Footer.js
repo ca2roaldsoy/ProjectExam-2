@@ -17,12 +17,20 @@ function Footer() {
         <FooterContact />
       </Col>
       <Col sm={12} md={3} lg={3} as="section" className="footer__social">
-        <Link to="https://www.facebook.com/">
+        <a
+          href="https://www.facebook.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <Image src={FacebookIcon} alt="facebook" fluid role="link" />
-        </Link>
-        <Link to="https://twitter.com/explore">
+        </a>
+        <a
+          href="https://twitter.com/explore"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <Image src={TwitterIcon} alt="twitter" fluid role="link" />
-        </Link>
+        </a>
       </Col>
       <Col sm={12} md={3} lg={3} as="section" className="footer__copy">
         <p>Copyright &copy;</p>
