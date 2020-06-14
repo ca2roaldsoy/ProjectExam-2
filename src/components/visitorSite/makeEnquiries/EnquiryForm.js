@@ -8,6 +8,7 @@ import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
 import { BASE_URL, headers } from "../../../constants/api";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
+import PropTypes from "prop-types";
 
 // validate input fields
 const schema = yup.object().shape({
@@ -18,7 +19,7 @@ const schema = yup.object().shape({
     .email("Please enter a valid emai"),
 });
 
-function EnquiryForm({ id, name }) {
+function EnquiryForm({ name }) {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
@@ -174,5 +175,9 @@ function EnquiryForm({ id, name }) {
     </>
   );
 }
+
+EnquiryForm.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
 export default EnquiryForm;

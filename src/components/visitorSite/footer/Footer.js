@@ -5,7 +5,6 @@ import FacebookIcon from "../../../images/icons/face_v1.png";
 import TwitterIcon from "../../../images/icons/twitter_v1.png";
 import Image from "react-bootstrap/Image";
 import FooterContact from "./FooterContact";
-import { Link } from "react-router-dom";
 
 function Footer() {
   return (

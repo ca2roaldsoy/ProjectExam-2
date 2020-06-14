@@ -1,6 +1,7 @@
 import React from "react";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { useParams } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Breadcrumbs({ crumb, estname }) {
   const { name, id } = useParams();
@@ -46,5 +47,10 @@ function Breadcrumbs({ crumb, estname }) {
       return null;
   }
 }
+
+Breadcrumbs.propTypes = {
+  crumb: PropTypes.number.isRequired,
+  estname: PropTypes.string,
+};
 
 export default Breadcrumbs;
