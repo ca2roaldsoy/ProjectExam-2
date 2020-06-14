@@ -31,6 +31,7 @@ function Home() {
   const [establishments, setEstablishments] = useState([]);
   const [errorHandle, setErrorHandle] = useState(false);
 
+  // open and close search modal
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
 
