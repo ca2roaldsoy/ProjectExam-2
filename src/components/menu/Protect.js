@@ -10,9 +10,7 @@ const Protect = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={(props) =>
-        user ? <Component {...rest} {...props} /> : <Permission />
-      }
+      render={(props) => (user ? <Component {...props} /> : <Permission />)}
     />
   );
 };
