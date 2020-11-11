@@ -35,12 +35,12 @@ function Home() {
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
 
-  const url = BASE_URL + "establishments";
+  const url = BASE_URL + "get-establishments.php";
   const options = { headers };
 
   // fetch establishments
   useEffect(() => {
-    fetch(url, options)
+    fetch(url)
       .then((response) => {
         // check if response returns ok
         if (response.ok) {
@@ -52,7 +52,7 @@ function Home() {
       .then((json) => {
         setEstablishments(json);
         setSearchEstablishments(json);
-        console.log(json);
+        //console.log(json);
       })
       .catch((err) => {
         console.log(err);
@@ -109,10 +109,11 @@ function Home() {
 
           <Modal.Body>
             {searchEstablishments.map((establishment) => {
+
               return (
                 <DropDownResult
                   key={establishment.id}
-                  name={establishment.name}
+                  name={establishment.establishmentName}
                   idx={establishment.id}
                 />
               );
@@ -135,12 +136,15 @@ function Home() {
 
         <Carousel responsive={Responsive} showDots={true}>
           {establishments.slice(5, 9).map((popular) => {
-            const { name, image, id, price } = popular;
+
+            console.log(popular)
+
+            const { establishmentName, imageUrl, id, price } = popular;
             return (
               <PopularPlaces
                 key={id}
-                place={name}
-                image={image}
+                place={establishmentName}
+                image={imageUrl}
                 price={price}
                 id={id}
               />

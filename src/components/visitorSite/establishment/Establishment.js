@@ -13,11 +13,11 @@ function Establishment() {
   const [loading, setLoading] = useState(true);
   const [errorHandle, setErrorHandle] = useState(false);
 
-  const url = BASE_URL + "establishments";
+  const url = BASE_URL + "get-establishments.php";
   const options = { headers };
 
   useEffect(() => {
-    fetch(url, options)
+    fetch(url)
       .then((response) => {
         // check if response returns ok
         if (response.ok) {
@@ -27,7 +27,7 @@ function Establishment() {
         }
       })
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setEstablishment(data);
       })
       .catch((err) => {
@@ -53,28 +53,29 @@ function Establishment() {
           <Container as="main" role="main">
             <h2 className="mb-5">Establishments</h2>
             {establishment.map((hotels) => {
+              
               const {
                 id,
-                image,
-                name,
+                imageUrl,
+                establishmentName,
                 maxGuests,
                 selfCatering,
                 price,
-                lat,
-                lng,
+                googleLat,
+                googleLong,
               } = hotels;
 
               return (
                 <AllEstablishments
-                  image={image}
-                  name={name}
+                  image={imageUrl}
+                  name={establishmentName}
                   maxGuests={maxGuests}
                   selfCatering={selfCatering}
                   price={price}
                   key={id}
                   id={id}
-                  lat={lat}
-                  lng={lng}
+                  lat={googleLat}
+                  lng={googleLong}
                 />
               );
             })}

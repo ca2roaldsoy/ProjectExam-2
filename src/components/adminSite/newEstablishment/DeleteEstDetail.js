@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
-function DeleteEstDetail({ name, id, created }) {
+function DeleteEstDetail({ name, id }) {
   const [modal, setModal] = useState(false);
   const [delEst, setDelEst] = useState(false);
 
@@ -16,7 +16,7 @@ function DeleteEstDetail({ name, id, created }) {
 
   // Delete establishment
   function deleteEstablishment() {
-    const url = BASE_URL + "establishments/" + id;
+    const url = BASE_URL + "get-establishments/" + id;
     const options = { headers, method: "DELETE" };
 
     fetch(url, options)
@@ -31,7 +31,6 @@ function DeleteEstDetail({ name, id, created }) {
       <tr style={!delEst ? { display: "table-row" } : { display: "none" }}>
         <td>{id}</td>
         <td>{name}</td>
-        <td>{created.slice(0, 10)}</td>
         <td>
           <Button onClick={openModal}>Delete establishment</Button>
         </td>

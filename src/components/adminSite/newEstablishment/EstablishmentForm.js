@@ -14,8 +14,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 // validate input fields
 const schema = yup.object().shape({
-  name: yup.string().required("First Name is required"),
-  email: yup
+  establishmentName: yup.string().required("First Name is required"),
+  establishmentEmail: yup
     .string()
     .required("Please enter a valid email adress")
     .email("Please enter a valid emai"),
@@ -39,7 +39,7 @@ function EstablishmentForm() {
     console.log("data", data);
 
     // Post new establishment to visitor site
-    const url = BASE_URL + "establishments";
+    const url = BASE_URL + "add-establishments-success.php";
 
     const options = {
       headers,
@@ -85,14 +85,14 @@ function EstablishmentForm() {
             <Row as="form">
               <Col lg={12}>
                 <Form.Group as="section">
-                  <Form.Label htmlFor="name">Establishment Name</Form.Label>
-                  <Form.Control type="text" name="name" ref={register} />
+                  <Form.Label htmlFor="establishmentName">Establishment Name</Form.Label>
+                  <Form.Control type="text" name="establishmentName" ref={register} />
                   {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
                 </Form.Group>
 
                 <Form.Group as="section">
-                  <Form.Label htmlFor="email">Establishment Email</Form.Label>
-                  <Form.Control type="email" name="email" ref={register} />
+                  <Form.Label htmlFor="establishmentEmail">Establishment Email</Form.Label>
+                  <Form.Control type="email" name="establishmentEmail" ref={register} />
                   {errors.email && (
                     <Form.Text>{errors.email.message}</Form.Text>
                   )}

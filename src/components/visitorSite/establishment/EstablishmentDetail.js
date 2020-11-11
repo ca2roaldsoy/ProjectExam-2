@@ -23,11 +23,11 @@ function Establishment() {
   const [errorHandle, setErrorHandle] = useState(false);
 
   const { id } = useParams();
-  const url = BASE_URL + "establishments/" + id;
+  const url = BASE_URL + "get-establishments.php/" + id;
   const options = { headers };
 
   useEffect(() => {
-    fetch(url, options)
+    fetch(url)
       .then((response) => {
         // check if response returns ok
         if (response.ok) {

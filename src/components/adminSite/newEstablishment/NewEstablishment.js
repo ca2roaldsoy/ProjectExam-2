@@ -8,7 +8,7 @@ function NewEstablishment() {
       <div className="containerForm__form">
         <h2 className="text-center">Create New Establishment</h2>
         <EstablishmentForm />
-      </div>
+      </div> 
     </Container>
   );
 }

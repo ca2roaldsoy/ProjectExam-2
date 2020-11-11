@@ -13,12 +13,11 @@ function DeleteEstablishment() {
   const [loading, setLoading] = useState(true);
   const [errorHandle, setErrorHandle] = useState(false);
 
-  const url = BASE_URL + "establishments";
-  const options = { headers };
+  const url = BASE_URL + "get-establishments.php";
 
   // fetch establishments
   useEffect(() => {
-    fetch(url, options)
+    fetch(url)
       .then((response) => {
         // check if response returns ok
         if (response.ok) {
@@ -46,10 +45,10 @@ function DeleteEstablishment() {
 
   function deleteEstablishmentDetail() {
     return establishment.map((hotels) => {
-      const { id, name, createdAt } = hotels;
+      const { id, establishmentName } = hotels;
 
       return (
-        <DeleteEstDetail name={name} key={id} id={id} created={createdAt} />
+        <DeleteEstDetail name={establishmentName} key={id} id={id} />
       );
     });
   }
@@ -74,7 +73,6 @@ function DeleteEstablishment() {
               <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Created</th>
                 <th>Delete</th>
               </tr>
             </thead>
