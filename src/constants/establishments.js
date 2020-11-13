@@ -1,4 +1,4 @@
-export let establishments = [
+export let acommodations = [
     {
       "name": "Sunsssset Beach",
       "email": "info@sunsetbeach.com",
