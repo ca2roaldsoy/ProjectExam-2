@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL, headers } from "../../../constants/api";
+import React, { useState } from "react";
+import {acommodations} from "../../../constants/establishments";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
 import BrowseAll from "./BrowseAll";
@@ -26,59 +26,34 @@ import ImgTop from "../../../images/bergen/bg-15.jpg";
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [searchEstablishments, setSearchEstablishments] = useState([]);
-  const [establishments, setEstablishments] = useState([]);
-  const [errorHandle, setErrorHandle] = useState(false);
+  const [searchEstablishments, setSearchEstablishments] = useState(acommodations);
 
   // open and close search modal
   const handleClose = () => setIsOpen(false);
   const handleShow = () => setIsOpen(true);
 
-  const url = BASE_URL + "get-establishments.php";
-  const options = { headers };
+  function establishementsImg() {
+    return acommodations.slice(1, 5).map((acc, i) => {
+      const { image, name } = acc;
 
-  // fetch establishments
-  useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        // check if response returns ok
-        if (response.ok) {
-          return response.json();
-        } else {
-          setErrorHandle(true);
-        }
-      })
-      .then((json) => {
-        setEstablishments(json);
-        setSearchEstablishments(json);
-        //console.log(json);
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrorHandle(true);
-      })
-      .finally(() => setLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // use spinner
-  if (loading) {
-    return <Loading />;
+      return <PopularPlaces key={i} image={image} place={name} />;
+    });
   }
 
   // filter establishment after search
   const findEstablishment = (e) => {
     const lowerCaseValue = e.target.value.toLowerCase();
-    const filterEstablishments = establishments.filter((establish) => {
-      const lowerCaseEst = establish.name.toLowerCase();
+    const filterEstablishments = acommodations.filter((acco) => {
+      const lowerCaseEst = acco.name.toLowerCase();
 
       if (lowerCaseEst.includes(lowerCaseValue)) {
         return true;
       }
       return false;
     });
+
     setSearchEstablishments(filterEstablishments);
+
   };
 
   // if no search result, display message
@@ -113,7 +88,7 @@ function Home() {
               return (
                 <DropDownResult
                   key={establishment.id}
-                  name={establishment.establishmentName}
+                  name={establishment.name}
                   idx={establishment.id}
                 />
               );
@@ -135,21 +110,7 @@ function Home() {
         </section>
 
         <Carousel responsive={Responsive} showDots={true}>
-          {establishments.slice(5, 9).map((popular) => {
-
-            console.log(popular)
-
-            const { establishmentName, imageUrl, id, price } = popular;
-            return (
-              <PopularPlaces
-                key={id}
-                place={establishmentName}
-                image={imageUrl}
-                price={price}
-                id={id}
-              />
-            );
-          })}
+            {establishementsImg()}
         </Carousel>
       </>
     );
@@ -171,11 +132,7 @@ function Home() {
 
   return (
     <Row className="home" as="article" role="article">
-      {/* display error message if response returns error */}
-      {errorHandle ? (
-        <ErrorHandler />
-      ) : (
-        <>
+  
           <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
           <Container>
             <section className="searchContainer">
@@ -202,8 +159,6 @@ function Home() {
           </Container>
           <Qualities />
           <Footer />
-        </>
-      )}
     </Row>
   );
 }
