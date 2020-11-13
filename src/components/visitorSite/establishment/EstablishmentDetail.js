@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { BASE_URL, headers } from "../../../constants/api";
-import Loading from "../../spinner/Loading";
 import { Link } from "react-router-dom";
 import Map from "../../../images/icons/map_v1.png";
 import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
 
 // from react bootstrap
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
@@ -16,55 +13,29 @@ import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import {acommodations} from "../../../constants/establishments";
 
 function Establishment() {
-  const [establishment, setEstablishment] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [errorHandle, setErrorHandle] = useState(false);
 
   const { id } = useParams();
-  const url = BASE_URL + "get-establishments.php/" + id;
-  const options = { headers };
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => {
-        // check if response returns ok
-        if (response.ok) {
-          return response.json();
-        } else {
-          setErrorHandle(true);
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        setEstablishment(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrorHandle(true);
-      })
-      .finally(() => setLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  return (
+    <div>
+          {acommodations.map((hotels) => {
+            if (hotels.id === id) {
 
-  // loading
-  if (loading) {
-    return <Loading />;
-  }
-
-  let discountPrice = Math.ceil((establishment.price * 70) / 100 - 5); // calculate discount price
-  let decrease = establishment.price - discountPrice;
-  let discount = Math.ceil((decrease / establishment.price) * 100); // calculate discount
-  let roomsLeft = Math.ceil(establishment.maxGuests / 3); // calculate avaiable rooms left
+  let discountPrice = Math.ceil((hotels.price * 70) / 100 - 5); // calculate discount price
+  let decrease = hotels.price - discountPrice;
+  let discount = Math.ceil((decrease / hotels.price) * 100); // calculate discount
+  let roomsLeft = Math.ceil(hotels.maxGuests / 3); // calculate avaiable rooms left
 
   // Discounts
   function newPrice() {
-    if (establishment.price < 100) {
+    if (hotels.price < 100) {
       return (
         <>
           <Card.Text className="establishmentDetail__price--old">
-            NOK {establishment.price}
+            NOK {hotels.price}
           </Card.Text>
           <Card.Text className="establishmentDetail__price--new">
             NOK {discountPrice}
@@ -78,7 +49,7 @@ function Establishment() {
 
     return (
       <Card.Text className="establishmentDetail__price--org text-center">
-        <strong>Total: NOK {establishment.price}</strong>
+        <strong>Total: NOK {hotels.price}</strong>
       </Card.Text>
     );
   }
@@ -97,20 +68,15 @@ function Establishment() {
   }
 
   return (
-    <>
-      {/* display error message if response returns error */}
-      {errorHandle ? (
-        <ErrorHandler />
-      ) : (
-        <article>
-          <BreadCrumbs crumb={4} estname={establishment.name} />
+        <article key={hotels.id}>
+          <BreadCrumbs crumb={4} estname={hotels.name} />
           <Container className="establishmentDetailContainer" as="section">
             <Card className="establishmentDetail">
               <Col sm={12} className="establishmentDetail__top">
                 <Col sm={12} lg={8} className="establishmentDetail__img">
                   <Card.Img
-                    src={establishment.image}
-                    alt={establishment.name}
+                    src={hotels.image}
+                    alt={hotels.name}
                     role="img"
                     className="establishmentDetail__img--img"
                   />
@@ -125,7 +91,7 @@ function Establishment() {
 
                   <Col sm={12} className="establishmentDetail__btn">
                     <Link
-                      to={"../make-enquiries/" + establishment.name + "/" + id}
+                      to={"../make-enquiries/" + hotels.name + "/" + hotels.id}
                     >
                       <Button
                         role="button"
@@ -144,30 +110,30 @@ function Establishment() {
                       variant="primary"
                       className="establishmentDetail__badges--maxGuests"
                     >
-                      Max Guests: {establishment.maxGuests}
+                      Max Guests: {hotels.maxGuests}
                     </Badge>
                   </Col>
 
                   <Col sm={3}>
                     <Badge className="establishmentDetail__badges--selfCatering">
-                      Self Catering: {establishment.selfCatering ? "Yes" : "No"}
+                      Self Catering: {hotels.selfCatering ? "Yes" : "No"}
                     </Badge>
                   </Col>
 
                   <Col sm={3}>
                     <Card.Text className="establishmentDetail__email">
-                      {establishment.email}
+                      {hotels.email}
                     </Card.Text>
                   </Col>
                 </Col>
 
                 <Col sm={12} className="establishmentDetail__info">
                   <Card.Title as="h2" className="establishmentDetail__title">
-                    {establishment.name}
+                    {hotels.name}
                   </Card.Title>
 
                   <Card.Text className="establishmentDetail__desc">
-                    {establishment.description}
+                    {hotels.description}
                   </Card.Text>
 
                   <OverlayTrigger
@@ -175,10 +141,10 @@ function Establishment() {
                     overlay={
                       <Tooltip>
                         <p>
-                          Latitude <br /> {establishment.lat}
+                          Latitude <br /> {hotels.lat}
                         </p>
                         <p>
-                          Longitude <br /> {establishment.lng}
+                          Longitude <br /> {hotels.lng}
                         </p>
                       </Tooltip>
                     }
@@ -196,8 +162,11 @@ function Establishment() {
           <Footer />
         </article>
       )}
-    </>
-  );
-}
+     return null;
+    })}
 
+    </div>
+  )
+} 
+  
 export default Establishment;

@@ -77,7 +77,7 @@ function NavMenu() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contact" component={Contact} />
-          <Route path="/make-enquiries/:establishmentName/:id" component={MakeEnquiries} />
+          <Route path="/make-enquiries/:name/:id" component={MakeEnquiries} />
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
           <Protect path="/admin" component={Admin} />

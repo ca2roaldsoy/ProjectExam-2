@@ -6,13 +6,12 @@ import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
 import DatePicker from "react-datepicker";
 import CheckDate from "./CheckDate";
-import { BASE_URL, headers } from "../../../constants/api";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
+import { Enquiries } from "../../../constants/enquiries";
 import PropTypes from "prop-types";
 
 // validate input fields
 const schema = yup.object().shape({
-  name: yup.string().required("First Name is required"),
+  clientName: yup.string().required("First Name is required"),
   email: yup
     .string()
     .required("Please enter a valid email adress")
@@ -23,7 +22,6 @@ function EnquiryForm({ name }) {
   const [validated, setValidated] = useState(false);
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
-  const [errorHandle, setErrorHandle] = useState(false);
   const [dateErr, setDateErr] = useState(false);
 
   const { register, handleSubmit, errors } = useForm({
@@ -38,38 +36,9 @@ function EnquiryForm({ name }) {
       setValidated(false);
       return;
     } else {
-      const url = BASE_URL + "enquiries";
-
-      const enquiryData = {
-        name: data.name,
-        email: data.email,
-        establishmentId: name,
-        checkIn: data.checkIn,
-        checkOut: data.checkOut,
-      };
-
-      const options = {
-        headers,
-        method: "POST",
-        body: JSON.stringify(enquiryData),
-      };
-
-      // post enquiry to admin
-      fetch(url, options)
-        .then((response) => {
-          // check if response returns ok
-          if (response.ok) {
-            return response.json();
-          } else {
-            return setErrorHandle(true);
-          }
-        })
-        .then((json) => console.log(json))
-        .then(setValidated(true))
-        .catch((err) => {
-          console.log(err);
-          return setErrorHandle(true);
-        });
+      Enquiries.push(data);
+      setValidated(true);
+      console.log(Enquiries)
 
       // reset fields after submit
       event.target.reset();
@@ -99,16 +68,12 @@ function EnquiryForm({ name }) {
           backToTop={backToTop}
         />
       ) : null}
-      {errorHandle ? (
-        <ErrorHandler />
-      ) : (
-        <>
           <Validated validated={validated} message={1} />
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group as="section">
-              <Form.Label htmlFor="name">Name</Form.Label>
-              <Form.Control type="text" name="name" ref={register} />
-              {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
+              <Form.Label htmlFor="clientName">Name</Form.Label>
+              <Form.Control type="text" name="clientName" ref={register} />
+              {errors.clientName && <Form.Text>{errors.clientName.message}</Form.Text>}
             </Form.Group>
 
             <Form.Group as="section">
@@ -171,8 +136,6 @@ function EnquiryForm({ name }) {
             </Form.Group>
           </Form>
         </>
-      )}
-    </>
   );
 }
 

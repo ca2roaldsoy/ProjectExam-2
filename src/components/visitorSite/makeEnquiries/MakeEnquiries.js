@@ -6,7 +6,10 @@ import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
 
 function MakeEnquiries() {
+
   const { name, id } = useParams();
+
+  console.log(useParams())
 
   return (
     <>

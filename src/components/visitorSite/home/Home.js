@@ -5,8 +5,6 @@ import DropDownResult from "./DropDownResult";
 import BrowseAll from "./BrowseAll";
 import Qualities from "./Qualities";
 import Footer from "../footer/Footer";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
-import Loading from "../../spinner/Loading";
 
 // carousel
 import { Responsive } from "../../../constants/responsiveCarousel";
