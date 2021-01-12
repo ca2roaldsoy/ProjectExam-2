@@ -3,22 +3,13 @@ import Image from "react-bootstrap/Image";
 import AcceptImg from "../../../images/accept_white.png";
 import RejectImg from "../../../images/reject_white.png";
 import PropTypes from "prop-types";
-import { BASE_URL, headers } from "../../../constants/api";
 
-function EnquiryAnswer({ accept, reject, id }) {
-  // delete establishment after answer and refresh of the page
-  function deleteEstablishment() {
-    const url = BASE_URL + "enquiries/" + id;
-    const options = { headers, method: "DELETE" };
-
-    fetch(url, options);
-  }
+function EnquiryAnswer({accept, reject}) {
 
   // if enquiry is accepted
   if (accept) {
     return (
       <section className="enquiries__resolve">
-        {deleteEstablishment()}
         <p className="enquiries__resolve--text">Accepted</p>
         <Image
           src={AcceptImg}
@@ -35,7 +26,6 @@ function EnquiryAnswer({ accept, reject, id }) {
   if (reject) {
     return (
       <section className="enquiries__resolve">
-        {deleteEstablishment()}
         <p className="enquiries__resolve--text">Rejected</p>
         <Image
           src={RejectImg}

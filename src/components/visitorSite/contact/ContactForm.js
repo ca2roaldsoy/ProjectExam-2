@@ -4,8 +4,9 @@ import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Validated from "../../formValidation/Validated";
-import { BASE_URL, headers } from "../../../constants/api";
 import ErrorHandler from "../../errorHandler/ErrorHandler";
+import { Messages } from "../../../constants/enquiries";
+
 
 // validate form
 const schema = yup.object().shape({
@@ -37,28 +38,13 @@ function ContactForm() {
       message: data.message,
     };
 
-    const url = BASE_URL + "contacts";
-    const options = {
-      headers,
-      method: "POST",
-      body: JSON.stringify(contactData),
-    };
+    // push data to array
+    Messages.push(contactData);
 
-    // post contact message to admin
-    fetch(url, options)
-      .then((response) => {
-        // check if response returns ok
-        if (response.ok) {
-          return response.json();
-        } else {
-          setErrorHandle(true);
-        }
-      })
-      .then((j) => console.log(j))
-      .catch((err) => {
-        console.log(err);
-        setErrorHandle(true);
-      });
+    // add the array to local storage
+    localStorage.setItem("message", JSON.stringify(Messages))
+
+    console.log(Messages)
 
     event.target.reset();
     setValidated(true);

@@ -23,7 +23,7 @@ import Admin from "../adminSite/admin/Admin.js";
 import CreateNewEstablishment from "../adminSite/newEstablishment/NewEstablishment";
 import Enquiries from "../adminSite/enquiries/Enquiries";
 import ContactMsg from "../adminSite/contactMsg/Messages";
-import DeleteEstablishment from "../adminSite/newEstablishment/DeleteEstablishment.js";
+import AllEstablishment from "../adminSite/newEstablishment/AllEstablishment.js";
 import ViewMessage from "../adminSite/contactMsg/ViewMessage.js";
 
 function NavMenu() {
@@ -81,7 +81,7 @@ function NavMenu() {
           <Route path="/establishment/:id" component={EstablishmentDetails} />
           <Route path="/establishment/" component={Establishment} />
           <Protect path="/admin" component={Admin} />
-          <Protect path="/establishments/" component={DeleteEstablishment} />
+          <Protect path="/establishments/" component={AllEstablishment} />
           <Protect
             path="/create-establishments/"
             component={CreateNewEstablishment}

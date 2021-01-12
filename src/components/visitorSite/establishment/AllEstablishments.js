@@ -155,10 +155,7 @@ AllEstablishments.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   maxGuests: PropTypes.number.isRequired,
-  selfCatering: PropTypes.bool.isRequired,
   price: PropTypes.number.isRequired,
-  lat: PropTypes.number,
-  lng: PropTypes.number,
 };
 
 export default AllEstablishments;

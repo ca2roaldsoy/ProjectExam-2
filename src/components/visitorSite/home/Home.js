@@ -23,8 +23,10 @@ import Button from "react-bootstrap/Button";
 import ImgTop from "../../../images/bergen/bg-15.jpg";
 
 function Home() {
+  const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+
   const [isOpen, setIsOpen] = useState(false);
-  const [searchEstablishments, setSearchEstablishments] = useState(acommodations);
+  const [searchEstablishments, setSearchEstablishments] = useState(getStorage);
 
   // open and close search modal
   const handleClose = () => setIsOpen(false);
@@ -41,7 +43,7 @@ function Home() {
   // filter establishment after search
   const findEstablishment = (e) => {
     const lowerCaseValue = e.target.value.toLowerCase();
-    const filterEstablishments = acommodations.filter((acco) => {
+    const filterEstablishments = searchEstablishments.filter((acco) => {
       const lowerCaseEst = acco.name.toLowerCase();
 
       if (lowerCaseEst.includes(lowerCaseValue)) {

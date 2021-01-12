@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL, headers } from "../../../constants/api";
+import React, {useState} from "react";
 import AllEstablishments from "./AllEstablishments";
-import Loading from "../../spinner/Loading";
 import Container from "react-bootstrap/Container";
 import Footer from "../footer/Footer";
 import BreadCrumbs from "../breadcrumbs/Breadcrumbs";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
 import ScrollEvent from "./ScrollEvent";
-import {acommodations} from "../../../constants/establishments";
 
 function Establishment() {
+
+  const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+  const [establishment, setEstablishment] = useState(getStorage);
+
   return (
     <>
-          <BreadCrumbs crumb={3} />
-          <Container as="main" role="main">
-            <h2 className="mb-5">Establishments</h2>
-            {acommodations.map((hotels) => {
-              
-              const {
-                id,
-                image,
-                name,
-                maxGuests,
-                selfCatering,
-                price,
-                lat,
-                lng,
-              } = hotels;
+    <BreadCrumbs crumb={3} />
+    <Container as="main" role="main">
+      <h2 className="mb-5">Establishments</h2>
+
+    {establishment.map((acc) => {
+      const { name, id, image, maxGuests, selfCatering, price, lat, lng } = acc;
+   
+      if (localStorage.getItem("acommodation") === null) {
+      return (
+        <tr>
+          <td>There are no acommodations</td>
+        </tr>
+      );
+    } 
+    // ...else
 
               return (
                 <AllEstablishments
@@ -47,5 +47,7 @@ function Establishment() {
           <Footer />
         </>
   )
+  
 }
+
 export default Establishment;

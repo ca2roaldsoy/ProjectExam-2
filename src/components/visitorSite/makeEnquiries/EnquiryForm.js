@@ -31,14 +31,22 @@ function EnquiryForm({ name }) {
   function onSubmit(data, event) {
     console.log("data", data);
 
+
     if (checkOut < checkIn) {
       setDateErr(true);
       setValidated(false);
       return;
     } else {
+
+      // push data to array
       Enquiries.push(data);
-      setValidated(true);
+
+      // add the array to local storage
+      localStorage.setItem("enquiry", JSON.stringify(Enquiries))
+
       console.log(Enquiries)
+
+      setValidated(true);
 
       // reset fields after submit
       event.target.reset();
@@ -71,6 +79,7 @@ function EnquiryForm({ name }) {
           <Validated validated={validated} message={1} />
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group as="section">
+            <Form.Control type="text" name="establishment" ref={register} hidden defaultValue={name} />
               <Form.Label htmlFor="clientName">Name</Form.Label>
               <Form.Control type="text" name="clientName" ref={register} />
               {errors.clientName && <Form.Text>{errors.clientName.message}</Form.Text>}
@@ -92,7 +101,7 @@ function EnquiryForm({ name }) {
               />
               <Form.Control
                 type="text"
-                name="checkIn"
+                name="checkin"
                 ref={register}
                 value={checkIn.toISOString().slice(0, 10)}
                 readOnly
@@ -109,7 +118,7 @@ function EnquiryForm({ name }) {
               />
               <Form.Control
                 type="text"
-                name="checkOut"
+                name="checkout"
                 ref={register}
                 value={checkOut.toISOString().slice(0, 10)}
                 readOnly

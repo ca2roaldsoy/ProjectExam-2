@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import ViewMessage from "./ViewMessage";
 
-function MessagesLayout({ name, email, id }) {
+function MessagesLayout({ name, email, idx }) {
   return (
     <tr>
       <td>{name}</td>
       <td>{email}</td>
       <td>
-        <ViewMessage id={id} />
+        <ViewMessage idx={idx} key={idx} />
       </td>
     </tr>
   );
@@ -17,7 +17,7 @@ function MessagesLayout({ name, email, id }) {
 MessagesLayout.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  idx: PropTypes.number.isRequired,
 };
 
 export default MessagesLayout;

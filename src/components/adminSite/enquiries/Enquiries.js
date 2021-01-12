@@ -1,78 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL, headers } from "../../../constants/api";
+import React  from "react";
 import EnquiryDetails from "./EnquiriesDetails";
-import Loading from "../../spinner/Loading";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
 
-function Enquiries() {
-  const [enquiry, setEnquiry] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [errorHandle, setErrorHandle] = useState(false);
+function Enquiry() {
 
-  const url = BASE_URL + "enquiries";
-  const options = { headers };
-
-  // fetch enquiries
-  useEffect(() => {
-    fetch(url, options)
-      .then((response) => {
-        // check if response returns ok
-        if (response.ok) {
-          return response.json();
-        } else {
-          setErrorHandle(true);
-        }
-      })
-      .then((data) => {
-        setEnquiry(data);
-
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        setErrorHandle(true);
-      })
-      .finally(() => setLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // use spinner
-  if (loading) {
-    return <Loading />;
-  }
+  // get storage and parse it
+  const getStorage = JSON.parse(localStorage.getItem("enquiry"));
 
   // if no enquiries, display message...
   function noEnquiries() {
-    if (enquiry.length === 0) {
+
+    if (localStorage.getItem("enquiry") === null) {
       return (
         <tr>
           <td>There is no enquiries yet</td>
         </tr>
       );
-    }
+    } 
     // ...else
-    return enquiry.map((enq, i) => {
+    return getStorage.map((getS, i) => {
       const {
-        name,
+        establishment,
+        clientName,
         email,
-        id,
-        checkIn,
-        checkOut,
-        createdAt,
-        establishmentId,
-      } = enq;
+        checkin,
+        checkout
+      } = getS;
+
       return (
         <EnquiryDetails
-          name={name}
+          name={clientName}
           email={email}
-          id={id}
           key={i}
-          checkIn={checkIn}
-          checkOut={checkOut}
-          created={createdAt}
-          establishmentName={establishmentId}
+          checkIn={checkin}
+          checkOut={checkout}
+          establishmentName={establishment}
         />
       );
     });
@@ -80,11 +43,6 @@ function Enquiries() {
 
   return (
     <Container className="enquiries" as="article" role="article">
-      {/* display error message if response returns error */}
-      {errorHandle ? (
-        <ErrorHandler />
-      ) : (
-        <>
           <h2>Enquiries</h2>
           <Table
             striped
@@ -102,16 +60,13 @@ function Enquiries() {
                 <th>Email</th>
                 <th>Check in</th>
                 <th>Check Out</th>
-                <th>Created</th>
                 <th>Resolve</th>
               </tr>
             </thead>
             <tbody>{noEnquiries()}</tbody>
           </Table>
-        </>
-      )}
     </Container>
   );
 }
 
-export default Enquiries;
+export default Enquiry;

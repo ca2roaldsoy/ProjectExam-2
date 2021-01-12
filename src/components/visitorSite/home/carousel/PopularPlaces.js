@@ -15,7 +15,7 @@ function PopularPlaces({ place, image, id }) {
 PopularPlaces.propTypes = {
   place: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  id: PropTypes.string,
 };
 
 export default PopularPlaces;

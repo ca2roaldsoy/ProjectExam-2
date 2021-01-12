@@ -7,10 +7,8 @@ import EnquiryModal from "./EnquiryModal";
 function EnquiriesDetails({
   name,
   email,
-  id,
   checkIn,
   checkOut,
-  created,
   establishmentName,
 }) {
   const [accepted, setAccepted] = useState(false);
@@ -30,14 +28,12 @@ function EnquiriesDetails({
       <td>{email}</td>
       <td>{checkIn.slice(0, 10)}</td>
       <td>{checkOut.slice(0, 10)}</td>
-      <td>{created.slice(0, 10)}</td>
       <td className="enquiries__resolveContainer">
         {/*display clicked answer*/}
         {confirmAccept || confirmReject ? (
           <EnquiryAnswer
             accept={confirmAccept}
             reject={confirmReject}
-            id={id}
           />
         ) : (
           <>
@@ -67,10 +63,8 @@ function EnquiriesDetails({
 EnquiriesDetails.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   checkIn: PropTypes.string.isRequired,
   checkOut: PropTypes.string.isRequired,
-  created: PropTypes.string.isRequired,
   establishmentName: PropTypes.string.isRequired,
 };
 

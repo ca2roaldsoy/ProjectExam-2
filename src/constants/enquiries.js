@@ -7,3 +7,5 @@ export let Enquiries = [
         "checkout":"2019-05-05"
     }
 ]
+
+export let Messages = [];

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Validated from "../../formValidation/Validated";
-import { BASE_URL, headers } from "../../../constants/api";
-import ErrorHandler from "../../errorHandler/ErrorHandler";
+import { acommodations } from "../../../constants/establishments";
+import { v4 as uuidv4 } from 'uuid';
 
 // react bootstrap
 import Col from "react-bootstrap/Col";
@@ -14,8 +14,8 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 // validate input fields
 const schema = yup.object().shape({
-  establishmentName: yup.string().required("First Name is required"),
-  establishmentEmail: yup
+  name: yup.string().required("First Name is required"),
+  email: yup
     .string()
     .required("Please enter a valid email adress")
     .email("Please enter a valid emai"),
@@ -25,11 +25,11 @@ const schema = yup.object().shape({
     .string()
     .required("Please write a description")
     .min(3, "description must contain of least 3 characters"),
+  id: yup.string()
 });
 
 function EstablishmentForm() {
   const [validated, setValidated] = useState(false);
-  const [errorHandle, setErrorHandle] = useState(false);
 
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
@@ -38,30 +38,12 @@ function EstablishmentForm() {
   function onSubmit(data, event) {
     console.log("data", data);
 
-    // Post new establishment to visitor site
-    const url = BASE_URL + "add-establishments-success.php";
+    // push data to array
+    acommodations.push(data);
 
-    const options = {
-      headers,
-      method: "POST",
-      body: JSON.stringify(data),
-    };
-
-    fetch(url, options)
-      .then((response) => {
-        // check if response returns ok
-        if (response.ok) {
-          return response.json();
-        } else {
-          setErrorHandle(true);
-        }
-      })
-      .then((json) => console.log(json))
-      .catch((err) => {
-        console.log(err);
-        setErrorHandle(true);
-      });
-
+    // add the array to local storage
+    localStorage.setItem("acommodation", JSON.stringify(acommodations))
+    
     event.target.reset();
     setValidated(true);
   }
@@ -74,25 +56,20 @@ function EstablishmentForm() {
   const reset = () => setValidated(false);
 
   return (
-    <>
-      {errorHandle ? (
-        <ErrorHandler />
-      ) : (
-        /*if form is correct, display message after clicking submit*/
         <>
           <Validated validated={validated} message={3} />
           <Form onSubmit={handleSubmit(onSubmit)}>
-            <Row as="form">
+            <Row>
               <Col lg={12}>
                 <Form.Group as="section">
-                  <Form.Label htmlFor="establishmentName">Establishment Name</Form.Label>
-                  <Form.Control type="text" name="establishmentName" ref={register} />
+                  <Form.Label htmlFor="name">Establishment Name</Form.Label>
+                  <Form.Control type="text" name="name" ref={register} />
                   {errors.name && <Form.Text>{errors.name.message}</Form.Text>}
                 </Form.Group>
 
                 <Form.Group as="section">
-                  <Form.Label htmlFor="establishmentEmail">Establishment Email</Form.Label>
-                  <Form.Control type="email" name="establishmentEmail" ref={register} />
+                  <Form.Label htmlFor="email">Establishment Email</Form.Label>
+                  <Form.Control type="email" name="email" ref={register} />
                   {errors.email && (
                     <Form.Text>{errors.email.message}</Form.Text>
                   )}
@@ -231,11 +208,13 @@ function EstablishmentForm() {
                   </Button>
                 </Form.Group>
               </Col>
+
+              <Form.Group as="section">
+                  <Form.Control type="hidden" name="id" ref={register} value={uuidv4()} />
+                </Form.Group>
             </Row>
           </Form>
         </>
-      )}
-    </>
   );
 }
 

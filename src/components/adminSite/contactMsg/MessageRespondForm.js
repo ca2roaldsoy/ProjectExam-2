@@ -4,29 +4,19 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { BASE_URL, headers } from "../../../constants/api";
 
 // validate input field
 const schema = yup.object().shape({
   respondMsg: yup.string().required("Please enter a message"),
 });
 
-function MessageRespondForm({ closeModal, setValidated, id }) {
+function MessageRespondForm({ closeModal, setValidated }) {
   const { register, handleSubmit, errors } = useForm({
     validationSchema: schema,
   });
 
   function onSubmit(data) {
     console.log("data", data);
-
-    const url = BASE_URL + "contacts/" + id;
-    const options = { headers, method: "DELETE" };
-
-    // Delete Message after respond
-    fetch(url, options)
-      .then(closeModal)
-      .catch((err) => console.log(err));
-
     setValidated(true);
   }
 
@@ -50,7 +40,7 @@ function MessageRespondForm({ closeModal, setValidated, id }) {
           )}
         </Form.Group>
 
-        <Button type="submit" role="button" className="modal__respond--btn">
+        <Button type="submit" role="button" className="modal__respond--btn" onClick={closeModal}>
           Send
         </Button>
       </Form>
@@ -61,7 +51,6 @@ function MessageRespondForm({ closeModal, setValidated, id }) {
 MessageRespondForm.propTypes = {
   closeModal: PropTypes.func.isRequired,
   setValidated: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired,
 };
 
 export default MessageRespondForm;

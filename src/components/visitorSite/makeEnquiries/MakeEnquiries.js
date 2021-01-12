@@ -9,8 +9,6 @@ function MakeEnquiries() {
 
   const { name, id } = useParams();
 
-  console.log(useParams())
-
   return (
     <>
       <BreadCrumbs crumb={2} />
