@@ -27,6 +27,15 @@ function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchEstablishments, setSearchEstablishments] = useState([]);
 
+  function setLocalStorage() {
+    // add the array to local storage
+    localStorage.setItem("acommodation", JSON.stringify(acommodations))
+ }
+
+ useEffect(() => {
+  setLocalStorage();
+ }, [])
+
   useEffect(() => {
     const getStorage = JSON.parse(localStorage.getItem("acommodation"));
       setSearchEstablishments(getStorage);
@@ -136,7 +145,6 @@ function Home() {
 
   return (
     <Row className="home" as="article" role="article">
-  
           <Image src={ImgTop} alt="Bergen" className="homeImgTop" />
           <Container>
             <section className="searchContainer">
