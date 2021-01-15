@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Validated from "../../formValidation/Validated";
@@ -35,14 +35,22 @@ function EstablishmentForm() {
     validationSchema: schema,
   });
 
+  function setLocalStorage() {
+     // add the array to local storage
+     localStorage.setItem("acommodation", JSON.stringify(acommodations))
+  }
+
+  useEffect(() => {
+   setLocalStorage();
+  }, [])
+
   function onSubmit(data, event) {
     console.log("data", data);
 
     // push data to array
     acommodations.push(data);
 
-    // add the array to local storage
-    localStorage.setItem("acommodation", JSON.stringify(acommodations))
+    setLocalStorage();
     
     event.target.reset();
     setValidated(true);
