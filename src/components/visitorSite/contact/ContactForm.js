@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import Button from "react-bootstrap/Button";
@@ -29,6 +29,15 @@ function ContactForm() {
     validationSchema: schema,
   });
 
+  function setLocalStorage() {
+    // add the array to local storage
+    localStorage.setItem("message", JSON.stringify(Messages))
+  }
+
+ useEffect(() => {
+  setLocalStorage();
+ }, [])
+
   function onSubmit(data, event) {
     console.log("data", data);
 
@@ -41,10 +50,7 @@ function ContactForm() {
     // push data to array
     Messages.push(contactData);
 
-    // add the array to local storage
-    localStorage.setItem("message", JSON.stringify(Messages))
-
-    console.log(Messages)
+    setLocalStorage();
 
     event.target.reset();
     setValidated(true);
