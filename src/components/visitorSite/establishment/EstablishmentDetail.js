@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Map from "../../../images/icons/map_v1.png";
@@ -16,12 +16,18 @@ import Card from "react-bootstrap/Card";
 
 function Establishment() {
 
-  const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+  const [establishment, setEstablishment] = useState([]);
   const { id } = useParams();
+
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+    setEstablishment(getStorage);
+  }, []);
+
   
   return (
     <div>
-      {getStorage.map((hotels) => {
+      {establishment.map((hotels) => {
         if (hotels.id === id) {
 
         let discountPrice = Math.ceil((hotels.price * 70) / 100 - 5); // calculate discount price

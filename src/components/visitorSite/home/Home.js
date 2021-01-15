@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {acommodations} from "../../../constants/establishments";
 import Search from "./Search";
 import DropDownResult from "./DropDownResult";
@@ -23,10 +23,14 @@ import Button from "react-bootstrap/Button";
 import ImgTop from "../../../images/bergen/bg-15.jpg";
 
 function Home() {
-  const getStorage = JSON.parse(localStorage.getItem("acommodation"));
 
   const [isOpen, setIsOpen] = useState(false);
-  const [searchEstablishments, setSearchEstablishments] = useState(getStorage);
+  const [searchEstablishments, setSearchEstablishments] = useState([]);
+
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+      setSearchEstablishments(getStorage);
+  }, []);
 
   // open and close search modal
   const handleClose = () => setIsOpen(false);

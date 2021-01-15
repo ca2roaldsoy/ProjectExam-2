@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MessagesLayout from "./MessagesLayout";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
@@ -6,7 +6,12 @@ import Container from "react-bootstrap/Container";
 function Messages() {
 
   // get storage and parse it
-  const getStorage = JSON.parse(localStorage.getItem("message"));
+  const [message, setMessage] = useState([]);
+
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("message"));
+    setMessage(getStorage);
+  }, []);
 
   // if no enquiries, display message...
   function noMessages() {
@@ -18,7 +23,7 @@ function Messages() {
       );
     } 
     // ...else
-    return getStorage.map((contact, idx) => {
+    return message.map((contact, idx) => {
 
       const { name, email, message } = contact;
       return (

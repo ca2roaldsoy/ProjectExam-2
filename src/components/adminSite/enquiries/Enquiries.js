@@ -1,12 +1,16 @@
-import React  from "react";
+import React, { useState, useEffect }  from "react";
 import EnquiryDetails from "./EnquiriesDetails";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
 
 function Enquiry() {
 
-  // get storage and parse it
-  const getStorage = JSON.parse(localStorage.getItem("enquiry"));
+  const [enquiry, setEnquiry] = useState([]);
+
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("enquiry"));
+    setEnquiry(getStorage);
+  }, []);
 
   // if no enquiries, display message...
   function noEnquiries() {
@@ -19,7 +23,7 @@ function Enquiry() {
       );
     } 
     // ...else
-    return getStorage.map((getS, i) => {
+    return enquiry.map((getS, i) => {
       const {
         establishment,
         clientName,

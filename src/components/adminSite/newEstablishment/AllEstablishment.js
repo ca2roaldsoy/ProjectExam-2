@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DeleteEstDetail from "./ViewDetail";
 import Table from "react-bootstrap/Table";
 import Container from "react-bootstrap/Container";
@@ -8,8 +8,14 @@ import { Link } from "react-router-dom";
 function AllEstablishment() {
 
   // get storage and parse it
-  const getStorage = JSON.parse(localStorage.getItem("acommodation"));
-  const [establishment, setEstablishment] = useState(getStorage);
+  const [establishment, setEstablishment] = useState([]);
+
+  
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+    setEstablishment(getStorage);
+  }, []);
+
 
   function viewAllEstablishment() {
     // if no establishments, display message...

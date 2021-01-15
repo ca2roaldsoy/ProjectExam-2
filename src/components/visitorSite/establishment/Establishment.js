@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import AllEstablishments from "./AllEstablishments";
 import Container from "react-bootstrap/Container";
 import Footer from "../footer/Footer";
@@ -7,8 +7,12 @@ import ScrollEvent from "./ScrollEvent";
 
 function Establishment() {
 
-  const getStorage = JSON.parse(localStorage.getItem("acommodation"));
-  const [establishment, setEstablishment] = useState(getStorage);
+  const [establishment, setEstablishment] = useState([]);
+
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("acommodation"));
+    setEstablishment(getStorage);
+  }, []);
 
   return (
     <>

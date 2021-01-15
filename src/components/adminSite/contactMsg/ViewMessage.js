@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -7,14 +7,17 @@ import MessageRespondForm from "./MessageRespondForm";
 function ViewMessage({ idx }) {
   const [modal, setModal] = useState(false);
   const [validated, setValidated] = useState(false);
+  const [message, setMessage] = useState([]);
+
+  useEffect(() => {
+    const getStorage = JSON.parse(localStorage.getItem("message"));
+    setMessage(getStorage);
+  }, []);
 
   const closeModal = () => setModal(false);
   const openModal = () => setModal(true);
 
-  // get one storage and parse it
-  const getOneStorage = JSON.parse(localStorage.getItem("message"));
-
-  return getOneStorage.map((viewMsg, id) => {
+  return message.map((viewMsg, id) => {
     return ( 
       <>
         {idx === id ? 
